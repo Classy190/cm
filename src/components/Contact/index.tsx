@@ -36,26 +36,6 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-                <div className="mb-8 flex w-[330px] max-w-full">
-                  <div className="mr-6 text-[32px] text-primary">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      className="fill-current"
-                    >
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.052 0-2.082.537-2.741 1.479-.667.955-1.023 2.478-1.023 4.529 0 .975.118 1.90.357 2.76.772 2.933 3.623 5.193 6.996 5.193.955 0 1.87-.126 2.748-.38l.11-.033c.308-.092.614-.18.899-.263 1.325-.406 2.427-1.007 3.266-1.818.852-.83 1.42-1.922 1.682-3.28.11-.589.166-1.316.166-2.153 0-1.463-.247-2.788-.733-3.867-.532-1.218-1.597-2.322-2.88-2.998-1.284-.677-2.887-.996-4.514-.996l-.133.002-.134.003m13.771 0c-1.052 0-2.082.537-2.741 1.479-.667.955-1.023 2.478-1.023 4.529 0 .975.118 1.902.357 2.762.771 2.933 3.623 5.193 6.996 5.193.955 0 1.87-.126 2.748-.38l.11-.033c.308-.092.614-.18.899-.263 1.325-.406 2.427-1.007 3.266-1.818.852-.83 1.42-1.922 1.682-3.28.11-.589.166-1.316.166-2.153 0-1.463-.247-2.788-.733-3.867-.532-1.218-1.597-2.322-2.88-2.998-1.284-.677-2.887-.996-4.514-.996l-.133.002-.134.003z" fillRule="evenodd"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="mb-[18px] text-lg font-semibold text-dark dark:text-white">
-                      WhatsApp
-                    </h3>
-                    <p className="text-base text-body-color dark:text-dark-6">
-                      +49 176 7285 8500
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -98,16 +78,53 @@ const Contact = () => {
                 </div>
                 <div className="mb-[22px]">
                   <label
+                    htmlFor="projectType"
+                    className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  >
+                    Art des Projekts*
+                  </label>
+                  <select
+                    name="projectType"
+                    className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                  >
+                    <option>-- Bitte wählen --</option>
+                    <option>Landingpage</option>
+                    <option>Unternehmenswebseite</option>
+                    <option>Online-Shop</option>
+                    <option>SEO Optimierung</option>
+                    <option>Sonstiges</option>
+                  </select>
+                </div>
+                <div className="mb-[22px]">
+                  <label
+                    htmlFor="timeline"
+                    className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  >
+                    Gewünschter Zeitrahmen*
+                  </label>
+                  <select
+                    name="timeline"
+                    className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                  >
+                    <option>-- Bitte wählen --</option>
+                    <option>Sofort/Dringend</option>
+                    <option>In den nächsten 2-4 Wochen</option>
+                    <option>In 1-3 Monaten</option>
+                    <option>Noch nicht definiert</option>
+                  </select>
+                </div>
+                <div className="mb-[22px]">
+                  <label
                     htmlFor="investment"
                     className="mb-4 block text-sm text-body-color dark:text-dark-6"
                   >
-                    Investitionsrahmen
+                    Investitionsrahmen*
                   </label>
                   <select
                     name="investment"
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   >
-                    <option>Wählen Sie einen Bereich</option>
+                    <option>-- Bitte wählen --</option>
                     <option>3.999€ - 6.900€</option>
                     <option>10.000€ - 15.000€</option>
                     <option>24.000€ - 29.000€</option>
@@ -135,7 +152,15 @@ const Contact = () => {
                       name="privacy"
                       className="mr-3"
                     />
-                    Ich stimme den Datenschutzbestimmungen zu*
+                    Ich stimme den{" "}
+                    <a
+                      href="/datenschutz"
+                      target="_blank"
+                      className="ml-1 text-primary hover:text-primary/80"
+                    >
+                      Datenschutzbestimmungen
+                    </a>{" "}
+                    zu*
                   </label>
                 </div>
                 <div className="mb-0">

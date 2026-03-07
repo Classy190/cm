@@ -45,8 +45,10 @@ model User {
   password              String?
   passwordResetToken    String?   @unique
   passwordResetTokenExp DateTime?
+  isAdmin               Boolean   @default(false)
   accounts              Account[]
   sessions              Session[]
+  blogs                 Blog[]
 }
 
 model VerificationToken {
@@ -55,4 +57,18 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Blog {
+  id          String   @id @default(cuid())
+  title       String
+  excerpt     String?  @db.Text
+  content     String   @db.Text
+  coverImage  String?
+  slug        String   @unique
+  published   Boolean  @default(false)
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

@@ -271,6 +271,13 @@ const Header = () => {
 
                 {session?.user ? (
                   <>
+                    <Link
+                      href="/admin"
+                      className={`px-4 py-3 text-base font-medium ${!sticky && pathUrl === "/" ? "text-white" : "text-dark"
+                        } hover:text-primary transition`}
+                    >
+                      Admin
+                    </Link>
                     <p
                       className={`loginBtn px-7 py-3 text-base font-medium ${!sticky && pathUrl === "/" ? "text-white" : "text-dark"
                         }`}
