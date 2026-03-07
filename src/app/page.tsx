@@ -9,7 +9,8 @@ import Faq from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Innovation from "@/components/Innovation";
-import InvestmentRanges from "@/components/InvestmentRanges";
+import InvestmentFunnel from "@/components/InvestmentFunnel";
+import PartnershipModel from "@/components/PartnershipModel";
 import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import Team from "@/components/Team";
@@ -29,12 +30,13 @@ export default function Home() {
     <main>
       <ScrollUp />
       <Hero />
+      <PartnershipModel />
       <Features />
       <Process />
       <Pricing />
       <Innovation />
       <AccessTools />
-      <InvestmentRanges />
+      <InvestmentFunnel />
       <Faq />
       <Contact />
     </main>

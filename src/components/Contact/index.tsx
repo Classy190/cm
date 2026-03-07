@@ -47,6 +47,14 @@ const Contact = () => {
               <h3 className="mb-8 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]">
                 Projekt anfragen
               </h3>
+              <div className="mb-6 rounded-lg bg-blue-50 p-4 dark:bg-blue-500/10">
+                <p className="text-xs font-semibold text-primary dark:text-blue-400">
+                  ⏱️ Wir arbeiten mit Langzeitpartnerschaften (min. 3-6 Monate)
+                </p>
+                <p className="mt-1 text-xs text-body-color dark:text-dark-6">
+                  So garantieren wir echte, nachhaltige Ergebnisse.
+                </p>
+              </div>
               <form>
                 <div className="mb-[22px]">
                   <label

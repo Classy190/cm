@@ -36,15 +36,15 @@ const PricingBox = ({ product }: { product: Price }) => {
           {product.nickname}
         </span>
         <h2 className="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
-          <span className="text-xl font-medium">$ </span>
+          <span className="text-xl font-medium">€ </span>
           <span className="-ml-1 -tracking-[2px]">
-            {(product.unit_amount / 100).toLocaleString("en-US", {
-              currency: "USD",
+            {(product.unit_amount / 100).toLocaleString("de-DE", {
+              currency: "EUR",
             })}
           </span>
           <span className="text-base font-normal text-body-color dark:text-dark-6">
             {" "}
-            Per Month
+            Netto pro Monat
           </span>
         </h2>
 

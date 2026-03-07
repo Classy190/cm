@@ -20,7 +20,7 @@ const featuresData: Feature[] = [
     title: "Hochkonvertierende Landingpages",
     paragraph: "ROI-optimierte Seiten, die UX-Prinzipien mit klaren CTAs verbinden. Besucher zu qualifizierten Leads wandeln – datenbasiert und konversionsstark.",
     btn: "Mehr erfahren",
-    btnLink: "/#pricing",
+    btnLink: "/services/conversion-landingpages",
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const featuresData: Feature[] = [
     title: "Moderne Unternehmens-Webseiten",
     paragraph: "Multipager-Websites, die Ihr Unternehmen widerspiegeln, Fachwissen präsentieren und eine nahtlose Benutzererfahrung bieten. Vertrauen und Glaubwürdigkeit.",
     btn: "Mehr erfahren",
-    btnLink: "/#pricing",
+    btnLink: "/services/unternehmenswebseiten",
   },
   {
     id: 3,
@@ -94,7 +94,7 @@ const featuresData: Feature[] = [
     title: "E-Commerce & Shopify Online-Shops",
     paragraph: "Leistungsstarke, verkaufspsychologisch optimierte Online-Shops. Durch Storytelling und Conversion-Strategien steigern wir Ihren organischen Umsatz nachhaltig.",
     btn: "Mehr erfahren",
-    btnLink: "/#pricing",
+    btnLink: "/services/shopify-online-shops",
   },
   {
     id: 4,
@@ -127,7 +127,79 @@ const featuresData: Feature[] = [
     title: "Organische Top-Rankings (SEO)",
     paragraph: "Identifizieren Sie Ihre Schwellen-Keywords und pushen Sie diese auf Seite 1 der Suchergebnisse. Maximale Sichtbarkeit ohne teure Werbeanzeigen.",
     btn: "Mehr erfahren",
-    btnLink: "/#pricing",
+    btnLink: "/services/seo-rankings",
+  },
+  {
+    id: 5,
+    icon: (
+      <svg
+        width="37"
+        height="37"
+        viewBox="0 0 37 37"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.5 2C9.4 2 2 9.4 2 18.5S9.4 35 18.5 35 35 27.6 35 18.5 27.6 2 18.5 2zm0 30c-7.2 0-13-5.8-13-13s5.8-13 13-13 13 5.8 13 13-5.8 13-13 13z"
+          fill="white"
+        />
+        <path
+          d="M18.5 10c-4.1 0-7.5 3.4-7.5 7.5 0 2.1 0.9 4 2.4 5.4l5.1 5.1 5.1-5.1c1.5-1.4 2.4-3.3 2.4-5.4 0-4.1-3.4-7.5-7.5-7.5zm0 10c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"
+          fill="white"
+        />
+      </svg>
+    ),
+    title: "Lokale Webshops & Geo-Optimierung",
+    paragraph: "Lokale E-Commerce-Lösungen mit Geo-Targeting für maximale Reichweite in Ihrer Region. Integrierte Standortoptimierung für lokale Suchanfragen.",
+    btn: "Mehr erfahren",
+    btnLink: "/services/lokale-webshops",
+  },
+  {
+    id: 6,
+    icon: (
+      <svg
+        width="37"
+        height="37"
+        viewBox="0 0 37 37"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.5 2C9.4 2 2 9.4 2 18.5S9.4 35 18.5 35 35 27.6 35 18.5 27.6 2 18.5 2zm-2.5 25l-8-8 2.1-2.1 5.9 5.9 13.9-13.9 2.1 2.1-16 16z"
+          fill="white"
+        />
+      </svg>
+    ),
+    title: "SaaS-Systeme & Automatisierung (AIO)",
+    paragraph: "Maßgeschneiderte Software-as-a-Service-Lösungen mit All-in-One-Automatisierung. Von Workflow-Optimierung bis KI-gestützter Prozessautomatisierung für 2026.",
+    btn: "Mehr erfahren",
+    btnLink: "/services/saas-automatisierung",
+  },
+  {
+    id: 7,
+    icon: (
+      <svg
+        width="37"
+        height="37"
+        viewBox="0 0 37 37"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.5 2C9.4 2 2 9.4 2 18.5S9.4 35 18.5 35 35 27.6 35 18.5 27.6 2 18.5 2zm0 30c-7.2 0-13-5.8-13-13s5.8-13 13-13 13 5.8 13 13-5.8 13-13 13z"
+          fill="white"
+        />
+        <path
+          d="M18.5 10c-4.1 0-7.5 3.4-7.5 7.5 0 2.1 0.9 4 2.4 5.4l5.1 5.1 5.1-5.1c1.5-1.4 2.4-3.3 2.4-5.4 0-4.1-3.4-7.5-7.5-7.5zm0 10c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"
+          fill="white"
+        />
+      </svg>
+    ),
+    title: "KI & Datenanalyse für 2026",
+    paragraph: "Zukunftsorientierte Lösungen mit KI-gestützter Datenanalyse, Predictive Analytics und personalisierten Marketing-Strategien für maximale Effizienz.",
+    btn: "Mehr erfahren",
+    btnLink: "/services/ki-datenanalyse",
   },
 ];
+
 export default featuresData;

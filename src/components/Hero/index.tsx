@@ -15,12 +15,20 @@ const Hero = () => {
                 className="hero-content wow fadeInUp mx-auto max-w-[780px] text-center"
                 data-wow-delay=".2s"
               >
-                <h1 className="mb-6 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
+                <h1 className="mb-4 text-2xl font-bold leading-snug text-white sm:mb-6 sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
                   Performance-Webseiten, die messbar mehr Aufträge generieren.
                 </h1>
-                <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-white sm:text-lg sm:leading-[1.44]">
-                  Wir konzipieren und entwickeln maßgeschneiderte Landingpages, Onepager und Online-Shops – 100% fokussiert auf höhere Lead- und Umsatzraten für Ihr Business. Transparent, datengesteuert und ergebnisorientiert.
+                <p className="mx-auto mb-4 max-w-[600px] text-base font-medium text-white sm:mb-6 sm:text-lg sm:leading-[1.44]">
+                  Spezialisiert auf <span className="font-bold">Shopify Online-Shops</span> und <span className="font-bold">lokale OnPage-Systeme</span>. Wir bauen maßgeschneiderte Systeme mit SEO, Geo-Optimierung und KI-gestützten Lösungen für messbare Ergebnisse.
                 </p>
+                <div className="mx-auto mb-6 max-w-[600px] rounded-lg bg-white/10 px-4 py-3 backdrop-blur sm:mb-9 sm:px-6 sm:py-4">
+                  <p className="text-xs font-semibold text-white sm:text-sm">
+                    ⏱️ <span className="ml-2">Langzeitpartnerschaften: Minimum 3-6 Monate</span>
+                  </p>
+                  <p className="mt-1.5 text-xs text-white/80 sm:mt-2">
+                    Wir konzentrieren uns auf Tiefenwirkung statt Quick Wins. Nachhaltige Ergebnisse brauchen Zeit und Kompetenz.
+                  </p>
+                </div>
                 <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
                   <li>
                     <Link
