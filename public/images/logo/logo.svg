@@ -1,11 +1,11 @@
-<svg viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg" width="500" height="160">
+<svg viewBox="0 0 300 96" xmlns="http://www.w3.org/2000/svg" width="300" height="96">
   <!-- Main Text -->
-  <text x="10" y="110" font-family="Arial, sans-serif" font-size="90" font-weight="bold" fill="#4F46E5" letter-spacing="-2">
+  <text x="6" y="66" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="#4F46E5" letter-spacing="-1.2">
     Classymarketing
   </text>
-  
+
   <!-- Subtitle -->
-  <text x="210" y="135" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#4F46E5" letter-spacing="1">
+  <text x="126" y="81" font-family="Arial, sans-serif" font-size="8.4" font-weight="600" fill="#4F46E5" letter-spacing="0.6">
     WEBDESIGN ADMINISTRATOR
   </text>
 </svg>

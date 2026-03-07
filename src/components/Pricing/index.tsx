@@ -13,8 +13,8 @@ const Pricing = () => {
         <div className="mb-[60px]">
           <SectionTitle
             subtitle="Preisgestaltung"
-            title="Organische Top-Rankings für mehr qualifizierte Anfragen"
-            paragraph="Dein Ziel ist maximale Sichtbarkeit ohne teure Werbeanzeigen? Unsere Pakete sind darauf ausgelegt, deine Webseite für relevante Suchbegriffe an die Spitze der Suchergebnisse zu bringen."
+            title="Professionelle SEO-Betreuung für nachhaltigen Erfolg"
+            paragraph="Maximale Sichtbarkeit und qualifizierte Leads durch organische Suchmaschinenoptimierung. Unsere Pakete sind speziell auf lokale Unternehmen und Shopify-Shops zugeschnitten."
             center
           />
         </div>
@@ -29,13 +29,13 @@ const Pricing = () => {
         <div className="mt-12 rounded-lg bg-blue-50 p-8 dark:bg-dark-2">
           <div className="mx-auto max-w-2xl text-center">
             <h3 className="mb-3 text-xl font-bold text-dark dark:text-white">
-              ⏱️ Mindestvertrag: 3-6 Monate
+              ⏱️ Langzeitpartnerschaft: Mindestens 3-6 Monate
             </h3>
             <p className="mb-4 text-body-color dark:text-dark-6">
-              Wir konzentrieren uns auf nachhaltige Ergebnisse, nicht auf schnelle Fixes. Ein Mindestvertrag von 3-6 Monaten ermöglicht es uns, echte Erfolge zu liefern: <span className="font-semibold">Datensammlung, A/B-Tests, Optimierung und Skalierung</span>.
+              SEO ist ein Marathon, kein Sprint. Eine Mindestvertragslaufzeit von 3-6 Monaten ermöglicht uns die Entwicklung datengetriebener Strategien, kontinuierliche Optimierung und nachhaltige Ergebnisse zu liefern.
             </p>
             <p className="text-sm text-body-color dark:text-dark-6">
-              Ihre ROI ist unser ROI. Je länger wir zusammenarbeiten, desto besser werden die Ergebnisse.
+              Ihre Investition zahlt sich durch messbare Rankings-Verbesserungen und qualifizierte Leads aus.
             </p>
           </div>
         </div>

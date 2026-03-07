@@ -1,5 +1,47 @@
+import { useState } from "react";
+
 const Contact = () => {
-  return (
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      fullName: formData.get("fullName"),
+      email: formData.get("email"),
+      projectType: formData.get("projectType"),
+      timeline: formData.get("timeline"),
+      investment: formData.get("investment"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage("✅ Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden bei Ihnen.");
+        e.currentTarget.reset();
+      } else {
+        setSubmitMessage(`❌ Fehler: ${result.error}`);
+      }
+    } catch (error) {
+      setSubmitMessage("❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
     <section id="contact" className="relative py-20 md:py-[120px]">
       <div className="absolute left-0 top-0 -z-[1] h-full w-full dark:bg-dark"></div>
       <div className="absolute left-0 top-0 -z-[1] h-1/2 w-full bg-[#E9F9FF] dark:bg-dark-700 lg:h-[45%] xl:h-1/2"></div>
@@ -55,7 +97,7 @@ const Contact = () => {
                   So garantieren wir echte, nachhaltige Ergebnisse.
                 </p>
               </div>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="mb-[22px]">
                   <label
                     htmlFor="fullName"
@@ -67,6 +109,7 @@ const Contact = () => {
                     type="text"
                     name="fullName"
                     placeholder="Max Mustermann"
+                    required
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   />
                 </div>
@@ -81,6 +124,7 @@ const Contact = () => {
                     type="email"
                     name="email"
                     placeholder="beispiel@example.de"
+                    required
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   />
                 </div>
@@ -93,14 +137,15 @@ const Contact = () => {
                   </label>
                   <select
                     name="projectType"
+                    required
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   >
-                    <option>-- Bitte wählen --</option>
-                    <option>Landingpage</option>
-                    <option>Unternehmenswebseite</option>
-                    <option>Online-Shop</option>
-                    <option>SEO Optimierung</option>
-                    <option>Sonstiges</option>
+                    <option value="">-- Bitte wählen --</option>
+                    <option value="Landingpage">Landingpage</option>
+                    <option value="Unternehmenswebseite">Unternehmenswebseite</option>
+                    <option value="Online-Shop">Online-Shop</option>
+                    <option value="SEO Optimierung">SEO Optimierung</option>
+                    <option value="Sonstiges">Sonstiges</option>
                   </select>
                 </div>
                 <div className="mb-[22px]">
@@ -112,13 +157,14 @@ const Contact = () => {
                   </label>
                   <select
                     name="timeline"
+                    required
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   >
-                    <option>-- Bitte wählen --</option>
-                    <option>Sofort/Dringend</option>
-                    <option>In den nächsten 2-4 Wochen</option>
-                    <option>In 1-3 Monaten</option>
-                    <option>Noch nicht definiert</option>
+                    <option value="">-- Bitte wählen --</option>
+                    <option value="Sofort/Dringend">Sofort/Dringend</option>
+                    <option value="In den nächsten 2-4 Wochen">In den nächsten 2-4 Wochen</option>
+                    <option value="In 1-3 Monaten">In 1-3 Monaten</option>
+                    <option value="Noch nicht definiert">Noch nicht definiert</option>
                   </select>
                 </div>
                 <div className="mb-[22px]">
@@ -130,13 +176,14 @@ const Contact = () => {
                   </label>
                   <select
                     name="investment"
+                    required
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   >
-                    <option>-- Bitte wählen --</option>
-                    <option>3.999€ - 6.900€</option>
-                    <option>10.000€ - 15.000€</option>
-                    <option>24.000€ - 29.000€</option>
-                    <option>60.000€+</option>
+                    <option value="">-- Bitte wählen --</option>
+                    <option value="3.999€ - 6.900€">3.999€ - 6.900€</option>
+                    <option value="10.000€ - 15.000€">10.000€ - 15.000€</option>
+                    <option value="24.000€ - 29.000€">24.000€ - 29.000€</option>
+                    <option value="60.000€+">60.000€+</option>
                   </select>
                 </div>
                 <div className="mb-[30px]">
@@ -150,6 +197,7 @@ const Contact = () => {
                     name="message"
                     rows={1}
                     placeholder="Beschreiben Sie Ihr Projekt"
+                    required
                     className="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   ></textarea>
                 </div>
@@ -158,6 +206,7 @@ const Contact = () => {
                     <input
                       type="checkbox"
                       name="privacy"
+                      required
                       className="mr-3"
                     />
                     Ich stimme den{" "}
@@ -171,12 +220,22 @@ const Contact = () => {
                     zu*
                   </label>
                 </div>
+                {submitMessage && (
+                  <div className={`mb-4 p-3 rounded-md text-sm ${
+                    submitMessage.startsWith("✅")
+                      ? "bg-green-50 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+                      : "bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-400"
+                  }`}>
+                    {submitMessage}
+                  </div>
+                )}
                 <div className="mb-0">
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Projekt anfragen
+                    {isSubmitting ? "Wird gesendet..." : "Projekt anfragen"}
                   </button>
                 </div>
               </form>

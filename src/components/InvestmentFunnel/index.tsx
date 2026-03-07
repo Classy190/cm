@@ -23,10 +23,52 @@ const InvestmentFunnel = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Hier E-Mail senden (später implementieren)
-    alert("Vielen Dank! Wir melden uns bald bei Ihnen.");
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.name,
+          email: formData.email,
+          projectType: formData.projectType,
+          timeline: formData.timeline,
+          investment: formData.investment,
+          message: formData.message || "Anfrage über Investment Funnel",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage("✅ Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden bei Ihnen.");
+        // Reset form
+        setFormData({
+          investment: "",
+          projectType: "",
+          timeline: "",
+          name: "",
+          email: "",
+          message: "",
+        });
+        setStep(1);
+      } else {
+        setSubmitMessage(`❌ Fehler: ${result.error}`);
+      }
+    } catch (error) {
+      setSubmitMessage("❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -191,9 +233,24 @@ const InvestmentFunnel = () => {
                     placeholder="Beschreiben Sie kurz Ihr Projekt..."
                   />
                 </div>
+                {submitMessage && (
+                  <div className={`p-3 rounded-md text-sm ${
+                    submitMessage.startsWith("✅")
+                      ? "bg-green-50 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+                      : "bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-400"
+                  }`}>
+                    {submitMessage}
+                  </div>
+                )}
                 <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:gap-4">
                   <button onClick={() => setStep(step - 1)} className="order-2 rounded-lg border border-gray-300 px-4 py-3 font-medium text-dark transition hover:bg-gray-50 dark:border-dark-3 dark:text-white dark:hover:bg-dark-3 sm:order-1">← Zurück</button>
-                  <button type="submit" className="order-1 rounded-lg bg-primary px-4 py-3 font-medium text-white transition hover:bg-opacity-90 sm:order-2">Absenden</button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="order-1 rounded-lg bg-primary px-4 py-3 font-medium text-white transition hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed sm:order-2"
+                  >
+                    {isSubmitting ? "Wird gesendet..." : "Absenden"}
+                  </button>
                 </div>
               </form>
             </div>
