@@ -12,9 +12,9 @@ const Pricing = () => {
       <div className="container">
         <div className="mb-[60px]">
           <SectionTitle
-            subtitle="Pricing Table"
-            title="Our Pricing Plan"
-            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+            subtitle="Preisgestaltung"
+            title="Organische Top-Rankings für mehr qualifizierte Anfragen"
+            paragraph="Dein Ziel ist maximale Sichtbarkeit ohne teure Werbeanzeigen? Unsere Pakete sind darauf ausgelegt, deine Webseite für relevante Suchbegriffe an die Spitze der Suchergebnisse zu bringen."
             center
           />
         </div>

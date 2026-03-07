@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import AccessTools from "@/components/AccessTools";
 import HomeBlogSection from "@/components/Blog/HomeBlogSection";
 import CallToAction from "@/components/CallToAction";
 import Clients from "@/components/Clients";
@@ -7,15 +8,18 @@ import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import Innovation from "@/components/Innovation";
+import InvestmentRanges from "@/components/InvestmentRanges";
 import Pricing from "@/components/Pricing";
+import Process from "@/components/Process";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import { getAllPosts } from "@/utils/markdown";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Play Next.js - SaaS Starter Kit and Boilerplate for Next.js",
-  description: "Free Next.js SaaS Boilerplate and Starter Kit designed and built for SaaS startups. It comes with all necessary integrations, pages, and components you need to launch a feature-rich SaaS websites.",
+  title: "Classy Marketing - Performance-Webseiten für mehr Aufträge",
+  description: "Wir konzipieren und entwickeln maßgeschneiderte Landingpages, Onepager und Online-Shops – 100% fokussiert auf höhere Lead- und Umsatzraten für Ihr Business.",
 };
 
 export default function Home() {
@@ -26,15 +30,13 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
-      <About />
-      <CallToAction />
+      <Process />
       <Pricing />
-      <Testimonials />
+      <Innovation />
+      <AccessTools />
+      <InvestmentRanges />
       <Faq />
-      <Team />
-      <HomeBlogSection posts={posts} />
       <Contact />
-      <Clients />
     </main>
   );
 }

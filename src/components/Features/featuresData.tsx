@@ -17,10 +17,10 @@ const featuresData: Feature[] = [
         />
       </svg>
     ),
-    title: "Free and Open-Source",
-    paragraph: "Lorem Ipsum is simply dummy text of the printing and industry.",
-    btn: "Learn More",
-    btnLink: "/#",
+    title: "Hochkonvertierende Landingpages",
+    paragraph: "ROI-optimierte Seiten, die UX-Prinzipien mit klaren CTAs verbinden. Besucher zu qualifizierten Leads wandeln – datenbasiert und konversionsstark.",
+    btn: "Mehr erfahren",
+    btnLink: "/#pricing",
   },
   {
     id: 2,
@@ -38,10 +38,10 @@ const featuresData: Feature[] = [
         />
       </svg>
     ),
-    title: "Modern Design",
-    paragraph: "Lorem Ipsum is simply dummy text of the printing and industry.",
-    btn: "Learn More",
-    btnLink: "/#",
+    title: "Moderne Unternehmens-Webseiten",
+    paragraph: "Multipager-Websites, die Ihr Unternehmen widerspiegeln, Fachwissen präsentieren und eine nahtlose Benutzererfahrung bieten. Vertrauen und Glaubwürdigkeit.",
+    btn: "Mehr erfahren",
+    btnLink: "/#pricing",
   },
   {
     id: 3,
@@ -91,10 +91,10 @@ const featuresData: Feature[] = [
         />
       </svg>
     ),
-    title: "SaaS Starter Kit",
-    paragraph: "Lorem Ipsum is simply dummy text of the printing and industry.",
-    btn: "Learn More",
-    btnLink: "/#",
+    title: "E-Commerce & Shopify Online-Shops",
+    paragraph: "Leistungsstarke, verkaufspsychologisch optimierte Online-Shops. Durch Storytelling und Conversion-Strategien steigern wir Ihren organischen Umsatz nachhaltig.",
+    btn: "Mehr erfahren",
+    btnLink: "/#pricing",
   },
   {
     id: 4,
@@ -124,10 +124,10 @@ const featuresData: Feature[] = [
         />
       </svg>
     ),
-    title: "All Essential Integrations",
-    paragraph: "Lorem Ipsum is simply dummy text of the printing and industry.",
-    btn: "Learn More",
-    btnLink: "/#",
+    title: "Organische Top-Rankings (SEO)",
+    paragraph: "Identifizieren Sie Ihre Schwellen-Keywords und pushen Sie diese auf Seite 1 der Suchergebnisse. Maximale Sichtbarkeit ohne teure Werbeanzeigen.",
+    btn: "Mehr erfahren",
+    btnLink: "/#pricing",
   },
 ];
 export default featuresData;

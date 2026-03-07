@@ -7,8 +7,8 @@ const Faq = () => {
       <div className="container">
         <SectionTitle
           subtitle="FAQ"
-          title="Any Questions? Answered"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Alle Klarheiten beseitigt"
+          paragraph="Bevor wir in die Umsetzung starten, schaffen wir vollständige Transparenz. Hier beantworten wir die wichtigsten Fragen zu unserem Prozess und Leistungen."
           width="640px"
           center
         />
@@ -16,31 +16,31 @@ const Faq = () => {
         <div className="-mx-4 mt-[60px] flex flex-wrap lg:mt-20">
           <div className="w-full px-4 lg:w-1/2">
             <SingleFaq
-              question="How to use TailGrids?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Wie sieht der Zeitrahmen für mein Webprojekt aus?"
+              answer="Der Zeitrahmen hängt stark vom Umfang ab (Onepager vs. Shopify-Shop). Wir arbeiten mit klaren Milestones und können kleinere Landingpage-Projekte oft in wenigen Wochen finalisieren. Wir halten Sie stets auf dem Laufenden."
             />
             <SingleFaq
-              question="How to download icons from LineIcons?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Übernehmen Sie die Texterstellung und die Bildauswahl?"
+              answer="Absolut. Wir bieten einen umfassenden Service: Unsere Content-Experten erstellen SEO-optimierte Texte (Copywriting) und wählen lizenzsichere und konversionsstarke Bilder aus, die Ihre Botschaft gezielt unterstützen."
             />
             <SingleFaq
-              question="Is GrayGrids part of UIdeck?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Können Sie einen Relaunch oder Re-Design meiner Website übernehmen?"
+              answer="Ja. Wir starten mit einer technischen und UX-Analyse Ihrer bestehenden Seite. Anschließend entwickeln wir ein modernes, responsives Design (UX/UI), um nicht funktionierende Bereiche zu beheben und die Conversion-Performance zu maximieren."
             />
           </div>
 
           <div className="w-full px-4 lg:w-1/2">
             <SingleFaq
-              question="Can I use this template for commercial project?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Welche Branchen bedienen Sie hauptsächlich?"
+              answer="Unser Fokus liegt auf dem B2B-Sektor, insbesondere Handwerk (SHK), Dienstleistern und E-Commerce (speziell Shopify). Durch unseren datenbasierten Ansatz passen unsere Strategien aber grundsätzlich zu jedem Unternehmen mit Wachstumswillen."
             />
             <SingleFaq
-              question="Do you have plan to releasing Play Pro?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Welche Kosten sind für ein Webprojekt zu erwarten?"
+              answer="Die Kosten sind abhängig von der Projektkomplexität (z.B. Onepager vs. Shopify-Shop). Unsere Projekte starten im Regelfall ab 2.500€ Netto an. Nach einem Erstgespräch erhalten Sie von uns ein transparentes, detailliertes Festpreisangebot."
             />
             <SingleFaq
-              question="Where and how to host this template?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Warum benötigt Classy Marketing Zugriff auf meinen Onlineshop?"
+              answer="Der Zugriff ermöglicht uns die direkte Umsetzung von SEO-Optimierungen und die Verbesserung der Conversion-Rate, um Ihren Umsatz nachhaltig zu steigern. Alle Zugriffe erfolgen über offizielle Partner-Schnittstellen."
             />
           </div>
         </div>

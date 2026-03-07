@@ -16,26 +16,23 @@ const Hero = () => {
                 data-wow-delay=".2s"
               >
                 <h1 className="mb-6 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
-                  Open-source SaaS Starter Kit and Boilerplate for Next.js
+                  Performance-Webseiten, die messbar mehr Aufträge generieren.
                 </h1>
                 <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-white sm:text-lg sm:leading-[1.44]">
-                  Next.js SaaS Boilerplate and Starter Kit designed and built
-                  for SaaS startups. It comes with all necessary integrations,
-                  pages, and components you need to launch a feature-rich SaaS
-                  websites.
+                  Wir konzipieren und entwickeln maßgeschneiderte Landingpages, Onepager und Online-Shops – 100% fokussiert auf höhere Lead- und Umsatzraten für Ihr Business. Transparent, datengesteuert und ergebnisorientiert.
                 </p>
                 <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
                   <li>
                     <Link
-                      href="https://nextjstemplates.com/templates/play"
+                      href="#contact"
                       className="inline-flex items-center justify-center rounded-md bg-white px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out hover:bg-gray-2"
                     >
-                      Download Now
+                      Projekt anfragen
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="https://github.com/nextjsTemplates/play-nextjs"
+                      href="https://wa.me/+4917672858500?text=Hallo%2C%20ich%20brauche%20Unterst%C3%BCtzung%20bei%20meiner%20Neukundengewinnung%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen."
                       target="_blank"
                       className="flex items-center gap-4 rounded-md bg-white/[0.12] px-6 py-[14px] text-base font-medium text-white transition duration-300 ease-in-out hover:bg-white hover:text-dark"
                     >
@@ -47,57 +44,18 @@ const Hero = () => {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clipPath="url(#clip0_2005_10818)">
-                          <path d="M12 0.674805C5.625 0.674805 0.375 5.8498 0.375 12.2998C0.375 17.3998 3.7125 21.7498 8.3625 23.3248C8.9625 23.4373 9.15 23.0623 9.15 22.7998C9.15 22.5373 9.15 21.7873 9.1125 20.7748C5.8875 21.5248 5.2125 19.1998 5.2125 19.1998C4.6875 17.8873 3.9 17.5123 3.9 17.5123C2.85 16.7623 3.9375 16.7623 3.9375 16.7623C5.1 16.7998 5.7375 17.9623 5.7375 17.9623C6.75 19.7623 8.475 19.2373 9.1125 18.8998C9.225 18.1498 9.525 17.6248 9.8625 17.3248C7.3125 17.0623 4.575 16.0498 4.575 11.6248C4.575 10.3498 5.0625 9.3373 5.775 8.5498C5.6625 8.2873 5.25 7.0873 5.8875 5.4748C5.8875 5.4748 6.9 5.1748 9.1125 6.6748C10.05 6.4123 11.025 6.2623 12.0375 6.2623C13.05 6.2623 14.0625 6.3748 14.9625 6.6748C17.175 5.2123 18.15 5.4748 18.15 5.4748C18.7875 7.0498 18.4125 8.2873 18.2625 8.5498C19.0125 9.3373 19.4625 10.3873 19.4625 11.6248C19.4625 16.0498 16.725 17.0623 14.175 17.3248C14.5875 17.6998 14.9625 18.4498 14.9625 19.4998C14.9625 21.0748 14.925 22.3123 14.925 22.6873C14.925 22.9873 15.15 23.3248 15.7125 23.2123C20.2875 21.6748 23.625 17.3623 23.625 12.2248C23.5875 5.8498 18.375 0.674805 12 0.674805Z" />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_2005_10818">
-                            <rect width="24" height="24" fill="white" />
-                          </clipPath>
-                        </defs>
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.052 0-2.082.537-2.741 1.479-.667.955-1.023 2.478-1.023 4.529 0 .975.118 1.90.357 2.76.772 2.933 3.623 5.193 6.996 5.193.955 0 1.87-.126 2.748-.38l.11-.033c.308-.092.614-.18.899-.263 1.325-.406 2.427-1.007 3.266-1.818.852-.83 1.42-1.922 1.682-3.28.11-.589.166-1.316.166-2.153 0-1.463-.247-2.788-.733-3.867-.532-1.218-1.597-2.322-2.88-2.998-1.284-.677-2.887-.996-4.514-.996l-.133.002-.134.003m13.771 0c-1.052 0-2.082.537-2.741 1.479-.667.955-1.023 2.478-1.023 4.529 0 .975.118 1.902.357 2.762.771 2.933 3.623 5.193 6.996 5.193.955 0 1.87-.126 2.748-.38l.11-.033c.308-.092.614-.18.899-.263 1.325-.406 2.427-1.007 3.266-1.818.852-.83 1.42-1.922 1.682-3.28.11-.589.166-1.316.166-2.153 0-1.463-.247-2.788-.733-3.867-.532-1.218-1.597-2.322-2.88-2.998-1.284-.677-2.887-.996-4.514-.996l-.133.002-.134.003z" fillRule="evenodd"/>
                       </svg>
-                      Star on Github
+                      WhatsApp schreiben
                     </Link>
                   </li>
                 </ul>
 
                 <div>
                   <p className="mb-4 text-center text-base font-medium text-white/60">
-                    Play is now available for all popular frameworks
+                    Vertraut von über 20+ zufriedenen Kunden — ⭐ 4,9/5 Bewertung
                   </p>
-                  <div
-                    className="wow fadeInUp flex items-center justify-center gap-4 text-center"
-                    data-wow-delay=".3s"
-                  >
-                    <Link
-                      href="https://github.com/uideck/play-bootstrap/"
-                      className="text-white/60 duration-300 ease-in-out hover:text-white"
-                      target="_blank"
-                    >
-                      <svg
-                        className="fill-current"
-                        width="41"
-                        height="32"
-                        viewBox="0 0 41 32"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <mask
-                          id="mask0_2005_10788"
-                          style={{ maskType: "luminance" }}
-                          maskUnits="userSpaceOnUse"
-                          x="0"
-                          y="0"
-                          width="41"
-                          height="32"
-                        >
-                          <path d="M0.521393 0.0454102H40.5214V31.9174H0.521393V0.0454102Z" />
-                        </mask>
-                        <g mask="url(#mask0_2005_10788)">
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M8.82951 0.048584C6.54719 0.048584 4.85835 2.04626 4.93395 4.21266C5.00655 6.29398 4.91223 8.98962 4.23366 11.1879C3.55264 13.3923 2.4017 14.7893 0.521393 14.9686V16.993C2.4017 17.1727 3.55264 18.5689 4.23358 20.7737C4.91223 22.9719 5.00647 25.6676 4.93387 27.7489C4.85827 29.915 6.54711 31.913 8.82983 31.913H32.2163C34.4987 31.913 36.1872 29.9153 36.1116 27.7489C36.039 25.6676 36.1333 22.9719 36.8119 20.7737C37.4929 18.5689 38.641 17.1721 40.5214 16.993V14.9686C38.6411 14.7889 37.493 13.3927 36.8119 11.1879C36.1332 8.9899 36.039 6.29398 36.1116 4.21266C36.1872 2.04654 34.4987 0.048584 32.2163 0.048584H8.82951ZM27.6401 19.6632C27.6401 22.6463 25.415 24.4554 21.7224 24.4554H15.4366C15.2568 24.4554 15.0844 24.3839 14.9572 24.2568C14.8301 24.1297 14.7587 23.9572 14.7587 23.7774V8.18422C14.7587 8.00442 14.8301 7.83194 14.9572 7.70482C15.0844 7.57766 15.2568 7.50626 15.4366 7.50626H21.6866C24.7656 7.50626 26.7863 9.17406 26.7863 11.7347C26.7863 13.5319 25.427 15.1409 23.6952 15.4228V15.5165C26.0526 15.7751 27.6401 17.408 27.6401 19.6632ZM21.037 9.65538H17.453V14.7179H20.4716C22.8052 14.7179 24.092 13.7782 24.092 12.0986C24.0917 10.5245 22.9855 9.65538 21.037 9.65538ZM17.453 16.7265V22.3055H21.1689C23.5986 22.3055 24.8856 21.3306 24.8856 19.4984C24.8856 17.6663 23.5625 16.7263 21.0126 16.7263L17.453 16.7265Z"
+                </div>
                           />
                         </g>
                       </svg>

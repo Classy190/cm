@@ -7,9 +7,9 @@ const Features = () => {
     <section className="pb-8 pt-20 dark:bg-dark lg:pb-[70px] lg:pt-[120px]">
       <div className="container">
         <SectionTitle
-          subtitle="Features"
-          title="Main Features Of Play"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          subtitle="Leistungen"
+          title="Unsere Services für Ihr Wachstum"
+          paragraph="Maßgeschneiderte Lösungen für maximale Lead-Generierung, Online-Einnahmen und Google-Rankings. Von Strategie bis Go-Live begleiten wir Sie transparent und datengesteuert."
         />
 
         <div className="-mx-4 mt-12 flex flex-wrap lg:mt-20">
