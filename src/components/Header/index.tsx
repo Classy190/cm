@@ -53,10 +53,10 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4">
+            <div className="w-full max-w-md px-4">
               <Link
                 href="/"
-                className={`navbar-logo block w-full ${sticky ? "py-2" : "py-5"
+                className={`navbar-logo block ${sticky ? "py-2" : "py-5"
                   } `}
               >
                 {pathUrl !== "/" ? (
@@ -64,16 +64,16 @@ const Header = () => {
                     <Image
                       src={`/images/logo/logo.svg`}
                       alt="logo"
-                      width={240}
-                      height={30}
-                      className="header-logo w-full dark:hidden"
+                      width={200}
+                      height={71}
+                      className="header-logo h-auto max-w-full dark:hidden"
                     />
                     <Image
                       src={`/images/logo/logo-white.svg`}
                       alt="logo"
-                      width={240}
-                      height={30}
-                      className="header-logo hidden w-full dark:block"
+                      width={200}
+                      height={71}
+                      className="header-logo hidden h-auto max-w-full dark:block"
                     />
                   </>
                 ) : (
@@ -84,16 +84,16 @@ const Header = () => {
                         : "/images/logo/logo-white.svg"
                         }`}
                       alt="logo"
-                      width={140}
-                      height={30}
-                      className="header-logo w-full dark:hidden"
+                      width={200}
+                      height={71}
+                      className="header-logo h-auto max-w-full dark:hidden"
                     />
                     <Image
                       src={"/images/logo/logo-white.svg"}
                       alt="logo"
-                      width={140}
-                      height={30}
-                      className="header-logo hidden w-full dark:block"
+                      width={200}
+                      height={71}
+                      className="header-logo hidden h-auto max-w-full dark:block"
                     />
                   </>
                 )}
