@@ -56,47 +56,19 @@ const Header = () => {
             <div className="w-full max-w-md px-4">
               <Link
                 href="/"
-                className={`navbar-logo block ${sticky ? "py-2" : "py-5"
-                  } `}
+                className={`navbar-logo block ${sticky ? "py-2" : "py-5"} `}
               >
-                {pathUrl !== "/" ? (
-                  <>
-                    <Image
-                      src={`/images/logo/logo.svg`}
-                      alt="logo"
-                      width={200}
-                      height={71}
-                      className="header-logo h-auto max-w-full dark:hidden"
-                    />
-                    <Image
-                      src={`/images/logo/logo-white.svg`}
-                      alt="logo"
-                      width={200}
-                      height={71}
-                      className="header-logo hidden h-auto max-w-full dark:block"
-                    />
-                  </>
-                ) : (
-                  <>
-                    <Image
-                      src={`${sticky
-                        ? "/images/logo/logo.svg"
-                        : "/images/logo/logo-white.svg"
-                        }`}
-                      alt="logo"
-                      width={200}
-                      height={71}
-                      className="header-logo h-auto max-w-full dark:hidden"
-                    />
-                    <Image
-                      src={"/images/logo/logo-white.svg"}
-                      alt="logo"
-                      width={200}
-                      height={71}
-                      className="header-logo hidden h-auto max-w-full dark:block"
-                    />
-                  </>
-                )}
+                <span
+                  className={`text-xl font-black tracking-tight whitespace-nowrap ${
+                    pathUrl !== "/"
+                      ? "text-dark dark:text-white"
+                      : sticky
+                      ? "text-dark dark:text-white"
+                      : "text-white"
+                  }`}
+                >
+                  Classy<span className="text-primary"> Marketing</span>
+                </span>
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">

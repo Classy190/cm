@@ -54,13 +54,50 @@ const Hero = () => {
                 data-wow-delay=".25s"
               >
                 <div className="mt-16">
-                  <Image
-                    src="/images/hero/hero-image.jpg"
-                    alt="hero"
-                    className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
-                    width={845}
-                    height={316}
-                  />
+                  <div className="mx-auto max-w-[845px] rounded-t-xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 border border-white/20" style={{height: '316px'}}>
+                    <svg viewBox="0 0 845 316" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                      <defs>
+                        <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#4A6CF7" stopOpacity="0.3"/>
+                          <stop offset="100%" stopColor="#4A6CF7" stopOpacity="0.05"/>
+                        </linearGradient>
+                      </defs>
+                      <rect width="845" height="316" fill="url(#heroGrad)"/>
+                      {/* Browser mockup */}
+                      <rect x="60" y="30" width="500" height="260" rx="12" fill="white" fillOpacity="0.08" stroke="white" strokeOpacity="0.2" strokeWidth="1.5"/>
+                      <rect x="60" y="30" width="500" height="36" rx="12" fill="white" fillOpacity="0.12"/>
+                      <circle cx="82" cy="48" r="6" fill="#FF5F57"/>
+                      <circle cx="101" cy="48" r="6" fill="#FFBD2E"/>
+                      <circle cx="120" cy="48" r="6" fill="#28CA41"/>
+                      <rect x="145" y="40" width="260" height="16" rx="8" fill="white" fillOpacity="0.15"/>
+                      {/* Content lines */}
+                      <rect x="80" y="90" width="120" height="10" rx="5" fill="#4A6CF7" fillOpacity="0.8"/>
+                      <rect x="80" y="112" width="380" height="8" rx="4" fill="white" fillOpacity="0.2"/>
+                      <rect x="80" y="128" width="320" height="8" rx="4" fill="white" fillOpacity="0.15"/>
+                      <rect x="80" y="144" width="350" height="8" rx="4" fill="white" fillOpacity="0.15"/>
+                      <rect x="80" y="175" width="110" height="36" rx="8" fill="#4A6CF7"/>
+                      <rect x="205" y="175" width="110" height="36" rx="8" fill="white" fillOpacity="0.1" stroke="white" strokeOpacity="0.2" strokeWidth="1"/>
+                      {/* Stats cards */}
+                      <rect x="80" y="235" width="100" height="40" rx="8" fill="white" fillOpacity="0.08" stroke="white" strokeOpacity="0.15" strokeWidth="1"/>
+                      <rect x="195" y="235" width="100" height="40" rx="8" fill="white" fillOpacity="0.08" stroke="white" strokeOpacity="0.15" strokeWidth="1"/>
+                      <rect x="310" y="235" width="100" height="40" rx="8" fill="white" fillOpacity="0.08" stroke="white" strokeOpacity="0.15" strokeWidth="1"/>
+                      <text x="130" y="259" textAnchor="middle" fill="white" fontSize="12" fontWeight="700" fontFamily="sans-serif">+45%</text>
+                      <text x="245" y="259" textAnchor="middle" fill="#4A6CF7" fontSize="12" fontWeight="700" fontFamily="sans-serif">4.9★</text>
+                      <text x="360" y="259" textAnchor="middle" fill="white" fontSize="12" fontWeight="700" fontFamily="sans-serif">20+</text>
+                      {/* Right side stats panel */}
+                      <rect x="590" y="50" width="200" height="230" rx="16" fill="white" fillOpacity="0.06" stroke="white" strokeOpacity="0.15" strokeWidth="1"/>
+                      <text x="690" y="85" textAnchor="middle" fill="white" fontSize="11" fontWeight="700" fontFamily="sans-serif" fillOpacity="0.6">PERFORMANCE</text>
+                      {/* Bar chart */}
+                      <rect x="615" y="200" width="22" height="60" rx="4" fill="#4A6CF7" fillOpacity="0.4"/>
+                      <rect x="648" y="170" width="22" height="90" rx="4" fill="#4A6CF7" fillOpacity="0.6"/>
+                      <rect x="681" y="140" width="22" height="120" rx="4" fill="#4A6CF7" fillOpacity="0.8"/>
+                      <rect x="714" y="110" width="22" height="150" rx="4" fill="#4A6CF7"/>
+                      <text x="626" y="275" textAnchor="middle" fill="white" fontSize="9" fontFamily="sans-serif" fillOpacity="0.5">Q1</text>
+                      <text x="659" y="275" textAnchor="middle" fill="white" fontSize="9" fontFamily="sans-serif" fillOpacity="0.5">Q2</text>
+                      <text x="692" y="275" textAnchor="middle" fill="white" fontSize="9" fontFamily="sans-serif" fillOpacity="0.5">Q3</text>
+                      <text x="725" y="275" textAnchor="middle" fill="white" fontSize="9" fontFamily="sans-serif" fillOpacity="0.5">Q4</text>
+                    </svg>
+                  </div>
                 </div>
                 <div className="absolute -left-9 bottom-0 z-[-1]">
                   <svg

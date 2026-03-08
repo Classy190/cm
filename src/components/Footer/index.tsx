@@ -9,16 +9,12 @@ const Footer = () => {
     >
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-3/12">
+            <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-3/12">
             <div className="mb-10 w-full">
-              <Link href="/" className="mb-6 inline-block max-w-[160px]">
-                <Image
-                  src="/images/logo/logo-white.svg"
-                  alt="logo"
-                  width={140}
-                  height={30}
-                  className="max-w-full"
-                />
+              <Link href="/" className="mb-6 inline-block">
+                <span className="text-xl font-black tracking-tight text-white whitespace-nowrap">
+                  Classy<span className="text-primary"> Marketing</span>
+                </span>
               </Link>
               <p className="mb-8 max-w-[270px] text-base text-gray-7">
                 Classy Marketing – Performance-Webseiten und digitale Lösungen für messbar mehr Aufträge und Umsatz.
