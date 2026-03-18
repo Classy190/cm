@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -9,29 +8,39 @@ export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
     setIsLoading(true);
 
     try {
-      const result = await signIn("credentials", {
-        email,
-        password,
-        redirect: false,
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
       });
 
-      if (result?.error) {
-        setError("Ungültige E-Mail oder Passwort");
-      } else if (result?.ok) {
-        router.push("/admin");
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Login failed");
+        setIsLoading(false);
+        return;
       }
+
+      setSuccess("✅ Login erfolgreich! Wird weitergeleitet...");
+      setTimeout(() => {
+        router.push("/admin");
+      }, 1500);
     } catch (err) {
       setError("Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
-    } finally {
       setIsLoading(false);
     }
   };
@@ -55,6 +64,15 @@ export default function AdminLogin() {
             <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900 rounded-lg">
               <p className="text-sm text-red-800 dark:text-red-400">
                 ❌ {error}
+              </p>
+            </div>
+          )}
+
+          {/* Success Message */}
+          {success && (
+            <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-900 rounded-lg">
+              <p className="text-sm text-green-800 dark:text-green-400">
+                {success}
               </p>
             </div>
           )}
@@ -117,8 +135,7 @@ export default function AdminLogin() {
           {/* Info Box */}
           <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
             <p className="text-xs text-blue-800 dark:text-blue-400">
-              <strong>ℹ️ Hinweis:</strong> Nutzen Sie die Admin-Zugangsdaten, die Sie per E-Mail
-              erhalten haben.
+              <strong>ℹ️ Hinweis:</strong> Nutzen Sie die Email und das Passwort aus den Vercel Environment Variables.
             </p>
           </div>
         </div>
