@@ -4,9 +4,9 @@ import Pricing from "@/components/Pricing";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Pricing Page | Play SaaS Starter Kit and Boilerplate for Next.js",
-  description: "This is pricing page description",
+  title: "Preise | Classy Marketing – SaaS & Performance-Webseiten",
+  description: "Transparente Preisgestaltung für Landingpages, Shopify-Shops und SaaS-Lösungen. Flexible Pakete mit maximaler ROI-Fokussierung. Jetzt anfragen!",
+  keywords: ["Preise", "Pakete", "Landingpage Kosten", "Shopify Shop Preis", "Web Design Preise"],
 };
 
 const PricingPage = () => {
