@@ -34,7 +34,22 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Please enter an email or password");
         }
 
-        // check to see if user already exist
+        // CHECK ADMIN CREDENTIALS FIRST
+        const adminEmail = process.env.ADMIN_EMAIL;
+        const adminPassword = process.env.ADMIN_PASSWORD;
+
+        if (adminEmail && adminPassword) {
+          if (credentials.email === adminEmail && credentials.password === adminPassword) {
+            return {
+              id: "admin",
+              email: adminEmail,
+              name: "Admin",
+              image: null,
+            };
+          }
+        }
+
+        // check to see if user already exist in database
         const user = await prisma.user.findUnique({
           where: {
             email: credentials.email,
@@ -52,8 +67,6 @@ export const authOptions: NextAuthOptions = {
           user.password,
         );
 
-        // console.log(passwordMatch);
-
         if (!passwordMatch) {
           console.log("test", passwordMatch);
           throw new Error("Incorrect password");
@@ -63,27 +76,39 @@ export const authOptions: NextAuthOptions = {
       },
     }),
 
-    GitHubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-    }),
+    ...(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET
+      ? [
+          GitHubProvider({
+            clientId: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET,
+          }),
+        ]
+      : []),
 
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
+    ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
+      ? [
+          GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+          }),
+        ]
+      : []),
 
-    EmailProvider({
-      server: {
-        host: process.env.EMAIL_SERVER_HOST,
-        port: Number(process.env.EMAIL_SERVER_PORT),
-        auth: {
-          user: process.env.EMAIL_SERVER_USER,
-          pass: process.env.EMAIL_SERVER_PASSWORD,
-        },
-      },
-      from: process.env.EMAIL_FROM,
-    }),
+    ...(process.env.EMAIL_SERVER_HOST && process.env.EMAIL_SERVER_PORT
+      ? [
+          EmailProvider({
+            server: {
+              host: process.env.EMAIL_SERVER_HOST,
+              port: Number(process.env.EMAIL_SERVER_PORT),
+              auth: {
+                user: process.env.EMAIL_SERVER_USER,
+                pass: process.env.EMAIL_SERVER_PASSWORD,
+              },
+            },
+            from: process.env.EMAIL_FROM,
+          }),
+        ]
+      : []),
   ],
 
   callbacks: {
