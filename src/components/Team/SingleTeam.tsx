@@ -1,21 +1,40 @@
-import { TeamType } from "@/types/team";
-import Image from "next/image";
-import Link from "next/link";
+const generateInitials = (name: string) => {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
+};
+
+const generateColorFromName = (name: string) => {
+  const colors = [
+    "from-blue-500 to-blue-600",
+    "from-green-500 to-green-600",
+    "from-purple-500 to-purple-600",
+    "from-pink-500 to-pink-600",
+    "from-orange-500 to-orange-600",
+    "from-red-500 to-red-600",
+    "from-indigo-500 to-indigo-600",
+    "from-cyan-500 to-cyan-600",
+  ];
+  const index = name.charCodeAt(0) % colors.length;
+  return colors[index];
+};
 
 const SingleTeam = ({ team }: { team: TeamType }) => {
   const { image, name, designation, facebookLink, twitterLink, instagramLink } =
     team;
+  const initials = generateInitials(name);
+  const colorGradient = generateColorFromName(name);
   return (
     <div className="w-full px-4 sm:w-1/2 lg:w-1/4 xl:w-1/4">
       <div className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-12 shadow-testimonial dark:bg-dark dark:shadow-none">
         <div className="relative z-10 mx-auto mb-5 h-[120px] w-[120px]">
-          <Image
-            src={image}
-            alt={name}
-            className="w-full rounded-full"
-            width={120}
-            height={120}
-          />
+          {/* SVG Avatar Graphic instead of Image */}
+          <div className={`w-full h-full rounded-full bg-gradient-to-br ${colorGradient} flex items-center justify-center shadow-lg`}>
+            <span className="text-4xl font-bold text-white">{initials}</span>
+          </div>
           <span className="absolute bottom-0 left-0 -z-10 h-10 w-10 rounded-full bg-secondary opacity-0 transition-all group-hover:opacity-100"></span>
           <span className="absolute right-0 top-0 -z-10 opacity-0 transition-all group-hover:opacity-100">
             <svg
