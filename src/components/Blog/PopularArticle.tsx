@@ -1,27 +1,21 @@
-import Image from "next/image";
 import Link from "next/link";
+import BlogGraphic from "./BlogGraphic";
 
 const PopularArticle = (props: {
   image: string;
   title: string;
   name: string;
+  slug?: string;
 }) => {
-  const { image, title, name } = props;
+  const { image, title, name, slug = "blog-example-with-mdx-file" } = props;
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-full">
       <div
         className="wow fadeInUp mb-5 flex w-full items-center border-b border-stroke pb-5 dark:border-dark-3"
         data-wow-delay=".1s"
       >
-        <div className={`mr-5 overflow-hidden rounded`}>
-          <Image
-            src={image}
-            alt="image"
-            width={80}
-            height={80}
-            objectFit="cover"
-            objectPosition="center"
-          />
+        <div className="mr-5 overflow-hidden rounded">
+          <BlogGraphic slug={slug} size="small" />
         </div>
         <div className="w-full">
           <h4>

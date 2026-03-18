@@ -143,11 +143,6 @@ const Footer = () => {
                   Support
                 </a>
               </li>
-              <li>
-                <a href="tel:+4962267723099" className="text-sm text-gray-400 hover:text-primary transition">
-                  Tel: +49 622 6 77 23 099
-                </a>
-              </li>
             </ul>
           </div>
         </div>

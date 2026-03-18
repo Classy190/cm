@@ -1,22 +1,16 @@
 import { Blog } from "@/types/blog";
 import { format } from "date-fns";
-import Image from "next/image";
 import Link from "next/link";
+import BlogGraphic from "./BlogGraphic";
 
 const SingleBlog = ({ blog }: { blog: Blog }) => {
-  const { title, coverImage, excerpt, date, slug } = blog;
+  const { title, excerpt, date, slug } = blog;
 
   return (
     <div className="wow fadeInUp group mb-10" data-wow-delay=".1s">
-      <div className="mb-8 overflow-hidden rounded">
+      <div className="mb-8 overflow-hidden rounded transition group-hover:scale-105">
         <Link href={`/blogs/${slug}`} aria-label="blog cover" className="block">
-          <Image
-            src={coverImage!}
-            alt="image"
-            className="w-full transition group-hover:rotate-6 group-hover:scale-125"
-            width={408}
-            height={272}
-          />
+          <BlogGraphic slug={slug} size="large" />
         </Link>
       </div>
       <div>

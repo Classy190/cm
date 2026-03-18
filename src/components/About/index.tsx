@@ -15,13 +15,13 @@ const About = () => {
                   Über Classy Marketing
                 </span>
                 <h2 className="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2]">
-                  Ihr Partner für nachhaltiges digitales Wachstum.
+                  15+ Jahre in Media & Coding. Performance ist unsere Leidenschaft.
                 </h2>
                 <p className="mb-6 text-base leading-relaxed text-body-color dark:text-dark-6">
-                  Wir sind eine spezialisierte Performance-Agentur mit Fokus auf
-                  Shopify Online-Shops und lokale OnPage-Systeme. Unser Ansatz
-                  kombiniert datengetriebene Strategie mit modernem Webdesign –
-                  für messbare Ergebnisse, die wirklich zählen.
+                  Mit über 15 Jahren Erfahrung in Media Coding und digitaler Transformation helfen wir Unternehmen, ihre Online-Präsenz messbar zu verbessern. Wir sind eine spezialisierte Performance-Agentur mit Fokus auf Shopify Online-Shops und lokale OnPage-Systeme. Unser Ansatz kombiniert datengetriebene Strategie mit modernem Webdesign – für nachhaltige, messbare Ergebnisse.
+                </p>
+                <p className="mb-6 text-base leading-relaxed text-body-color dark:text-dark-6">
+                  <strong>Unsere Expertise:</strong> Full-Stack Web Development, Performance Optimization, SEO-Strategien, KI-Automation, E-Commerce Solutions und markengerechte Corporate Websites.
                 </p>
                 <p className="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
                   Wir glauben nicht an schnelle Lösungen. Deshalb setzen wir auf
@@ -132,9 +132,9 @@ const About = () => {
 
                   <div className="relative z-10 mb-4 flex items-center justify-center overflow-hidden rounded-2xl bg-primary px-6 py-8 sm:mb-8 lg:mb-4 xl:mb-8">
                     <div className="text-center">
-                      <span className="block text-5xl font-extrabold text-white">5+</span>
+                      <span className="block text-5xl font-extrabold text-white">15+</span>
                       <span className="block text-base font-semibold text-white mt-1">Jahre Erfahrung</span>
-                      <span className="block text-sm font-medium text-white/70 mt-1">im digitalen Marketing</span>
+                      <span className="block text-sm font-medium text-white/70 mt-1">in Media Coding & Development</span>
                     </div>
                   </div>
                 </div>

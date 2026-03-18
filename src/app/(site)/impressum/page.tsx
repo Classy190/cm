@@ -67,15 +67,6 @@ export default function Impressum() {
                     </a>
                   </p>
                   <p className="text-base text-body-color dark:text-dark-6">
-                    <strong>Telefon:</strong>{" "}
-                    <a
-                      href="tel:+4962267723099"
-                      className="text-primary hover:text-primary/80"
-                    >
-                      +49 (0) 622 6 77 23 099
-                    </a>
-                  </p>
-                  <p className="text-base text-body-color dark:text-dark-6">
                     <strong>Website:</strong>{" "}
                     <a
                       href="https://classymarketing.de"
