@@ -3,7 +3,7 @@
 import React from "react";
 
 interface BlogGraphicProps {
-  slug: string;
+  slug?: string;
   size?: "small" | "large";
   className?: string;
 }
@@ -66,10 +66,10 @@ const blogGraphics: Record<
 };
 
 const BlogGraphic: React.FC<BlogGraphicProps> = ({
-  slug,
+  slug = "blog-example-with-mdx-file",
   size = "large",
   className = "",
-}) => {
+}: BlogGraphicProps) => {
   const config = blogGraphics[slug] || {
     icon: "📰",
     bgColor: "from-slate-500 to-slate-600",
