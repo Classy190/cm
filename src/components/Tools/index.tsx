@@ -1,11 +1,16 @@
 const Tools = () => {
   const tools = [
     { name: "Google Search Console", icon: "🔍", color: "bg-blue-50 dark:bg-blue-900/20" },
+    { name: "Bing Webmaster", icon: "🔎", color: "bg-blue-50 dark:bg-blue-900/20" },
+    { name: "Google Analytics", icon: "📊", color: "bg-yellow-50 dark:bg-yellow-900/20" },
+    { name: "Google Merchants", icon: "🏪", color: "bg-red-50 dark:bg-red-900/20" },
     { name: "GitHub", icon: "🐙", color: "bg-gray-50 dark:bg-gray-900/20" },
     { name: "Shopify", icon: "🛍️", color: "bg-green-50 dark:bg-green-900/20" },
     { name: "Vercel", icon: "⚡", color: "bg-black/5 dark:bg-white/5" },
     { name: "Supabase", icon: "🗄️", color: "bg-emerald-50 dark:bg-emerald-900/20" },
     { name: "Stripe", icon: "💳", color: "bg-purple-50 dark:bg-purple-900/20" },
+    { name: "Groq", icon: "⚙️", color: "bg-cyan-50 dark:bg-cyan-900/20" },
+    { name: "HuggingFace", icon: "🤗", color: "bg-yellow-50 dark:bg-yellow-900/20" },
   ];
 
   return (
@@ -26,7 +31,7 @@ const Tools = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {tools.map((tool, i) => (
             <div
               key={i}
