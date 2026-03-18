@@ -10,7 +10,6 @@ import Hero from "@/components/Hero";
 import Process from "@/components/Process";
 import SaasExplained from "@/components/SaasExplained";
 import Team from "@/components/Team";
-import Testimonials from "@/components/Testimonials";
 import Tools from "@/components/Tools";
 import { getAllPosts } from "@/utils/markdown";
 import { Metadata } from "next";
@@ -41,9 +40,6 @@ export default function Home() {
       
       {/* How We Work - Transparency & Process */}
       <Process />
-      
-      {/* Social Proof - Build Trust */}
-      <Testimonials />
       
       {/* FAQ - Remove Objections */}
       <Faq />

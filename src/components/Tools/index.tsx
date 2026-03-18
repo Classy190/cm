@@ -4,6 +4,7 @@ const Tools = () => {
     { name: "Bing Webmaster", icon: "🔎", color: "bg-blue-50 dark:bg-blue-900/20" },
     { name: "Google Analytics", icon: "📊", color: "bg-yellow-50 dark:bg-yellow-900/20" },
     { name: "Google Merchants", icon: "🏪", color: "bg-red-50 dark:bg-red-900/20" },
+    { name: "Firebase", icon: "🔥", color: "bg-orange-50 dark:bg-orange-900/20" },
     { name: "GitHub", icon: "🐙", color: "bg-gray-50 dark:bg-gray-900/20" },
     { name: "Shopify", icon: "🛍️", color: "bg-green-50 dark:bg-green-900/20" },
     { name: "Vercel", icon: "⚡", color: "bg-black/5 dark:bg-white/5" },

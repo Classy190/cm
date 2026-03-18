@@ -1,12 +1,10 @@
-Play Next.js is a free and **Open-source SaaS starter kit and boilerplate, designed and built for SaaS startups**, apps, businesses, and more. With its premium design and essential UI components and pages, it provides everything you need to kickstart a feature-rich SaaS website.
+# Classy Marketing - SaaS & Performance-Webseiten
 
-[![Play Next.js](https://github.com/NextJSTemplates/play-nextjs/blob/main/nextjs-play.png)](https://play.nextjstemplates.com)
+**Classy Marketing** ist eine spezialisierte Agentur für maßgeschneiderte SaaS-Lösungen, Performance-Landingpages und Online-Shops. Wir fokussieren auf höhere Lead- und Umsatzraten durch KI-Automation, SEO und moderne Technologien.
 
-## Free SaaS Boilerplate and Starter Kit for Next.js 🚀
+## Über Classy Marketing
 
-Play Next.js SaaS Boilerplate and Starter Kit is a free, open-source solution ideal for startups, SaaS companies, and more. It offers essential UI components, authentication and database integration, and Stripe integration. Its superior design and functionality make it a go-to choice for launching a feature-rich SaaS website efficiently.
-
-### [🚀 View Live Demo](https://play.nextjstemplates.com/)
+Wir konzipieren und entwickeln maßgeschneiderte SaaS-Lösungen, Landingpages und Online-Shops – spezialisiert auf Shopify, lokale OnPage-Systeme und KI-Automation. 100% fokussiert auf höhere Lead- und Umsatzraten.
 
 ### [🔌 Documentation](https://nextjstemplates.com/docs)
 

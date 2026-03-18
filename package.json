@@ -1,6 +1,6 @@
 {
-  "name": "play-nextjs",
-  "version": "2.2.2",
+  "name": "classy-marketing",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
