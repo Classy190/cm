@@ -61,7 +61,6 @@ export default function AdminHome() {
               Abmelden
             </button>
           </div>
-          </div>
         </div>
       </section>
 
