@@ -70,132 +70,143 @@ const Contact = () => {
                     ⏱️ Wir arbeiten mit Langzeitpartnerschaften (min. 3-6 Monate)
                   </p>
                   <p className="mt-1 text-xs text-body-color dark:text-dark-6">
-                    So garantieren wir echte, nachhaltige Ergebnisse. Kontaktieren Sie uns gerne!</p>
-                </div>
-                <form onSubmit={handleSubmit}>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="fullName"
-                    className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                  >
-                    Vollständiger Name*
-                  </label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    placeholder="Max Mustermann"
-                    required
-                    className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                  />
-                </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="email"
-                    className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                  >
-                    E-Mail*
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="beispiel@example.de"
-                    required
-                    className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                  />
-                </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="projectType"
-                    className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                  >
-                    Art des Projekts*
-                  </label>
-                  <select
-                    name="projectType"
-                    required
-                    className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                  >
-                    <option value="">-- Bitte wählen --</option>
-                    <option value="Landingpage">Landingpage</option>
-                    <option value="Unternehmenswebseite">Unternehmenswebseite</option>
-                    <option value="Online-Shop">Online-Shop</option>
-                    <option value="SEO Optimierung">SEO Optimierung</option>
-                    <option value="Sonstiges">Sonstiges</option>
-                  </select>
-                </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="timeline"
-                    className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                  >
-                    Gewünschter Zeitrahmen*
-                  </label>
-                  <select
-                    name="timeline"
-                    required
-                    className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                  >
-                    <option value="">-- Bitte wählen --</option>
-                    <option value="Sofort/Dringend">Sofort/Dringend</option>
-                    <option value="In den nächsten 2-4 Wochen">In den nächsten 2-4 Wochen</option>
-                    <option value="In 1-3 Monaten">In 1-3 Monaten</option>
-                    <option value="Noch nicht definiert">Noch nicht definiert</option>
-                  </select>
+                    So garantieren wir echte, nachhaltige Ergebnisse. Kontaktieren Sie uns gerne!
+                  </p>
                 </div>
 
-                <div className="mb-[30px]">
-                  <label
-                    htmlFor="message"
-                    className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                  >
-                    Nachricht*
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={1}
-                    placeholder="Beschreiben Sie Ihr Projekt"
-                    required
-                    className="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                  ></textarea>
-                </div>
-                <div className="mb-6">
-                  <label className="flex items-center text-sm text-body-color dark:text-dark-6">
-                    <input
-                      type="checkbox"
-                      name="privacy"
-                      required
-                      className="mr-3"
-                    />
-                    Ich stimme den{" "}
-                    <a
-                      href="/datenschutz"
-                      target="_blank"
-                      className="ml-1 text-primary hover:text-primary/80"
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-[22px]">
+                    <label
+                      htmlFor="fullName"
+                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
                     >
-                      Datenschutzbestimmungen
-                    </a>{" "}
-                    zu*
-                  </label>
-                </div>
-                {submitMessage && (
-                  <div className={`mb-4 p-3 rounded-md text-sm ${
-                    submitMessage.startsWith("✅")
-                      ? "bg-green-50 text-green-800 dark:bg-green-900/20 dark:text-green-400"
-                      : "bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-400"
-                  }`}>
-                    {submitMessage}
+                      Vollständiger Name*
+                    </label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      placeholder="Max Mustermann"
+                      required
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                    />
                   </div>
-                )}
-                <div className="mb-0">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? "Wird gesendet..." : "Projekt anfragen"}
-                  </button>
-                </div>
-              </form>
+
+                  <div className="mb-[22px]">
+                    <label
+                      htmlFor="email"
+                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                    >
+                      E-Mail*
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="beispiel@example.de"
+                      required
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                    />
+                  </div>
+
+                  <div className="mb-[22px]">
+                    <label
+                      htmlFor="projectType"
+                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                    >
+                      Art des Projekts*
+                    </label>
+                    <select
+                      name="projectType"
+                      required
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                    >
+                      <option value="">-- Bitte wählen --</option>
+                      <option value="Landingpage">Landingpage</option>
+                      <option value="Unternehmenswebseite">Unternehmenswebseite</option>
+                      <option value="Online-Shop">Online-Shop</option>
+                      <option value="SEO Optimierung">SEO Optimierung</option>
+                      <option value="Sonstiges">Sonstiges</option>
+                    </select>
+                  </div>
+
+                  <div className="mb-[22px]">
+                    <label
+                      htmlFor="timeline"
+                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                    >
+                      Gewünschter Zeitrahmen*
+                    </label>
+                    <select
+                      name="timeline"
+                      required
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                    >
+                      <option value="">-- Bitte wählen --</option>
+                      <option value="Sofort/Dringend">Sofort/Dringend</option>
+                      <option value="In den nächsten 2-4 Wochen">In den nächsten 2-4 Wochen</option>
+                      <option value="In 1-3 Monaten">In 1-3 Monaten</option>
+                      <option value="Noch nicht definiert">Noch nicht definiert</option>
+                    </select>
+                  </div>
+
+                  <div className="mb-[30px]">
+                    <label
+                      htmlFor="message"
+                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                    >
+                      Nachricht*
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={1}
+                      placeholder="Beschreiben Sie Ihr Projekt"
+                      required
+                      className="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                    ></textarea>
+                  </div>
+
+                  <div className="mb-6">
+                    <label className="flex items-center text-sm text-body-color dark:text-dark-6">
+                      <input
+                        type="checkbox"
+                        name="privacy"
+                        required
+                        className="mr-3"
+                      />
+                      Ich stimme den{" "}
+                      <a
+                        href="/datenschutz"
+                        target="_blank"
+                        className="ml-1 text-primary hover:text-primary/80"
+                      >
+                        Datenschutzbestimmungen
+                      </a>{" "}
+                      zu*
+                    </label>
+                  </div>
+
+                  {submitMessage && (
+                    <div
+                      className={`mb-4 rounded-md p-3 text-sm ${
+                        submitMessage.startsWith("✅")
+                          ? "bg-green-50 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+                          : "bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-400"
+                      }`}
+                    >
+                      {submitMessage}
+                    </div>
+                  )}
+
+                  <div className="mb-0">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      {isSubmitting ? "Wird gesendet..." : "Projekt anfragen"}
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
