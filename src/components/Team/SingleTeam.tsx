@@ -1,3 +1,6 @@
+import { TeamType } from "@/types/team";
+import Link from "next/link";
+
 const generateInitials = (name: string) => {
   return name
     .split(" ")
