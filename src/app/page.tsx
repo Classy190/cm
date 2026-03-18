@@ -7,7 +7,6 @@ import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import SaasExplained from "@/components/SaasExplained";
 import Team from "@/components/Team";
@@ -41,9 +40,6 @@ export default function Home() {
       
       {/* Social Proof - Build Trust */}
       <Testimonials />
-      
-      {/* Transparent Pricing */}
-      <Pricing />
       
       {/* FAQ - Remove Objections */}
       <Faq />

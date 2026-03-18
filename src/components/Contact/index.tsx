@@ -17,7 +17,6 @@ const Contact = () => {
       email: formData.get("email"),
       projectType: formData.get("projectType"),
       timeline: formData.get("timeline"),
-      investment: formData.get("investment"),
       message: formData.get("message"),
     };
 
@@ -171,25 +170,7 @@ const Contact = () => {
                     <option value="Noch nicht definiert">Noch nicht definiert</option>
                   </select>
                 </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="investment"
-                    className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                  >
-                    Investitionsrahmen*
-                  </label>
-                  <select
-                    name="investment"
-                    required
-                    className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                  >
-                    <option value="">-- Bitte wählen --</option>
-                    <option value="3.999€ - 6.900€">3.999€ - 6.900€</option>
-                    <option value="10.000€ - 15.000€">10.000€ - 15.000€</option>
-                    <option value="24.000€ - 29.000€">24.000€ - 29.000€</option>
-                    <option value="60.000€+">60.000€+</option>
-                  </select>
-                </div>
+
                 <div className="mb-[30px]">
                   <label
                     htmlFor="message"

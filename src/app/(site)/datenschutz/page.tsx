@@ -17,7 +17,7 @@ export default function Datenschutz() {
               Datenschutzerklärung
             </h1>
             <p className="text-white/80">
-              Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO
+              Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO und BDSG
             </p>
           </div>
         </div>
@@ -37,238 +37,324 @@ export default function Datenschutz() {
                   Allgemeine Hinweise
                 </h3>
                 <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
-                  personenbezogenen Daten geschieht, wenn Sie diese Website besuchen. Personenbezogene
-                  Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
-                  Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem
-                  Text aufgelisteten Datenschutzerklärung.
+                  Die folgenden Hinweise geben einen Überblick darüber, wie wir Ihre personenbezogenen Daten verarbeiten. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Wir verarbeiten Ihre Daten nur mit Ihrer Einwilligung oder wenn eine andere Rechtsgrundlage vorliegt und treffen umfassende Sicherheitsmaßnahmen zu ihrem Schutz.
                 </p>
               </div>
 
-              {/* 2. Erfassung von Daten */}
+              {/* 2. Verantwortlicher */}
               <div>
                 <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
-                  2. Erfassung von Daten auf unserer Website
+                  2. Verantwortlicher
                 </h2>
 
-                <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                  Wer ist verantwortlich für die Datenerfassung?
-                </h3>
-                <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber.
-                </p>
-                <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  <strong>Verantwortlicher:</strong><br />
-                  Özgür Atik<br />
-                  Classy Marketing<br />
-                  Hauptstrasse 8<br />
-                  69190 Walldorf<br />
-                  E-Mail: info@classymarketing.de
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Die verantwortliche Stelle für die Datenverarbeitung ist:
                 </p>
 
-                <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                  Wie erfassen wir Ihre Daten?
-                </h3>
-                <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei
-                  handelt es sich z. B. um Daten, die Sie in ein Kontaktformular eingeben. Andere Daten
-                  werden durch Automatismen beim Besuch der Website erfasst, z. B. Zugriffsdaten.
-                </p>
-
-                <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                  Wofür nutzen wir Ihre Daten?
-                </h3>
-                <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu
-                  gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
-                </p>
-
-                <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                  Welche Rechte haben Sie bezüglich Ihrer Daten?
-                </h3>
-                <p className="text-base text-body-color dark:text-dark-6">
-                  Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und
-                  Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein
-                  Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu
-                  weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.
-                </p>
-              </div>
-
-              {/* 3. Analyse-Tools und Werbepartner */}
-              <div>
-                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
-                  3. Analyse-Tools und Werbepartner
-                </h2>
-
-                <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                  Google Analytics
-                </h3>
-                <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Diese Website nutzt die Funktionen von Google Analytics zur Analyse des Besucherverhaltens.
-                  Der Dienstanbieter ist die Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA
-                  94043, USA. Google verarbeitet die Daten zur Evaluation unserer Website und erstellt
-                  Reports über Websiteaktivitäten. Google kann diese Daten an Dritte übertragen, falls
-                  gesetzlich vorgegeben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten.
-                </p>
-
-                <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                  Google Ads / Google Conversion Tracking
-                </h3>
-                <p className="text-base text-body-color dark:text-dark-6">
-                  Wir nutzen das Google Conversion Tracking. Wenn Sie auf eine von Google geschaltete Anzeige
-                  klicken, wird ein Cookie für das Conversion Tracking gesetzt. Diese Cookies verfallen nach
-                  30 Tagen und enthalten keine personenbezogenen Daten.
-                </p>
-              </div>
-
-              {/* 4. Kontaktformular */}
-              <div>
-                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
-                  4. Kontaktformular
-                </h2>
-
-                <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Wenn Sie uns via Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben inklusive
-                  der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den
-                  Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht an Dritte weiter.
-                </p>
-
-                <div className="rounded-lg border border-primary/20 bg-white/50 p-4 dark:bg-dark/50">
-                  <p className="text-sm text-body-color dark:text-dark-6">
-                    <strong>Rechtsgrundlage:</strong> Die Verarbeitung dieser Daten erfolgt auf Basis von
-                    Art. 6 Abs. 1 lit. f EU-DSGVO (berechtigtes Interesse).
+                <div className="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+                  <p className="text-base text-body-color dark:text-dark-6">
+                    <strong>Classy Marketing</strong><br />
+                    Inhaber: Özgür Atik<br />
+                    Hauptstrasse 8<br />
+                    69190 Walldorf, Deutschland<br />
+                    <br />
+                    <strong>Kontakt:</strong><br />
+                    E-Mail: <a href="mailto:info@classymarketing.de" className="text-primary hover:text-primary/80">info@classymarketing.de</a>
                   </p>
                 </div>
               </div>
 
-              {/* 5. Cookies */}
+              {/* 3. Erfassung und Verarbeitung */}
               <div>
                 <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
-                  5. Cookies
+                  3. Erfassung und Verarbeitung von Daten
                 </h2>
-
-                <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Unsere Internetseiten verwenden Cookies. Cookies sind Textdateien, welche über einen
-                  Internetbrowser auf einem Computersystem abgelegt und gespeichert werden. Sie ermöglichen
-                  es uns, die Nutzung unserer Website zu analysieren und unseren Service zu verbessern.
-                </p>
 
                 <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                  Berechtigte Interessen
+                  Welche Daten erfassen wir?
                 </h3>
-                <p className="text-base text-body-color dark:text-dark-6">
-                  Die meisten Browser akzeptieren Cookies automatisch. Sie können Ihren Browser jedoch so
-                  konfigurieren, dass Sie über das Setzen von Cookies informiert werden oder Cookies
-                  abgelehnt werden können.
-                </p>
-              </div>
-
-              {/* 6. Server Log Files */}
-              <div>
-                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
-                  6. Server Log Files
-                </h2>
-
                 <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Der Provider dieser Website erhebt und speichert automatisch Informationen in so genannten
-                  Server-Log Files, die Ihr Browser automatisch übermittelt. Dies sind:
+                  Wir erfassen nur personenbezogene Daten, die Sie uns freiwillig mitteilen oder die technisch notwendig sind. Dies sind:
                 </p>
 
                 <ul className="mb-6 space-y-2 text-base text-body-color dark:text-dark-6">
-                  <li>• Browsertyp und Browserversion</li>
-                  <li>• Verwendetes Betriebssystem</li>
-                  <li>• Referrer URL</li>
-                  <li>• Hostname des zugreifenden Rechners</li>
-                  <li>• Uhrzeit der Serveranfrage</li>
-                  <li>• IP-Adresse</li>
+                  <li>• <strong>Kontaktformular:</strong> Name, E-Mail-Adresse, Projektbeschreibung</li>
+                  <li>• <strong>Server-Logdateien:</strong> IP-Adresse, Browser-Typ, Betriebssystem, Zugriffszeitpunkt (automatisch erfasst)</li>
+                  <li>• <strong>Cookies:</strong> Gerätekennungen für Funktionalität und Analyse</li>
                 </ul>
 
+                <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
+                  Wofür verwenden wir Ihre Daten?
+                </h3>
                 <p className="text-base text-body-color dark:text-dark-6">
-                  Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die
-                  Erfassung dieser Daten erfolgt automatisch und ist für den Betrieb der Website erforderlich.
+                  Ihre Daten verwenden wir ausschließlich für:
                 </p>
+                <ul className="mb-6 space-y-2 text-base text-body-color dark:text-dark-6">
+                  <li>• Bearbeitung Ihrer Anfragen und Kontaktaufnahme</li>
+                  <li>• Bereitstellung unserer Website und Dienste</li>
+                  <li>• Sicherheit und Missbrauchserkennung</li>
+                  <li>• Analyse von Website-Nutzungstrends</li>
+                </ul>
               </div>
 
-              {/* 7. Ihre Rechte */}
+              {/* 4. Rechtsgrundlagen */}
               <div>
                 <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
-                  7. Ihre Datenschutzrechte
+                  4. Rechtsgrundlagen der Datenverarbeitung
+                </h2>
+
+                <div className="space-y-4 text-base text-body-color dark:text-dark-6">
+                  <div>
+                    <strong>Art. 6 Abs. 1 a) DSGVO (Einwilligung):</strong>
+                    <p className="mt-2">Liegt vor, wenn Sie uns durch Kontaktformular Daten mitteilen. Sie können diese jederzeit widerrufen.</p>
+                  </div>
+                  <div>
+                    <strong>Art. 6 Abs. 1 f) DSGVO (Berechtigtes Interesse):</strong>
+                    <p className="mt-2">Für Website-Sicherheit, Funktionalität und Missbrauchserkennung. Ihre Interessen werden dabei berücksichtigt.</p>
+                  </div>
+                  <div>
+                    <strong>Art. 6 Abs. 1 b) DSGVO (Vertragserfüllung):</strong>
+                    <p className="mt-2">Falls Sie mit uns eine Vereinbarung treffen, für deren Erfüllung Daten notwendig sind.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 5. Kontaktformular */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  5. Kontaktformular
                 </h2>
 
                 <p className="mb-6 text-base text-body-color dark:text-dark-6">
-                  Nach der Datenschutz-Grundverordnung (DSGVO) haben Sie folgende Rechte:
+                  Wenn Sie unser Kontaktformular ausfüllen, erklären Sie sich mit der Verarbeitung Ihrer Daten zur Bearbeitung Ihrer Anfrage einverstanden. Wir speichern diese Daten nur für die notwendige Dauer und geben sie nicht an Dritte weiter. Die Angaben mit einem * sind erforderlich, damit wir Sie kontaktieren können.
                 </p>
 
-                <ul className="mb-6 space-y-4 text-base text-body-color dark:text-dark-6">
-                  <li>
-                    <strong>Recht auf Auskunft (Art. 15 DSGVO):</strong> Sie können jederzeit eine Bestätigung
-                    darüber anfordern, ob wir Ihre Daten verarbeiten, und ggf. Auskunft über diese Daten erhalten.
-                  </li>
-                  <li>
-                    <strong>Recht auf Berichtigung (Art. 16 DSGVO):</strong> Sie können die Berichtigung
-                    unrichtiger oder unvollständiger Daten verlangen.
-                  </li>
-                  <li>
-                    <strong>Recht auf Löschung (Art. 17 DSGVO):</strong> Sie können die Löschung Ihrer Daten
-                    fordern.
-                  </li>
-                  <li>
-                    <strong>Recht auf Einschränkung (Art. 18 DSGVO):</strong> Sie können die Einschränkung der
-                    Verarbeitung Ihrer Daten fordern.
-                  </li>
-                  <li>
-                    <strong>Recht auf Datenportabilität (Art. 20 DSGVO):</strong> Sie können Ihre Daten in einem
-                    gängigen Format erhalten und an einen anderen Verantwortlichen übertragen.
-                  </li>
-                  <li>
-                    <strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Sie können gegen die Verarbeitung Ihrer Daten
-                    Widerspruch einlegen.
-                  </li>
-                </ul>
+                <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-4 dark:bg-red-900/20">
+                  <p className="text-sm text-red-800 dark:text-red-400">
+                    <strong>⚠️ Sicherheit:</strong> Nutzen Sie dieses Formular nicht für vertrauliche oder sensible Informationen. Daten werden unverschlüsselt übertragen. Für sensitive Inhalte kontaktieren Sie uns bitte direkt per E-Mail mit verschlüsselter Kommunikation.
+                  </p>
+                </div>
+              </div>
 
-                <p className="text-base text-body-color dark:text-dark-6">
-                  Um diese Rechte geltend zu machen, kontaktieren Sie uns bitte unter info@classymarketing.de
+              {/* 6. Cookies und Tracking */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  6. Cookies und Tracking-Technologien
+                </h2>
+
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Unsere Website verwendet Cookies – kleine Textdateien, die auf Ihrem Gerät gespeichert werden. Dies umfasst:
+                </p>
+
+                <div className="space-y-4">
+                  <div className="rounded bg-gray-50 p-4 dark:bg-dark-2">
+                    <strong className="text-body-color dark:text-dark-6">Erforderliche Cookies:</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Notwendig für Website-Funktionalität (z.B. Datenschutzerklärung akzeptiert, Theme-Einstellungen)</p>
+                  </div>
+                  <div className="rounded bg-gray-50 p-4 dark:bg-dark-2">
+                    <strong className="text-body-color dark:text-dark-6">Analyse-Cookies:</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Google Analytics zur Analyse von Besucherverhalten. Setzen Sie Google Analytics ab, falls gewünscht.</p>
+                  </div>
+                  <div className="rounded bg-gray-50 p-4 dark:bg-dark-2">
+                    <strong className="text-body-color dark:text-dark-6">Marketing-Cookies:</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Google Ads Conversion Tracking (optional). Verfallen nach 30 Tagen.</p>
+                  </div>
+                </div>
+
+                <p className="mt-6 text-base text-body-color dark:text-dark-6">
+                  Sie können Cookies in Ihren Browser-Einstellungen verwalten und ablehnen.
                 </p>
               </div>
 
-              {/* 8. Änderungen dieser Datenschutzerklärung */}
+              {/* 7. Externe Dienste */}
               <div>
                 <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
-                  8. Änderungen dieser Datenschutzerklärung
+                  7. Externe Dienstanbieter
+                </h2>
+
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="mb-2 text-lg font-semibold text-dark dark:text-white">
+                      Google Analytics
+                    </h3>
+                    <p className="text-base text-body-color dark:text-dark-6">
+                      Zur Analyse Ihres Besucherverhaltens nutzen wir Google Analytics von Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Daten können an Dritte übertragen werden. <a href="https://support.google.com/analytics/answer/6004245" className="text-primary hover:text-primary/80" target="_blank" rel="noopener noreferrer">Mehr erfahren</a>
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 text-lg font-semibold text-dark dark:text-white">
+                      Google Ads / Conversion Tracking
+                    </h3>
+                    <p className="text-base text-body-color dark:text-dark-6">
+                      Wir nutzen Google Conversion Tracking für Performance-Marketing. Cookies enthalten keine personenbezogenen Daten.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 8. Server-Logfiles */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  8. Server-Logfiles
+                </h2>
+
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Unser Hosting-Provider erhebt automatisch Informationen in Server-Logfiles:
+                </p>
+
+                <ul className="mb-6 space-y-2 text-base text-body-color dark:text-dark-6">
+                  <li>• IP-Adresse</li>
+                  <li>• Browsertyp und -version</li>
+                  <li>• Betriebssystem</li>
+                  <li>• Referrer URL</li>
+                  <li>• Zugriffszeitpunkt und -dauer</li>
+                </ul>
+
+                <p className="text-base text-body-color dark:text-dark-6">
+                  Diese Daten werden automatisch erfasst und sind technisch notwendig. Eine Zusammenführung mit anderen Datenquellen erfolgt nicht.
+                </p>
+              </div>
+
+              {/* 9. Ihre Datenschutzrechte */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  9. Ihre Datenschutzrechte nach DSGVO
+                </h2>
+
+                <p className="mb-6 text-base text-body-color dark:text-dark-6">
+                  Sie haben folgende Rechte gegenüber uns:
+                </p>
+
+                <div className="space-y-4">
+                  <div className="border-l-4 border-primary pl-4">
+                    <strong className="text-dark dark:text-white">Recht auf Auskunft (Art. 15 DSGVO)</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Sie können jederzeit Auskunft darüber verlangen, welche Daten wir über Sie speichern.</p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <strong className="text-dark dark:text-white">Recht auf Berichtigung (Art. 16 DSGVO)</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Sie können Korrektur unvollständiger oder unrichtiger Daten verlangen.</p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <strong className="text-dark dark:text-white">Recht auf Löschung (Art. 17 DSGVO)</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Sie können die Löschung Ihrer Daten verlangen, soweit gesetzlich zulässig.</p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <strong className="text-dark dark:text-white">Recht auf Einschränkung (Art. 18 DSGVO)</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Sie können einschränken, wie wir Ihre Daten verarbeiten.</p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <strong className="text-dark dark:text-white">Recht auf Datenportabilität (Art. 20 DSGVO)</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Sie können Ihre Daten in strukturiertem Format erhalten.</p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <strong className="text-dark dark:text-white">Widerspruchsrecht (Art. 21 DSGVO)</strong>
+                    <p className="mt-2 text-sm text-body-color dark:text-dark-6">Sie können gegen bestimmte Verarbeitungen Widerspruch einlegen.</p>
+                  </div>
+                </div>
+
+                <div className="mt-6 rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+                  <p className="text-sm text-blue-800 dark:text-blue-400">
+                    Um Ihre Rechte geltend zu machen, kontaktieren Sie uns unter <a href="mailto:info@classymarketing.de" className="font-semibold hover:underline">info@classymarketing.de</a> oder nutzen Sie unsere Kontaktdaten oben.
+                  </p>
+                </div>
+              </div>
+
+              {/* 10. Beschwerde */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  10. Beschwerderecht bei Aufsichtsbehörden
+                </h2>
+
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Im Falle von Datenschutzverstößen können Sie sich beschweren bei:
+                </p>
+
+                <div className="rounded-lg bg-gray-50 p-4 dark:bg-dark-2">
+                  <p className="text-base text-body-color dark:text-dark-6">
+                    <strong>Hessischer Datenschutzbeaufragter</strong><br />
+                    (Baden-Württemberg in dieser Region zuständig)<br />
+                    www.dat
+aschutzzentrum.de<br />
+                  </p>
+                </div>
+              </div>
+
+              {/* 11. Datensicherheit */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  11. Datensicherheit
+                </h2>
+
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Wir treffen technische und organisatorische Maßnahmen zum Schutz Ihrer Daten:
+                </p>
+
+                <ul className="mb-6 space-y-2 text-base text-body-color dark:text-dark-6">
+                  <li>• HTTPS-Verschlüsselung für sichere Datenübertragung</li>
+                  <li>• Sichere Passwort-Verwaltung und Zugriffskontrolle</li>
+                  <li>• Regelmäßige Sicherheitsupdates</li>
+                  <li>• Beschränkter Zugriff auf Kundendaten</li>
+                </ul>
+
+                <p className="rounded-lg bg-amber-50 p-4 text-sm text-amber-800 dark:bg-amber-900/20 dark:text-amber-400">
+                  <strong>Hinweis:</strong> Trotz aller Sicherheitsmaßnahmen kann keine 100%ige Sicherheit im Internet garantiert werden. Nutzen Sie sensible Kommunikation nur über sichere Kanäle.
+                </p>
+              </div>
+
+              {/* 12. Datenaufbewahrung */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  12. Aufbewahrungsdauer von Daten
                 </h2>
 
                 <p className="text-base text-body-color dark:text-dark-6">
-                  Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, um sie den wechselnden
-                  Anforderungen gerecht zu werden oder andere Verfahrensmethoden oder -dienste zu reflektieren.
-                  Die aktuelle Fassung ist auf dieser Seite abrufbar. Bitte überprüfen Sie diese Seite
-                  regelmäßig, um sich über Änderungen zu informieren.
+                  Ihre personenbezogenen Daten speichern wir nur so lange wie notwendig:
+                </p>
+
+                <ul className="mt-4 space-y-2 text-base text-body-color dark:text-dark-6">
+                  <li>• <strong>Kontaktanfragen:</strong> 30 Tage nach Bearbeitung (längere Aufbewahrung mit Ihrer Einwilligung für Geschäftsbeziehungen)</li>
+                  <li>• <strong>Server-Logfiles:</strong> Maximum 30 Tage</li>
+                  <li>• <strong>Cookies:</strong> Wie in den Cookie-Einstellungen described</li>
+                </ul>
+              </div>
+
+              {/* 13. Änderungen */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  13. Änderungen dieser Datenschutzerklärung
+                </h2>
+
+                <p className="text-base text-body-color dark:text-dark-6">
+                  Wir können diese Datenschutzerklärung jederzeit aktualisieren. Die aktuelle Fassung ist auf dieser Seite verfügbar. Wir werden Sie bei wesentlichen Änderungen benachrichtigen.
                 </p>
               </div>
 
               {/* Kontakt */}
               <div className="rounded-lg border-l-4 border-primary bg-primary/5 p-6 dark:bg-primary/10">
-                <h3 className="mb-3 text-lg font-semibold text-dark dark:text-white">
-                  Fragen zum Datenschutz?
+                <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
+                  ❓ Fragen zu dieser Datenschutzerklärung?
                 </h3>
                 <p className="mb-3 text-sm text-body-color dark:text-dark-6">
-                  Wenn Sie Fragen zu dieser Datenschutzerklärung oder zu unseren Datenschutzpraktiken haben,
-                  kontaktieren Sie uns bitte:
+                  Kontaktieren Sie uns jederzeit bei Fragen oder Bedenken zum Datenschutz:
                 </p>
                 <p className="text-sm text-body-color dark:text-dark-6">
-                  <strong>E-Mail:</strong>{" "}
+                  <strong>📧 E-Mail:</strong>{" "}
                   <a
                     href="mailto:info@classymarketing.de"
-                    className="text-primary hover:text-primary/80"
+                    className="text-primary hover:text-primary/80 font-semibold"
                   >
                     info@classymarketing.de
-                  </a>
+                  </a><br />
+                  <strong>🏢 Adresse:</strong> Hauptstrasse 8, 69190 Walldorf
                 </p>
               </div>
 
               {/* Zuletzt aktualisiert */}
               <div className="border-t border-primary/20 pt-6">
                 <p className="text-xs text-body-color dark:text-dark-6">
-                  <strong>Zuletzt aktualisiert:</strong>{" "}
+                  <strong>Version:</strong> 2025 <br/>
+                  <strong>Letztes Update:</strong>{" "}
                   {new Date().toLocaleDateString("de-DE", {
                     year: "numeric",
                     month: "long",
@@ -276,86 +362,3 @@ export default function Datenschutz() {
                   })}
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
-              </div>
-
-              <div className="mb-8">
-                <h2 className="mb-4 text-xl font-bold text-dark dark:text-white">
-                  3. Kontaktformular
-                </h2>
-                <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung der in das Kontaktformular eingegebenen Daten erfolgt ausschließlich auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 a) DSGVO.
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <h2 className="mb-4 text-xl font-bold text-dark dark:text-white">
-                  4. Server Log-Dateien
-                </h2>
-                <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse.
-                </p>
-                <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 f) DSGVO (berechtigte Interessen).
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <h2 className="mb-4 text-xl font-bold text-dark dark:text-white">
-                  5. Ihre Rechte
-                </h2>
-                <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Sie haben das Recht:
-                </p>
-                <ul className="mb-4 list-disc space-y-2 pl-6 text-base text-body-color dark:text-dark-6">
-                  <li>gemäß Art. 15 DSGVO Auskunft über Ihre bei uns verarbeiteten personenbezogenen Daten zu verlangen;</li>
-                  <li>gemäß Art. 16 DSGVO unverzüglich die Berichtigung unrichtiger personenbezogener Daten zu verlangen;</li>
-                  <li>gemäß Art. 17 DSGVO die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen;</li>
-                  <li>gemäß Art. 18 DSGVO die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen;</li>
-                  <li>gemäß Art. 20 DSGVO Ihre personenbezogenen Daten, die Sie uns bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.</li>
-                </ul>
-              </div>
-
-              <div className="mb-8">
-                <h2 className="mb-4 text-xl font-bold text-dark dark:text-white">
-                  6. Widerspruchsrecht
-                </h2>
-                <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Sie haben das Recht, gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten einzulegen, soweit diese auf Grundlage von Art. 6 Abs. 1 e) DSGVO (Erfüllung einer im öffentlichen Interesse liegenden Aufgabe/ausübung öffentlicher Gewalt) oder Art. 6 Abs. 1 f) DSGVO (berechtigte Interessen) erfolgt.
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <h2 className="mb-4 text-xl font-bold text-dark dark:text-white">
-                  7. Beschwerde bei der zuständigen Aufsichtsbehörde
-                </h2>
-                <p className="text-base text-body-color dark:text-dark-6">
-                  Im Falle datenschutzrechtlicher Verstöße steht dem Betroffenen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde in datenschutzrechtlichen Fragen ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem sich der Sitz des Unternehmens befindet.
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <h2 className="mb-4 text-xl font-bold text-dark dark:text-white">
-                  8. Kontakt zum Datenschutzbeauftragten
-                </h2>
-                <p className="text-base text-body-color dark:text-dark-6">
-                  Bei Fragen zum Datenschutz können Sie uns kontaktieren unter:<br />
-                  <strong>E-Mail:</strong>{" "}
-                  <a href="mailto:info@classymarketing.de" className="text-primary hover:text-primary/80">
-                    info@classymarketing.de
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
