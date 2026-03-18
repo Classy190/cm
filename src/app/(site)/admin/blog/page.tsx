@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 interface Blog {
   id: string;
@@ -15,20 +14,29 @@ interface Blog {
 }
 
 export default function AdminDashboard() {
-  const { data: session, status } = useSession();
+  const router = useRouter();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    if (status === "unauthenticated") {
-      redirect("/signin");
-    }
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("/api/admin/check");
+        if (!response.ok) {
+          router.push("/admin/login");
+          return;
+        }
+        fetchBlogs();
+      } catch (error) {
+        router.push("/admin/login");
+      } finally {
+        setIsChecking(false);
+      }
+    };
 
-    if (status === "authenticated" && session?.user) {
-      // Check if user is admin
-      fetchBlogs();
-    }
-  }, [status, session]);
+    checkAuth();
+  }, [router]);
 
   const fetchBlogs = async () => {
     try {
@@ -62,16 +70,12 @@ export default function AdminDashboard() {
     }
   };
 
-  if (status === "loading") {
+  if (isChecking) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p>Lädt...</p>
       </div>
     );
-  }
-
-  if (status === "unauthenticated") {
-    return null;
   }
 
   return (

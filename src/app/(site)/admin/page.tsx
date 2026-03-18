@@ -1,13 +1,35 @@
 "use client";
 
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function AdminHome() {
-  const { data: session, status } = useSession();
+  const router = useRouter();
+  const [isChecking, setIsChecking] = useState(true);
+  const [userEmail, setUserEmail] = useState("");
 
-  if (status === "loading") {
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("/api/admin/check");
+        if (!response.ok) {
+          router.push("/admin/login");
+          return;
+        }
+        const data = await response.json();
+        setUserEmail(data.email);
+      } catch (error) {
+        router.push("/admin/login");
+      } finally {
+        setIsChecking(false);
+      }
+    };
+
+    checkAuth();
+  }, [router]);
+
+  if (isChecking) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p>Lädt...</p>
@@ -15,8 +37,9 @@ export default function AdminHome() {
     );
   }
 
-  if (status === "unauthenticated") {
-    redirect("/admin/login");
+  const handleLogout = async () => {
+    await fetch("/api/admin/logout", { method: "POST" });
+    router.push("/admin/login");
   }
 
   const dashboardItems = [
@@ -52,10 +75,10 @@ export default function AdminHome() {
               <h1 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
                 Admin Dashboard
               </h1>
-              <p className="text-white/70">Willkommen, {session?.user?.name || session?.user?.email}!</p>
+              <p className="text-white/70">Willkommen, {userEmail}!</p>
             </div>
             <button
-              onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
+              onClick={handleLogout}
               className="px-6 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg font-medium transition mt-6"
             >
               Abmelden

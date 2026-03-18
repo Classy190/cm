@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface Message {
   id: string;
@@ -15,19 +14,29 @@ interface Message {
 }
 
 export default function AdminMessages() {
-  const { status } = useSession();
+  const router = useRouter();
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    if (status === "unauthenticated") {
-      redirect("/admin/login");
-    }
-  }, [status]);
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("/api/admin/check");
+        if (!response.ok) {
+          router.push("/admin/login");
+          return;
+        }
+        fetchMessages();
+      } catch (error) {
+        router.push("/admin/login");
+      } finally {
+        setIsChecking(false);
+      }
+    };
 
-  useEffect(() => {
-    fetchMessages();
-  }, []);
+    checkAuth();
+  }, [router]);
 
   const fetchMessages = async () => {
     try {
@@ -43,7 +52,7 @@ export default function AdminMessages() {
     }
   };
 
-  if (loading) {
+  if (isChecking || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p>Lädt...</p>
