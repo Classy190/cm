@@ -2,27 +2,36 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/utils/auth";
 import { prisma } from "@/utils/prismaDB";
+import { getAllPosts } from "@/utils/markdown";
 
 export async function GET() {
   try {
-    const blogs = await prisma.blog.findMany({
-      where: { published: true },
-      select: {
-        id: true,
-        title: true,
-        excerpt: true,
-        slug: true,
-        coverImage: true,
-        createdAt: true,
-        author: {
-          select: {
-            name: true,
-            image: true,
-          },
-        },
+    // Get blogs from MDX files
+    const posts = getAllPosts([
+      "slug",
+      "title",
+      "excerpt",
+      "date",
+      "author",
+      "coverImage",
+      "content",
+    ]);
+
+    // Format posts to match expected structure
+    const blogs = posts.map((post: any) => ({
+      id: post.slug,
+      title: post.title || "Untitled",
+      excerpt: post.excerpt || "",
+      slug: post.slug,
+      coverImage: post.coverImage || null,
+      createdAt: post.date || new Date().toISOString(),
+      updatedAt: post.date || new Date().toISOString(),
+      published: true,
+      author: {
+        name: post.author || "Admin",
+        image: null,
       },
-      orderBy: { createdAt: "desc" },
-    });
+    }));
 
     return NextResponse.json(blogs);
   } catch (error) {
