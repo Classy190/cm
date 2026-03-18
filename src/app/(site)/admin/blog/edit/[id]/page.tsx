@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 import { useRouter, useParams } from "next/navigation";
-import { redirect } from "next/navigation";
 
 interface BlogForm {
   title: string;
@@ -14,7 +12,6 @@ interface BlogForm {
 }
 
 export default function EditBlog() {
-  const { data: session, status } = useSession();
   const router = useRouter();
   const params = useParams();
   const blogId = params?.id as string;
@@ -30,16 +27,28 @@ export default function EditBlog() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    if (status === "unauthenticated") {
-      redirect("/signin");
-    }
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("/api/admin/check");
+        if (!response.ok) {
+          router.push("/admin/login");
+          return;
+        }
+        if (blogId) {
+          fetchBlog();
+        }
+      } catch (error) {
+        router.push("/admin/login");
+      } finally {
+        setIsChecking(false);
+      }
+    };
 
-    if (blogId) {
-      fetchBlog();
-    }
-  }, [status, blogId]);
+    checkAuth();
+  }, [router, blogId]);
 
   const fetchBlog = async () => {
     try {
@@ -112,15 +121,7 @@ export default function EditBlog() {
     }
   };
 
-  if (status === "loading") {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Lädt...</p>
-      </div>
-    );
-  }
-
-  if (loading) {
+  if (isChecking || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p>Laden des Blogs...</p>
