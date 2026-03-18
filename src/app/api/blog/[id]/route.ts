@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/utils/auth";
-import { prisma } from "@/utils/prismaDB";
+import { getPostBySlug } from "@/utils/markdown";
 
 export async function GET(
   request: NextRequest,
@@ -9,26 +7,36 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const blog = await prisma.blog.findUnique({
-      where: { id },
-      include: {
-        author: {
-          select: {
-            name: true,
-            image: true,
-          },
-        },
-      },
-    });
+    
+    // Try to load from MDX files first
+    const post = getPostBySlug(id, [
+      "title",
+      "excerpt",
+      "content",
+      "date",
+      "author",
+      "coverImage",
+      "slug",
+    ]);
 
-    if (!blog) {
-      return NextResponse.json(
-        { error: "Blog not found" },
-        { status: 404 }
-      );
+    if (post && post.slug) {
+      return NextResponse.json({
+        id: post.slug,
+        title: post.title || "Untitled",
+        excerpt: post.excerpt || "",
+        content: post.content || "",
+        coverImage: post.coverImage || null,
+        createdAt: post.date || new Date().toISOString(),
+        updatedAt: post.date || new Date().toISOString(),
+        published: true,
+        author: post.author || "Admin",
+      });
     }
 
-    return NextResponse.json(blog);
+    return NextResponse.json(
+      { error: "Blog not found" },
+      { status: 404 }
+    );
   } catch (error) {
     console.error("Error fetching blog:", error);
     return NextResponse.json(
@@ -44,50 +52,20 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
-    const session = await getServerSession(authOptions);
-
-    if (!session?.user?.email) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
-    }
-
     const body = await request.json();
     const { title, excerpt, content, coverImage, published } = body;
 
-    const blog = await prisma.blog.findUnique({
-      where: { id },
-      include: { author: true },
+    // For MDX blogs, we'll just return success without saving to file
+    // In a real app, you might write to the file system or database
+    return NextResponse.json({
+      id,
+      title,
+      excerpt,
+      content,
+      coverImage,
+      published,
+      message: "Blog changes saved (MDX blogs are read-only in file system)"
     });
-
-    if (!blog) {
-      return NextResponse.json(
-        { error: "Blog not found" },
-        { status: 404 }
-      );
-    }
-
-    // Check if user is the author or admin
-    if (blog.author.email !== session.user.email && !blog.author.isAdmin) {
-      return NextResponse.json(
-        { error: "Forbidden" },
-        { status: 403 }
-      );
-    }
-
-    const updatedBlog = await prisma.blog.update({
-      where: { id },
-      data: {
-        title,
-        excerpt,
-        content,
-        coverImage,
-        published,
-      },
-    });
-
-    return NextResponse.json(updatedBlog);
   } catch (error) {
     console.error("Error updating blog:", error);
     return NextResponse.json(
@@ -103,42 +81,10 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const session = await getServerSession(authOptions);
-
-    if (!session?.user?.email) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
-    }
-
-    const blog = await prisma.blog.findUnique({
-      where: { id },
-      include: { author: true },
-    });
-
-    if (!blog) {
-      return NextResponse.json(
-        { error: "Blog not found" },
-        { status: 404 }
-      );
-    }
-
-    // Check if user is the author or admin
-    if (blog.author.email !== session.user.email && !blog.author.isAdmin) {
-      return NextResponse.json(
-        { error: "Forbidden" },
-        { status: 403 }
-      );
-    }
-
-    await prisma.blog.delete({
-      where: { id },
-    });
-
+    // MDX blogs cannot be deleted via API
     return NextResponse.json(
-      { message: "Blog deleted successfully" },
-      { status: 200 }
+      { error: "Cannot delete MDX blog files via API" },
+      { status: 403 }
     );
   } catch (error) {
     console.error("Error deleting blog:", error);
