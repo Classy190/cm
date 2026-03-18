@@ -11,6 +11,7 @@ import Process from "@/components/Process";
 import SaasExplained from "@/components/SaasExplained";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
+import Tools from "@/components/Tools";
 import { getAllPosts } from "@/utils/markdown";
 import { Metadata } from "next";
 
@@ -34,6 +35,9 @@ export default function Home() {
       
       {/* SaaS & Automation - The Tech Behind Our Services */}
       <SaasExplained />
+      
+      {/* Tools & Integrations - Build Trust */}
+      <Tools />
       
       {/* How We Work - Transparency & Process */}
       <Process />
