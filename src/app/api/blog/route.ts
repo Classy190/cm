@@ -6,7 +6,47 @@ import { getAllPosts } from "@/utils/markdown";
 
 export async function GET() {
   try {
-    // Get blogs from MDX files
+    // First, try to get all blogs from database
+    const dbBlogs = await prisma.blog.findMany({
+      select: {
+        id: true,
+        title: true,
+        excerpt: true,
+        slug: true,
+        coverImage: true,
+        createdAt: true,
+        updatedAt: true,
+        published: true,
+        author: {
+          select: {
+            name: true,
+            image: true,
+          },
+        },
+      },
+      orderBy: { createdAt: "desc" },
+    });
+
+    // If we have blogs in database, return them
+    if (dbBlogs && dbBlogs.length > 0) {
+      const blogs = dbBlogs.map((blog: any) => ({
+        id: blog.slug,
+        title: blog.title,
+        excerpt: blog.excerpt || "",
+        slug: blog.slug,
+        coverImage: blog.coverImage || null,
+        createdAt: blog.createdAt.toISOString(),
+        updatedAt: blog.updatedAt.toISOString(),
+        published: blog.published,
+        author: {
+          name: blog.author?.name || "Admin",
+          image: blog.author?.image || null,
+        },
+      }));
+      return NextResponse.json(blogs);
+    }
+
+    // Fallback: Get blogs from MDX files
     const posts = getAllPosts([
       "slug",
       "title",

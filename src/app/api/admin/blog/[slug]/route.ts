@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { prisma } from "@/utils/prismaDB";
 
 async function checkAdminAuth() {
   const cookieStore = await cookies();
@@ -18,7 +16,7 @@ async function checkAdminAuth() {
   }
 }
 
-// PATCH /api/admin/blog/[slug] - Update MDX frontmatter (date, title, excerpt, etc.)
+// PATCH /api/admin/blog/[slug] - Update blog metadata in database
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ slug: string }> }
@@ -42,38 +40,37 @@ export async function PATCH(
 
     // Sanitize slug to prevent path traversal
     const cleanSlug = slug.replace(/[^a-zA-Z0-9-_]/g, "");
-    const filePath = path.join(process.cwd(), "markdown", "blogs", `${cleanSlug}.mdx`);
 
-    console.log("Updating blog:", { slug, cleanSlug, filePath, date });
+    console.log("Updating blog in database:", { slug: cleanSlug, date, title });
 
-    if (!fs.existsSync(filePath)) {
+    // Find blog by slug
+    const blog = await prisma.blog.findUnique({
+      where: { slug: cleanSlug },
+    });
+
+    if (!blog) {
+      console.log("Blog not found:", cleanSlug);
       return NextResponse.json({ error: "Artikel nicht gefunden" }, { status: 404 });
     }
 
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const parsed = matter(fileContents);
+    // Update blog metadata in database
+    const updatedBlog = await prisma.blog.update({
+      where: { slug: cleanSlug },
+      data: {
+        ...(date && { createdAt: new Date(date) }),
+        ...(title !== undefined && { title }),
+        ...(excerpt !== undefined && { excerpt }),
+        ...(description !== undefined && { description }),
+        ...(keywords !== undefined && { keywords }),
+      },
+    });
 
-    // Update frontmatter fields
-    if (date) parsed.data.date = date;
-    if (title !== undefined) parsed.data.title = title;
-    if (excerpt !== undefined) parsed.data.excerpt = excerpt;
-    if (description !== undefined) parsed.data.description = description;
-    if (keywords !== undefined) parsed.data.keywords = keywords;
-
-    // Rebuild file: frontmatter + content with proper formatting
-    let updatedContent = matter.stringify(parsed.content, parsed.data);
-    
-    // Ensure consistent line endings (LF only, not CRLF)
-    updatedContent = updatedContent.replace(/\r\n/g, "\n");
-    
-    fs.writeFileSync(filePath, updatedContent, "utf8");
-    
-    console.log("Updated file:", filePath, "with date:", date);
+    console.log("Blog successfully updated in database:", cleanSlug);
 
     return NextResponse.json({ 
       success: true, 
       slug: cleanSlug, 
-      updated: { date, title, excerpt, description, keywords }
+      updated: updatedBlog
     });
   } catch (error: any) {
     console.error("Blog metadata update error:", error);
