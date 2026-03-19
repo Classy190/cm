@@ -146,9 +146,10 @@ const Contact = () => {
                       id="projectType"
                       name="projectType"
                       required
+                      defaultValue=""
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     >
-                      <option value="">-- Bitte wählen --</option>
+                      <option value="" disabled>-- Bitte wählen --</option>
                       <option value="Landingpage">Landingpage</option>
                       <option value="Unternehmenswebseite">Unternehmenswebseite</option>
                       <option value="Online-Shop">Online-Shop</option>
@@ -168,9 +169,10 @@ const Contact = () => {
                       id="timeline"
                       name="timeline"
                       required
+                      defaultValue=""
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     >
-                      <option value="">-- Bitte wählen --</option>
+                      <option value="" disabled>-- Bitte wählen --</option>
                       <option value="Sofort/Dringend">Sofort/Dringend</option>
                       <option value="In den nächsten 2-4 Wochen">In den nächsten 2-4 Wochen</option>
                       <option value="In 1-3 Monaten">In 1-3 Monaten</option>
@@ -189,9 +191,10 @@ const Contact = () => {
                       id="investment"
                       name="investment"
                       required
+                      defaultValue=""
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     >
-                      <option value="">-- Bitte wählen --</option>
+                      <option value="" disabled>-- Bitte wählen --</option>
                       <option value="Bis 5.000€">Bis 5.000€</option>
                       <option value="5.000€ - 15.000€">5.000€ - 15.000€</option>
                       <option value="15.000€ - 30.000€">15.000€ - 30.000€</option>
