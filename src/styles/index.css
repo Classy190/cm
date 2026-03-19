@@ -432,3 +432,32 @@ body {
 .blog-details h3 {
   @apply text-dark mb-6 text-2xl font-bold dark:text-white sm:text-[28px] sm:leading-[40px];
 }
+
+/* Markdown Table Styling */
+.blog-details table {
+  @apply w-full mb-8 border-collapse;
+}
+
+.blog-details table thead {
+  @apply bg-gray-100 dark:bg-slate-800;
+}
+
+.blog-details table th {
+  @apply px-4 py-3 text-left font-bold text-dark dark:text-white border border-gray-300 dark:border-slate-700;
+}
+
+.blog-details table td {
+  @apply px-4 py-3 text-body-color dark:text-dark-6 border border-gray-300 dark:border-slate-700;
+}
+
+.blog-details table tbody tr:nth-child(odd) {
+  @apply bg-white dark:bg-slate-900;
+}
+
+.blog-details table tbody tr:nth-child(even) {
+  @apply bg-gray-50 dark:bg-slate-800;
+}
+
+.blog-details table tbody tr:hover {
+  @apply bg-gray-100 dark:bg-slate-700 transition-colors;
+}
