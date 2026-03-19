@@ -177,7 +177,6 @@ export default async function Post({ params }: Props) {
                           image={blog?.coverImage}
                           slug={blog?.slug}
                           title={blog?.title.slice(0, 30)}
-                          name={blog?.author}
                         />
                       ))}
                     </div>

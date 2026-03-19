@@ -102,22 +102,22 @@ const Footer = () => {
             <h3 className="mb-6 font-bold text-white">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/#" className="text-sm text-gray-400 hover:text-primary transition">
+                <Link href="/blogs/semrush-seo-tool" className="text-sm text-gray-400 hover:text-primary transition">
                   Landingpages
                 </Link>
               </li>
               <li>
-                <Link href="/#" className="text-sm text-gray-400 hover:text-primary transition">
+                <Link href="/blogs/position-1-keywords" className="text-sm text-gray-400 hover:text-primary transition">
                   Shopify Shops
                 </Link>
               </li>
               <li>
-                <Link href="/#" className="text-sm text-gray-400 hover:text-primary transition">
+                <Link href="/blogs" className="text-sm text-gray-400 hover:text-primary transition">
                   SaaS-Lösungen
                 </Link>
               </li>
               <li>
-                <Link href="/#" className="text-sm text-gray-400 hover:text-primary transition">
+                <Link href="/blogs/google-search-console-gold" className="text-sm text-gray-400 hover:text-primary transition">
                   SEO & CRO
                 </Link>
               </li>

@@ -34,10 +34,10 @@ const CookieBanner = () => {
   return (
     <>
       {/* Overlay backdrop */}
-      <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"></div>
+      <div className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm"></div>
       
       {/* Cookie Banner */}
-      <div className="fixed left-1/2 top-1/2 z-50 w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 transform rounded-2xl bg-white p-6 shadow-2xl dark:bg-dark">
+      <div className="fixed left-1/2 top-1/2 z-[1000] w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 transform rounded-2xl bg-white p-6 shadow-2xl dark:bg-dark">
         <div>
           <h3 className="mb-4 text-xl font-bold text-dark dark:text-white">
             🍪 Cookie-Einstellungen
