@@ -9,7 +9,6 @@ import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
 import SaasExplained from "@/components/SaasExplained";
-import Team from "@/components/Team";
 import Tools from "@/components/Tools";
 import { getAllPosts } from "@/utils/markdown";
 import { Metadata } from "next";

@@ -1,6 +1,7 @@
 import Newsletter from "@/components/Blog/Newsletter";
 import PopularArticle from "@/components/Blog/PopularArticle";
 import SingleBlog from "@/components/Blog/SingleBlog";
+import BlogComments from "@/components/Blog/BlogComments";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { getAllPosts, getPostBySlug } from "@/utils/markdown";
 import markdownToHtml from "@/utils/markdownToHtml";
@@ -96,23 +97,6 @@ export default async function Post({ params }: Props) {
                 />
                 <div className="absolute left-0 top-0 z-10 flex h-full w-full items-end bg-gradient-to-t from-dark-700 to-transparent">
                   <div className="flex flex-wrap items-center p-4 pb-4 sm:p-8">
-                    <div className="mb-4 mr-5 flex items-center md:mr-10">
-                      <div className="mr-4 h-10 w-10 overflow-hidden rounded-full">
-                        <Image
-                          src={post.authorImage}
-                          alt="image"
-                          className="w-full"
-                          width={40}
-                          height={40}
-                        />
-                      </div>
-                      <p className="text-base font-medium text-white">
-                        By{" "}
-                        <Link href="/#" className="text-white hover:opacity-70">
-                          {post.author}
-                        </Link>
-                      </p>
-                    </div>
                     <div className="mb-4 flex items-center">
                       <p className="mr-5 flex items-center text-sm font-medium text-white md:mr-6">
                         <span className="mr-3">
@@ -233,6 +217,9 @@ export default async function Post({ params }: Props) {
               </div>
             ))}
           </div>
+
+          {/* Comments Section */}
+          <BlogComments slug={slug} />
         </div>
       </section>
     </>
