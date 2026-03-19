@@ -147,8 +147,8 @@ const Contact = () => {
                     >
                       Gewünschter Zeitrahmen*
                     </label>
-                    <sid="timeline"
-                      elect
+                    <select
+                      id="timeline"
                       name="timeline"
                       required
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
