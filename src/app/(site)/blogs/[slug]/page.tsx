@@ -5,7 +5,6 @@ import BlogComments from "@/components/Blog/BlogComments";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { getAllPosts, getPostBySlug } from "@/utils/markdown";
 import markdownToHtml from "@/utils/markdownToHtml";
-import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
