@@ -15,16 +15,32 @@ export async function POST(request: NextRequest) {
     }
 
     // Save to database (PRIMARY - always save)
-    const submission = await prisma.contactSubmission.create({
-      data: {
-        fullName,
-        email,
-        projectType,
-        timeline,
-        investment,
-        message,
-      },
-    });
+    let submission;
+    try {
+      submission = await prisma.contactSubmission.create({
+        data: {
+          fullName,
+          email,
+          projectType,
+          timeline,
+          investment,
+          message,
+        },
+      });
+      console.log("✅ Anfrage in DB gespeichert:", submission.id);
+    } catch (dbError) {
+      console.error("❌ Datenbankfehler:", dbError);
+      
+      // If database fails, return detailed error for debugging
+      const errorMessage = dbError instanceof Error ? dbError.message : "Unbekannter Datenbankfehler";
+      return NextResponse.json(
+        { 
+          error: "Es ist ein Fehler beim Speichern der Anfrage aufgetreten.",
+          details: process.env.NODE_ENV === "development" ? errorMessage : undefined
+        },
+        { status: 500 }
+      );
+    }
 
     // Try to send emails (BONUS - but not required for success)
     try {
@@ -85,7 +101,7 @@ export async function POST(request: NextRequest) {
       });
     } catch (emailError) {
       // Email failed, but that's OK - we saved to DB
-      console.error("Email send failed (but form was saved):", emailError);
+      console.warn("⚠️ E-Mail-Versand fehlgeschlagen (aber Anfrage wurde gespeichert):", emailError);
     }
 
     return NextResponse.json(
@@ -97,9 +113,14 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error("Contact form error:", error);
+    console.error("❌ Kontaktformular Fehler:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unbekannter Fehler";
+    
     return NextResponse.json(
-      { error: "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut." },
+      { 
+        error: "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+        details: process.env.NODE_ENV === "development" ? errorMessage : undefined
+      },
       { status: 500 }
     );
   }
