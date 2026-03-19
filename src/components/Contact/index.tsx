@@ -125,8 +125,8 @@ const Contact = () => {
                     >
                       Art des Projekts*
                     </label>
-                    <sid="projectType"
-                      elect
+                    <select
+                      id="projectType"
                       name="projectType"
                       required
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
