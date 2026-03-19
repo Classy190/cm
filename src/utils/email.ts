@@ -1,37 +1,41 @@
-import nodemailer from "nodemailer";
-
 type EmailPayload = {
   to: string;
   subject: string;
   html: string;
 };
 
-const smtpOptions = {
-  host: process.env.EMAIL_SERVER_HOST,
-  port: parseInt(process.env.EMAIL_SERVER_PORT || "2525"),
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_SERVER_USER,
-    pass: process.env.EMAIL_SERVER_PASSWORD,
-  },
-};
-
 export const sendEmail = async (data: EmailPayload) => {
-  // If email is not configured, just log and return success
-  if (!process.env.EMAIL_SERVER_HOST || !process.env.EMAIL_SERVER_USER) {
-    console.log("📧 Email (not configured, logging only):");
+  try {
+    // Try using Resend if API key exists
+    if (process.env.RESEND_API_KEY) {
+      const response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: "noreply@classymarketing.de",
+          to: data.to,
+          subject: data.subject,
+          html: data.html,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Resend error: ${response.statusText}`);
+      }
+
+      return response.json();
+    }
+
+    // Fallback: Just log to console
+    console.log("📧 Email (logged to console - no service configured):");
     console.log(`To: ${data.to}`);
     console.log(`Subject: ${data.subject}`);
-    console.log(`Body: ${data.html.substring(0, 200)}...`);
-    return Promise.resolve(true);
+    return Promise.resolve({ success: true, id: "logged-only" });
+  } catch (error) {
+    console.error("Email error:", error);
+    throw error;
   }
-
-  const transporter = nodemailer.createTransport({
-    ...smtpOptions,
-  });
-
-  return await transporter.sendMail({
-    from: process.env.EMAIL_FROM || "noreply@classymarketing.de",
-    ...data,
-  });
 };

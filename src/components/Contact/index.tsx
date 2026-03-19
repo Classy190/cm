@@ -13,25 +13,14 @@ const Contact = () => {
 
     const formData = new FormData(e.currentTarget);
     const data = {
-      fullName: (formData.get("fullName") as string)?.trim() || "",
+      name: (formData.get("name") as string)?.trim() || "",
       email: (formData.get("email") as string)?.trim() || "",
-      projectType: (formData.get("projectType") as string)?.trim() || "",
-      timeline: (formData.get("timeline") as string)?.trim() || "",
-      investment: (formData.get("investment") as string)?.trim() || "",
       message: (formData.get("message") as string)?.trim() || "",
     };
 
     // Client-side validation
-    const missingFields = [];
-    if (!data.fullName) missingFields.push("Name");
-    if (!data.email) missingFields.push("E-Mail");
-    if (!data.projectType) missingFields.push("Projekttyp");
-    if (!data.timeline) missingFields.push("Zeitrahmen");
-    if (!data.investment) missingFields.push("Budget");
-    if (!data.message) missingFields.push("Nachricht");
-
-    if (missingFields.length > 0) {
-      setSubmitMessage(`❌ Fehler: Bitte füllen Sie folgende Felder aus: ${missingFields.join(", ")}`);
+    if (!data.name || !data.email || !data.message) {
+      setSubmitMessage("❌ Bitte füllen Sie alle Felder aus!");
       setIsSubmitting(false);
       return;
     }
@@ -48,14 +37,14 @@ const Contact = () => {
       const result = await response.json();
 
       if (response.ok) {
-        setSubmitMessage("✅ Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden bei Ihnen.");
+        setSubmitMessage("✅ Danke! Ich habe Ihre Nachricht erhalten und melde mich in Kürze!");
         e.currentTarget.reset();
       } else {
         setSubmitMessage(`❌ Fehler: ${result.error}`);
       }
     } catch (error) {
       console.error("Form submit error:", error);
-      setSubmitMessage("❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.");
+      setSubmitMessage("❌ Es ist ein Fehler aufgetreten.");
     } finally {
       setIsSubmitting(false);
     }
@@ -102,16 +91,13 @@ const Contact = () => {
 
                 <form onSubmit={handleSubmit}>
                   <div className="mb-[22px]">
-                    <label
-                      htmlFor="fullName"
-                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                    >
-                      Vollständiger Name*
+                    <label htmlFor="name" className="mb-4 block text-sm text-body-color dark:text-dark-6">
+                      Name*
                     </label>
                     <input
-                      id="fullName"
+                      id="name"
                       type="text"
-                      name="fullName"
+                      name="name"
                       placeholder="Max Mustermann"
                       required
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
@@ -119,125 +105,31 @@ const Contact = () => {
                   </div>
 
                   <div className="mb-[22px]">
-                    <label
-                      htmlFor="email"
-                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                    >
+                    <label htmlFor="email" className="mb-4 block text-sm text-body-color dark:text-dark-6">
                       E-Mail*
                     </label>
                     <input
                       id="email"
                       type="email"
                       name="email"
-                      placeholder="beispiel@example.de"
+                      placeholder="ihre@email.de"
                       required
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     />
                   </div>
 
-                  <div className="mb-[22px]">
-                    <label
-                      htmlFor="projectType"
-                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                    >
-                      Art des Projekts*
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      required
-                      defaultValue=""
-                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                    >
-                      <option value="" disabled>-- Bitte wählen --</option>
-                      <option value="Landingpage">Landingpage</option>
-                      <option value="Unternehmenswebseite">Unternehmenswebseite</option>
-                      <option value="Online-Shop">Online-Shop</option>
-                      <option value="SEO Optimierung">SEO Optimierung</option>
-                      <option value="Sonstiges">Sonstiges</option>
-                    </select>
-                  </div>
-
-                  <div className="mb-[22px]">
-                    <label
-                      htmlFor="timeline"
-                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                    >
-                      Gewünschter Zeitrahmen*
-                    </label>
-                    <select
-                      id="timeline"
-                      name="timeline"
-                      required
-                      defaultValue=""
-                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                    >
-                      <option value="" disabled>-- Bitte wählen --</option>
-                      <option value="Sofort/Dringend">Sofort/Dringend</option>
-                      <option value="In den nächsten 2-4 Wochen">In den nächsten 2-4 Wochen</option>
-                      <option value="In 1-3 Monaten">In 1-3 Monaten</option>
-                      <option value="Noch nicht definiert">Noch nicht definiert</option>
-                    </select>
-                  </div>
-
-                  <div className="mb-[22px]">
-                    <label
-                      htmlFor="investment"
-                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                    >
-                      Investitionsrahmen*
-                    </label>
-                    <select
-                      id="investment"
-                      name="investment"
-                      required
-                      defaultValue=""
-                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
-                    >
-                      <option value="" disabled>-- Bitte wählen --</option>
-                      <option value="Bis 5.000€">Bis 5.000€</option>
-                      <option value="5.000€ - 15.000€">5.000€ - 15.000€</option>
-                      <option value="15.000€ - 30.000€">15.000€ - 30.000€</option>
-                      <option value="Über 30.000€">Über 30.000€</option>
-                      <option value="Noch nicht definiert">Noch nicht definiert</option>
-                    </select>
-                  </div>
-
                   <div className="mb-[30px]">
-                    <label
-                      htmlFor="message"
-                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
-                    >
+                    <label htmlFor="message" className="mb-4 block text-sm text-body-color dark:text-dark-6">
                       Nachricht*
                     </label>
                     <textarea
                       id="message"
                       name="message"
-                      rows={1}
-                      placeholder="Beschreiben Sie Ihr Projekt"
+                      rows={5}
+                      placeholder="Ihre Nachricht..."
                       required
                       className="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     ></textarea>
-                  </div>
-
-                  <div className="mb-6">
-                    <label className="flex items-center text-sm text-body-color dark:text-dark-6">
-                      <input
-                        type="checkbox"
-                        name="privacy"
-                        required
-                        className="mr-3"
-                      />
-                      Ich stimme den{" "}
-                      <a
-                        href="/datenschutz"
-                        target="_blank"
-                        className="ml-1 text-primary hover:text-primary/80"
-                      >
-                        Datenschutzbestimmungen
-                      </a>{" "}
-                      zu*
-                    </label>
                   </div>
 
                   {submitMessage && (
@@ -258,7 +150,7 @@ const Contact = () => {
                       disabled={isSubmitting}
                       className="inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                      {isSubmitting ? "Wird gesendet..." : "Projekt anfragen"}
+                      {isSubmitting ? "Wird gesendet..." : "Nachricht senden"}
                     </button>
                   </div>
                 </form>
