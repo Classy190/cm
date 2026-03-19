@@ -99,6 +99,8 @@ export default function AdminDashboard() {
     setMessage({ ok: false, text: "" });
 
     try {
+      console.log("Saving blog:", editForm.slug, editForm.date);
+      
       const res = await fetch(`/api/admin/blog/${editForm.slug}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -112,6 +114,7 @@ export default function AdminDashboard() {
       });
 
       const data = await res.json();
+      console.log("Response:", res.status, data);
 
       if (res.ok) {
         setMessage({ ok: true, text: "Artikel erfolgreich gespeichert!" });
@@ -122,8 +125,9 @@ export default function AdminDashboard() {
       } else {
         setMessage({ ok: false, text: data.error || "Fehler beim Speichern" });
       }
-    } catch {
-      setMessage({ ok: false, text: "Netzwerkfehler" });
+    } catch (error: any) {
+      console.error("Save error:", error);
+      setMessage({ ok: false, text: error?.message || "Netzwerkfehler" });
     } finally {
       setSaving(false);
     }

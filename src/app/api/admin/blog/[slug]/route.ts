@@ -44,6 +44,8 @@ export async function PATCH(
     const cleanSlug = slug.replace(/[^a-zA-Z0-9-_]/g, "");
     const filePath = path.join(process.cwd(), "markdown", "blogs", `${cleanSlug}.mdx`);
 
+    console.log("Updating blog:", { slug, cleanSlug, filePath, date });
+
     if (!fs.existsSync(filePath)) {
       return NextResponse.json({ error: "Artikel nicht gefunden" }, { status: 404 });
     }
@@ -58,17 +60,27 @@ export async function PATCH(
     if (description !== undefined) parsed.data.description = description;
     if (keywords !== undefined) parsed.data.keywords = keywords;
 
-    // Rebuild file: frontmatter + content
-    const updatedFile = matter.stringify(parsed.content, parsed.data);
-    fs.writeFileSync(filePath, updatedFile, "utf8");
+    // Rebuild file: frontmatter + content with proper formatting
+    let updatedContent = matter.stringify(parsed.content, parsed.data);
+    
+    // Ensure consistent line endings (LF only, not CRLF)
+    updatedContent = updatedContent.replace(/\r\n/g, "\n");
+    
+    fs.writeFileSync(filePath, updatedContent, "utf8");
+    
+    console.log("Updated file:", filePath, "with date:", date);
 
     return NextResponse.json({ 
       success: true, 
       slug: cleanSlug, 
       updated: { date, title, excerpt, description, keywords }
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Blog metadata update error:", error);
-    return NextResponse.json({ error: "Fehler beim Aktualisieren" }, { status: 500 });
+    const errorMsg = error?.message || "Fehler beim Aktualisieren";
+    return NextResponse.json(
+      { error: `Fehler: ${errorMsg}` }, 
+      { status: 500 }
+    );
   }
 }
