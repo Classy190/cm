@@ -461,3 +461,30 @@ body {
 .blog-details table tbody tr:hover {
   @apply bg-gray-100 dark:bg-slate-700 transition-colors;
 }
+
+/* Dark Mode Text Readability - Global Override */
+.dark {
+  --dark-text-color: #e5e7eb; /* gray-200 instead of dark-6 */
+}
+
+/* Override all dark:text-dark-6 instances with better contrast */
+.dark p,
+.dark span,
+.dark div,
+.dark label,
+.dark a:not([class*="text-primary"]) {
+  color: #d1d5db !important;
+}
+
+.dark .text-body-color {
+  color: #e5e7eb !important;
+}
+
+.dark .text-dark-6 {
+  color: #d1d5db !important;
+}
+
+/* Ensure links remain readable in dark mode */
+.dark a[class*="dark:text-dark-6"] {
+  color: #60a5fa !important;
+}
