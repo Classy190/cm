@@ -18,16 +18,26 @@ const Hero = () => {
                 <h1 className="mb-4 text-2xl font-bold leading-snug text-white sm:mb-6 sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
                   Performance-Webseiten, die messbar mehr Aufträge generieren.
                 </h1>
-                <p className="mx-auto mb-4 max-w-[600px] text-base font-medium text-white sm:mb-6 sm:text-lg sm:leading-[1.44]">
+                <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-white sm:mb-12 sm:text-lg sm:leading-[1.44]">
                   Spezialisiert auf <span className="font-bold">Shopify Online-Shops</span> und <span className="font-bold">lokale OnPage-Systeme</span>. Wir bauen maßgeschneiderte Systeme mit SEO, Geo-Optimierung und KI-gestützten Lösungen für messbare Ergebnisse.
                 </p>
-                <div className="mx-auto mb-6 max-w-[600px] rounded-lg bg-white/10 px-4 py-3 backdrop-blur sm:mb-9 sm:px-6 sm:py-4">
-                  <p className="text-xs font-semibold text-white sm:text-sm">
-                    ⏱️ <span className="ml-2">Langzeitpartnerschaften: Minimum 3-6 Monate</span>
-                  </p>
-                  <p className="mt-1.5 text-xs text-white/80 sm:mt-2">
-                    Wir konzentrieren uns auf Tiefenwirkung statt Quick Wins. Nachhaltige Ergebnisse brauchen Zeit und Kompetenz.
-                  </p>
+                <div className="mx-auto mb-10 max-w-[700px] grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+                  <div className="rounded-lg bg-white/10 backdrop-blur px-4 py-6 text-center hover:bg-white/20 transition">
+                    <div className="text-4xl mb-3">🎯</div>
+                    <p className="text-xs font-semibold text-white">Performance fokussiert</p>
+                  </div>
+                  <div className="rounded-lg bg-white/10 backdrop-blur px-4 py-6 text-center hover:bg-white/20 transition">
+                    <div className="text-4xl mb-3">📊</div>
+                    <p className="text-xs font-semibold text-white">Proven +45%</p>
+                  </div>
+                  <div className="rounded-lg bg-white/10 backdrop-blur px-4 py-6 text-center hover:bg-white/20 transition">
+                    <div className="text-4xl mb-3">🔐</div>
+                    <p className="text-xs font-semibold text-white">Transparenz</p>
+                  </div>
+                  <div className="rounded-lg bg-white/10 backdrop-blur px-4 py-6 text-center hover:bg-white/20 transition">
+                    <div className="text-4xl mb-3">🚀</div>
+                    <p className="text-xs font-semibold text-white">Custom Built</p>
+                  </div>
                 </div>
                 <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
                   <li>
