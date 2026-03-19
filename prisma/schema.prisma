@@ -85,3 +85,20 @@ model Comment {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model ContactSubmission {
+  id            String   @id @default(cuid())
+  fullName      String
+  email         String
+  projectType   String
+  timeline      String
+  investment    String
+  message       String   @db.Text
+  read          Boolean  @default(false)
+  archived      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([email])
+  @@index([createdAt])
+}
