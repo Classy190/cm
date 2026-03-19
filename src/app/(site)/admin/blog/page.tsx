@@ -153,11 +153,27 @@ export default function AdminDashboard() {
     if (direction === "up" && index === 0) return;
     if (direction === "down" && index === blogs.length - 1) return;
 
-    const newBlogs = [...blogs];
-    const swapIndex = direction === "up" ? index - 1 : index + 1;
-    [newBlogs[index], newBlogs[swapIndex]] = [newBlogs[swapIndex], newBlogs[index]];
-    
-    setBlogs(newBlogs);
+    const blog = blogs[index];
+
+    try {
+      const res = await fetch("/api/admin/blog/reorder", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          blogId: blog.id,
+          direction,
+        }),
+      });
+
+      if (res.ok) {
+        // Refresh blogs after reordering
+        fetchBlogs();
+      } else {
+        console.error("Failed to reorder blog");
+      }
+    } catch (error) {
+      console.error("Reorder error:", error);
+    }
   };
 
   if (isChecking) {

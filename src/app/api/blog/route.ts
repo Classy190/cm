@@ -14,6 +14,7 @@ export async function GET() {
         excerpt: true,
         slug: true,
         coverImage: true,
+        position: true,
         createdAt: true,
         updatedAt: true,
         published: true,
@@ -24,7 +25,7 @@ export async function GET() {
           },
         },
       },
-      orderBy: { createdAt: "desc" },
+      orderBy: { position: "desc" },
     });
 
     // If we have blogs in database, return them
