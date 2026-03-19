@@ -76,12 +76,11 @@ export default function AdminDashboard() {
   };
 
   const openEditModal = (blog: Blog) => {
-    const dateStr = new Date(blog.createdAt).toISOString().substring(0, 10);
     setEditForm({
       slug: blog.id,
       title: blog.title,
       excerpt: blog.excerpt || "",
-      date: dateStr,
+      date: "",
       description: "",
       keywords: "",
     });
@@ -105,7 +104,6 @@ export default function AdminDashboard() {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          date: editForm.date,
           title: editForm.title,
           excerpt: editForm.excerpt,
           description: editForm.description || undefined,
@@ -151,6 +149,17 @@ export default function AdminDashboard() {
     }
   };
 
+  const moveBlog = async (index: number, direction: "up" | "down") => {
+    if (direction === "up" && index === 0) return;
+    if (direction === "down" && index === blogs.length - 1) return;
+
+    const newBlogs = [...blogs];
+    const swapIndex = direction === "up" ? index - 1 : index + 1;
+    [newBlogs[index], newBlogs[swapIndex]] = [newBlogs[swapIndex], newBlogs[index]];
+    
+    setBlogs(newBlogs);
+  };
+
   if (isChecking) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -163,11 +172,16 @@ export default function AdminDashboard() {
     <>
       <section className="relative overflow-hidden bg-primary pt-[100px] md:pt-[130px] lg:pt-[160px] pb-[60px] md:pb-[100px]">
         <div className="container">
-          <div className="mx-auto max-w-[680px]">
-            <h1 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
-              Blog-Verwaltung
-            </h1>
-            <p className="text-white/70">Admin Dashboard zur Verwaltung Ihrer Blogbeitraege</p>
+          <div className="mx-auto max-w-[680px] flex items-start justify-between">
+            <div>
+              <h1 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
+                Blog-Verwaltung
+              </h1>
+              <p className="text-white/70">Admin Dashboard zur Verwaltung Ihrer Blogbeitraege</p>
+            </div>
+            <Link href="/admin" className="mt-3 px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg font-medium transition text-sm">
+              ← Zurück
+            </Link>
           </div>
         </div>
       </section>
@@ -253,6 +267,20 @@ export default function AdminDashboard() {
                             Bearbeiten
                           </button>
                           <button
+                            onClick={() => moveBlog(blogs.indexOf(blog), "up")}
+                            disabled={blogs.indexOf(blog) === 0}
+                            className="text-blue-600 hover:text-blue-800 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                          >
+                            ↑
+                          </button>
+                          <button
+                            onClick={() => moveBlog(blogs.indexOf(blog), "down")}
+                            disabled={blogs.indexOf(blog) === blogs.length - 1}
+                            className="text-blue-600 hover:text-blue-800 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                          >
+                            ↓
+                          </button>
+                          <button
                             onClick={() => deleteBlog(blog.id)}
                             className="text-red-600 hover:text-red-800 font-medium"
                           >
@@ -277,20 +305,6 @@ export default function AdminDashboard() {
             </h3>
 
             <div className="space-y-4 mb-6">
-              <div>
-                <label className="block text-sm font-medium text-dark dark:text-white mb-2">
-                  Datum
-                </label>
-                <input
-                  type="date"
-                  value={editForm.date}
-                  onChange={(e) =>
-                    setEditForm((prev) => ({ ...prev, date: e.target.value }))
-                  }
-                  className="w-full rounded-lg border border-gray-300 dark:border-dark-3 bg-white dark:bg-dark-3 px-3 py-2 text-sm text-dark dark:text-white focus:outline-none focus:border-primary"
-                />
-              </div>
-
               <div>
                 <label className="block text-sm font-medium text-dark dark:text-white mb-2">
                   Titel
