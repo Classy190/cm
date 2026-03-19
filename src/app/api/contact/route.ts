@@ -1,73 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
 import { sendEmail } from "@/utils/email";
 
 export async function POST(request: NextRequest) {
   try {
     const { fullName, email, projectType, timeline, investment, message } = await request.json();
 
-    // Validate required fields with better error messages
-    const missingFields = [];
-    
-    if (!fullName || typeof fullName !== "string" || fullName.trim() === "") {
-      missingFields.push("fullName");
-    }
-    if (!email || typeof email !== "string" || email.trim() === "") {
-      missingFields.push("email");
-    }
-    if (!projectType || typeof projectType !== "string" || projectType.trim() === "") {
-      missingFields.push("projectType");
-    }
-    if (!timeline || typeof timeline !== "string" || timeline.trim() === "") {
-      missingFields.push("timeline");
-    }
-    if (!investment || typeof investment !== "string" || investment.trim() === "") {
-      missingFields.push("investment");
-    }
-    if (!message || typeof message !== "string" || message.trim() === "") {
-      missingFields.push("message");
-    }
-
-    if (missingFields.length > 0) {
-      console.warn("⚠️ Validierungsfehler - felgende Felder fehlen:", missingFields);
+    // Validate required fields
+    if (!fullName || !email || !projectType || !timeline || !investment || !message) {
       return NextResponse.json(
-        { 
-          error: `Folgende Felder sind erforderlich: ${missingFields.join(", ")}`,
-          missingFields 
-        },
+        { error: "Alle Pflichtfelder müssen ausgefüllt werden." },
         { status: 400 }
       );
     }
 
-    // Save to database (PRIMARY - always save)
-    let submission;
-    try {
-      submission = await prisma.contactSubmission.create({
-        data: {
-          fullName,
-          email,
-          projectType,
-          timeline,
-          investment,
-          message,
-        },
-      });
-      console.log("✅ Anfrage in DB gespeichert:", submission.id);
-    } catch (dbError) {
-      console.error("❌ Datenbankfehler:", dbError);
-      
-      // If database fails, return detailed error for debugging
-      const errorMessage = dbError instanceof Error ? dbError.message : "Unbekannter Datenbankfehler";
-      return NextResponse.json(
-        { 
-          error: "Es ist ein Fehler beim Speichern der Anfrage aufgetreten.",
-          details: process.env.NODE_ENV === "development" ? errorMessage : undefined
-        },
-        { status: 500 }
-      );
-    }
-
-    // Try to send emails (BONUS - but not required for success)
+    // Send emails
     try {
       // Create email content
       const emailContent = `
@@ -124,27 +70,28 @@ export async function POST(request: NextRequest) {
         subject: "Ihre Projektanfrage bei Classy Marketing",
         html: confirmationContent,
       });
+
+      console.log("✅ E-Mails erfolgreich versendet für:", email);
     } catch (emailError) {
-      // Email failed, but that's OK - we saved to DB
-      console.warn("⚠️ E-Mail-Versand fehlgeschlagen (aber Anfrage wurde gespeichert):", emailError);
+      console.error("❌ E-Mail-Versand fehlgeschlagen:", emailError);
+      return NextResponse.json(
+        { error: "E-Mail-Versand fehlgeschlagen. Bitte versuchen Sie es später erneut." },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json(
       { 
-        message: "✅ Vielen Dank! Ihre Anfrage wurde erfolgreich gespeichert. Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
-        submissionId: submission.id 
+        message: "✅ Vielen Dank! Ihre Anfrage wurde erfolgreich versendet. Wir melden uns innerhalb von 24 Stunden bei Ihnen."
       },
       { status: 200 }
     );
-
   } catch (error) {
     console.error("❌ Kontaktformular Fehler:", error);
-    const errorMessage = error instanceof Error ? error.message : "Unbekannter Fehler";
     
     return NextResponse.json(
       { 
-        error: "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
-        details: process.env.NODE_ENV === "development" ? errorMessage : undefined
+        error: "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
       },
       { status: 500 }
     );
