@@ -24,10 +24,9 @@ export async function GET(request: Request) {
         id: true,
         email: true,
         name: true,
-        isAdmin: true,
-        createdAt: true
+        isAdmin: true
       },
-      orderBy: { createdAt: "desc" }
+      orderBy: { email: "asc" }
     });
 
     return NextResponse.json(users);

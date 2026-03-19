@@ -9,7 +9,6 @@ interface User {
   email: string;
   name: string | null;
   isAdmin: boolean;
-  createdAt: string;
 }
 
 export default function UsersPage() {
@@ -138,9 +137,6 @@ export default function UsersPage() {
                       <th className="px-6 py-4 text-left text-sm font-semibold text-dark dark:text-white">
                         Rolle
                       </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-dark dark:text-white">
-                        Beigetreten
-                      </th>
                       <th className="px-6 py-4 text-right text-sm font-semibold text-dark dark:text-white">
                         Aktionen
                       </th>
@@ -168,9 +164,6 @@ export default function UsersPage() {
                           >
                             {user.isAdmin ? "Admin" : "Benutzer"}
                           </span>
-                        </td>
-                        <td className="px-6 py-4 text-sm text-body-color dark:text-dark-6">
-                          {new Date(user.createdAt).toLocaleDateString("de-DE")}
                         </td>
                         <td className="px-6 py-4 text-right">
                           <div className="flex justify-end gap-2">
