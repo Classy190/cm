@@ -3,7 +3,7 @@ const nextConfig = {
   // ✅ Image Optimization
   images: {
     formats: ['image/avif', 'image/webp'],
-    sizes: [320, 420, 640, 768, 1024, 1280, 1536],
+    deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536],
   },
 
   // ✅ Performance Headers & Security
@@ -50,14 +50,10 @@ const nextConfig = {
   compress: true,
 
   // ✅ Production optimizations
-  swcMinify: true,
   productionBrowserSourceMaps: false,
 
   // ✅ React optimizations
   reactStrictMode: false, // Performance improvement
-  
-  // ✅ Font optimization
-  optimizeFonts: true,
 
   // ✅ Module resolution
   typescript: {
