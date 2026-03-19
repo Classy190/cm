@@ -3,15 +3,26 @@ import { cookies } from "next/headers";
 import { prisma } from "@/utils/prismaDB";
 
 async function checkAdminAuth() {
-  const cookieStore = await cookies();
-  const sessionCookie = cookieStore.get("admin_session");
-  if (!sessionCookie?.value) return false;
   try {
+    const cookieStore = await cookies();
+    const sessionCookie = cookieStore.get("admin_session");
+    console.log("Cookie check:", {
+      hasCookie: !!sessionCookie,
+      cookieValue: sessionCookie?.value?.substring(0, 20),
+    });
+    
+    if (!sessionCookie?.value) {
+      console.log("No admin_session cookie found");
+      return false;
+    }
+    
     const decoded = JSON.parse(
       Buffer.from(sessionCookie.value, "base64").toString()
     );
+    console.log("Decoded session:", decoded);
     return decoded.loggedIn === true;
-  } catch {
+  } catch (error) {
+    console.error("Auth decode error:", error);
     return false;
   }
 }
@@ -19,8 +30,17 @@ async function checkAdminAuth() {
 // POST /api/admin/blog/reorder - Reorder blogs
 export async function POST(request: Request) {
   try {
+    // Log incoming request
+    const headers = request.headers;
+    console.log("Reorder request headers:", {
+      cookieHeader: headers.get("cookie"),
+    });
+
     const isAuthorized = await checkAdminAuth();
+    console.log("Auth check result:", isAuthorized);
+
     if (!isAuthorized) {
+      console.log("Auth failed - no valid admin session");
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

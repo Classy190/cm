@@ -164,6 +164,7 @@ export default function AdminDashboard() {
     try {
       const res = await fetch("/api/admin/blog/reorder", {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           blogId: blog.id,
