@@ -21,8 +21,8 @@ export async function PATCH(
   { params }: { params: { id: string } }
 ) {
   try {
-    const isAdmin = await checkAdminAuth();
-    if (!isAdmin) {
+    const isAuthorized = await checkAdminAuth();
+    if (!isAuthorized) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -46,8 +46,8 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const isAdmin = await checkAdminAuth();
-    if (!isAdmin) {
+    const isAuthorized = await checkAdminAuth();
+    if (!isAuthorized) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
