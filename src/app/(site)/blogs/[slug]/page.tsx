@@ -17,14 +17,22 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
   const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
-  const post = getPostBySlug(slug, ["title", "author", "content", "metadata"]);
+  const post = getPostBySlug(slug, ["title", "description", "keywords", "excerpt", "coverImage"]);
 
-  const siteName = process.env.SITE_NAME || "Your Site Name";
-  const authorName = process.env.AUTHOR_NAME || "Your Author Name";
+  const siteName = "Classy Marketing";
+  const authorName = "Classy Marketing Team";
 
   if (post) {
     const metadata = {
-      title: `${post.title || "Single Post Page"} | ${siteName}`,
+      title: `${post.title || "Blog Article"} | ${siteName}`,
+      description: post.description || post.excerpt || "Read this article on our blog",
+      keywords: post.keywords ? post.keywords.split(", ") : ["blog", "article"],
+      openGraph: {
+        title: post.title,
+        description: post.description || post.excerpt,
+        images: post.coverImage ? [{ url: post.coverImage }] : [],
+        type: "article",
+      },
       author: authorName,
       robots: {
         index: true,
