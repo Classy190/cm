@@ -18,7 +18,7 @@ async function checkAdminAuth() {
   }
 }
 
-// PATCH /api/admin/blog/[slug] - Update date in MDX frontmatter
+// PATCH /api/admin/blog/[slug] - Update MDX frontmatter (date, title, excerpt, etc.)
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ slug: string }> }
@@ -30,10 +30,10 @@ export async function PATCH(
     }
 
     const { slug } = await params;
-    const { date } = await request.json();
+    const { date, title, excerpt, description, keywords } = await request.json();
 
-    // Validate date format: YYYY-MM-DD
-    if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    // Validate date format: YYYY-MM-DD if provided
+    if (date && !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
       return NextResponse.json(
         { error: "Ungültiges Datumsformat. Erwartet: YYYY-MM-DD" },
         { status: 400 }
@@ -51,16 +51,24 @@ export async function PATCH(
     const fileContents = fs.readFileSync(filePath, "utf8");
     const parsed = matter(fileContents);
 
-    // Update date in frontmatter
-    parsed.data.date = date;
+    // Update frontmatter fields
+    if (date) parsed.data.date = date;
+    if (title !== undefined) parsed.data.title = title;
+    if (excerpt !== undefined) parsed.data.excerpt = excerpt;
+    if (description !== undefined) parsed.data.description = description;
+    if (keywords !== undefined) parsed.data.keywords = keywords;
 
     // Rebuild file: frontmatter + content
     const updatedFile = matter.stringify(parsed.content, parsed.data);
     fs.writeFileSync(filePath, updatedFile, "utf8");
 
-    return NextResponse.json({ success: true, slug: cleanSlug, date });
+    return NextResponse.json({ 
+      success: true, 
+      slug: cleanSlug, 
+      updated: { date, title, excerpt, description, keywords }
+    });
   } catch (error) {
-    console.error("Blog date update error:", error);
+    console.error("Blog metadata update error:", error);
     return NextResponse.json({ error: "Fehler beim Aktualisieren" }, { status: 500 });
   }
 }
