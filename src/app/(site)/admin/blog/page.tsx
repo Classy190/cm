@@ -159,6 +159,7 @@ export default function AdminDashboard() {
     if (direction === "down" && index === blogs.length - 1) return;
 
     const blog = blogs[index];
+    console.log(`Moving blog "${blog.title}" ${direction}...`);
 
     try {
       const res = await fetch("/api/admin/blog/reorder", {
@@ -170,14 +171,28 @@ export default function AdminDashboard() {
         }),
       });
 
+      const data = await res.json();
+      console.log("Reorder response:", res.status, data);
+
       if (res.ok) {
-        // Refresh blogs after reordering
-        fetchBlogs();
+        setMessage({ ok: true, text: "Position gespeichert, lädt neu..." });
+        // Wait a moment then refresh
+        setTimeout(() => {
+          fetchBlogs();
+          setMessage({ ok: false, text: "" });
+        }, 800);
       } else {
-        console.error("Failed to reorder blog");
+        setMessage({ 
+          ok: false, 
+          text: `Fehler: ${data.error || "Konnte nicht verschieben"}` 
+        });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Reorder error:", error);
+      setMessage({ 
+        ok: false, 
+        text: `Fehler: ${error?.message || "Netzwerkfehler"}` 
+      });
     }
   };
 

@@ -25,6 +25,7 @@ export async function POST(request: Request) {
     }
 
     const { blogId, direction } = await request.json();
+    console.log("Reorder request:", { blogId, direction });
 
     if (!blogId || !["up", "down"].includes(direction)) {
       return NextResponse.json(
