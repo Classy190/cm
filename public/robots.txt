@@ -1,12 +1,31 @@
-# Allow all crawlers
+# Classy Marketing - robots.txt
+# Crawlers: Please optimize your crawl rate and respect robots meta tags
+
 User-agent: *
 Allow: /
-
-# Disallow admin and private areas
+Disallow: /api/
+Disallow: /.next/
 Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Slow down aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 1
+
+User-agent: SemrushBot
+Crawl-delay: 1
+
+User-agent: DotBot
+Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://classymarketing.de/sitemap.xml
+Sitemap: https://cm-nu-puce.vercel.app/sitemap.xml
+
+# Cache control
+Cache-control: max-age=86400
 
 # Crawl delay for slow servers (optional)
 Crawl-delay: 1

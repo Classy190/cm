@@ -1,12 +1,26 @@
 export default function Head() {
   return (
     <>
-      <title>
-      Classy Marketing - SaaS & Performance-Webseiten für mehr Aufträge
-      </title>
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="This SaaS Boilerplate and Starter Kit for Next.js is designed specifically for SaaS startups. It's a free resource complete with all the necessary integrations, pages, and components you require to build and launch a comprehensive SaaS website with robust features." />
+      <meta charSet="utf-8" />
+      <meta content="width=device-width, initial-scale=1, maximum-scale=5" name="viewport" />
+      <meta name="theme-color" content="#4A6CF7" />
+      
+      {/* Preconnect to improve performance */}
+      <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+      
+      {/* Prefetch for faster navigation */}
+      <link rel="prefetch" href="/sitemap.xml" />
+      <link rel="prefetch" href="/robots.txt" />
+      
+      {/* Favicon */}
       <link rel="icon" href="/images/favicon.ico" />
+      <link rel="apple-touch-icon" href="/images/favicon.ico" />
+      
+      {/* Canonical - set in page metadata */}
+      
+      {/* SEO: robots meta tags */}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     </>
   );
 }

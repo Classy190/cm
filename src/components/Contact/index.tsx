@@ -92,6 +92,7 @@ const Contact = () => {
                       Vollständiger Name*
                     </label>
                     <input
+                      id="fullName"
                       type="text"
                       name="fullName"
                       placeholder="Max Mustermann"
@@ -108,6 +109,7 @@ const Contact = () => {
                       E-Mail*
                     </label>
                     <input
+                      id="email"
                       type="email"
                       name="email"
                       placeholder="beispiel@example.de"
@@ -123,7 +125,8 @@ const Contact = () => {
                     >
                       Art des Projekts*
                     </label>
-                    <select
+                    <sid="projectType"
+                      elect
                       name="projectType"
                       required
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
@@ -144,7 +147,8 @@ const Contact = () => {
                     >
                       Gewünschter Zeitrahmen*
                     </label>
-                    <select
+                    <sid="timeline"
+                      elect
                       name="timeline"
                       required
                       className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
@@ -165,6 +169,7 @@ const Contact = () => {
                       Nachricht*
                     </label>
                     <textarea
+                      id="message"
                       name="message"
                       rows={1}
                       placeholder="Beschreiben Sie Ihr Projekt"
