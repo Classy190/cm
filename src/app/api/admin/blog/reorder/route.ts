@@ -39,32 +39,49 @@ export async function POST(request: Request) {
     });
 
     if (!blog) {
+      // If blog not in DB, we need to create a record with position
+      const newPosition = direction === "up" ? 10000 : 1;
+      await prisma.blog.create({
+        data: {
+          id: blogId,
+          title: blogId,
+          slug: blogId,
+          content: "",
+          position: newPosition,
+          authorId: "system",
+        },
+      });
+      return NextResponse.json({ success: true });
+    }
+
+    // Get all blogs to find swap target
+    const allBlogs = await prisma.blog.findMany({
+      orderBy: { position: "desc" },
+    });
+
+    const currentIndex = allBlogs.findIndex((b) => b.id === blogId);
+    if (currentIndex === -1) {
       return NextResponse.json(
-        { error: "Blog not found" },
+        { error: "Blog not found in list" },
         { status: 404 }
       );
     }
 
-    // Find the blog to swap with
-    let targetBlog;
-    if (direction === "up") {
-      targetBlog = await prisma.blog.findFirst({
-        where: { position: { lt: blog.position } },
-        orderBy: { position: "desc" },
-      });
-    } else {
-      targetBlog = await prisma.blog.findFirst({
-        where: { position: { gt: blog.position } },
-        orderBy: { position: "asc" },
-      });
-    }
-
-    if (!targetBlog) {
+    if (direction === "up" && currentIndex === 0) {
       return NextResponse.json(
-        { error: "Cannot move in this direction" },
+        { error: "Already at top" },
         { status: 400 }
       );
     }
+    if (direction === "down" && currentIndex === allBlogs.length - 1) {
+      return NextResponse.json(
+        { error: "Already at bottom" },
+        { status: 400 }
+      );
+    }
+
+    const targetIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
+    const targetBlog = allBlogs[targetIndex];
 
     // Swap positions
     const temp = blog.position;

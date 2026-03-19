@@ -66,7 +66,12 @@ export default function AdminDashboard() {
       const res = await fetch("/api/blog");
       if (res.ok) {
         const data = await res.json();
-        setBlogs(data);
+        // Initialize positions based on current order if not set
+        const blogsWithPos = data.map((blog: any, idx: number) => ({
+          ...blog,
+          position: blog.position !== undefined && blog.position !== 0 ? blog.position : data.length - idx,
+        }));
+        setBlogs(blogsWithPos);
       }
     } catch (error) {
       console.error("Failed to fetch blogs:", error);

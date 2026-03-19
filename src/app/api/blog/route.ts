@@ -25,7 +25,10 @@ export async function GET() {
           },
         },
       },
-      orderBy: { position: "desc" },
+      orderBy: [
+        { position: "desc" },
+        { createdAt: "desc" },
+      ],
     });
 
     // If we have blogs in database, return them
