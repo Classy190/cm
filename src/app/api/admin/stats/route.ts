@@ -26,14 +26,19 @@ export async function GET() {
       const dbBlogs = await prisma.blog.findMany({
         select: {
           title: true,
-          date: true,
+          createdAt: true,
           slug: true,
           coverImage: true,
         },
         orderBy: { position: "desc" },
       });
       if (dbBlogs && dbBlogs.length > 0) {
-        allPosts = dbBlogs;
+        allPosts = dbBlogs.map((blog) => ({
+          title: blog.title,
+          date: blog.createdAt,
+          slug: blog.slug,
+          coverImage: blog.coverImage,
+        }));
       }
     } catch (error) {
       // If DB query fails, fall back to MDX
