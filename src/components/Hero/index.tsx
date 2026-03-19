@@ -16,10 +16,10 @@ const Hero = () => {
                 data-wow-delay=".2s"
               >
                 <h1 className="mb-4 text-2xl font-bold leading-snug text-white sm:mb-6 sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
-                  Performance-Webseiten, die messbar mehr Aufträge generieren.
+                  Shopify Webseiten, lokale Websites & SaaS-Lösungen für messbar mehr Aufträge.
                 </h1>
                 <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-white sm:mb-12 sm:text-lg sm:leading-[1.44]">
-                  Spezialisiert auf <span className="font-bold">Shopify Online-Shops</span> und <span className="font-bold">lokale OnPage-Systeme</span>. Wir bauen maßgeschneiderte Systeme mit SEO, Geo-Optimierung und KI-gestützten Lösungen für messbare Ergebnisse.
+                  Spezialisiert auf <span className="font-bold">Shopify E-Commerce Websites</span>, <span className="font-bold">lokale Webseiten-Optimierung</span> und <span className="font-bold">maßgeschneiderte SaaS-Lösungen</span>. Mit professionellem Web-Design, SEO und Conversion-Optimierung generieren wir messbar mehr Leads & Umsatz für Agenturen, Dienstleister und Online-Shops.
                 </p>
                 <div className="mx-auto mb-10 max-w-[700px] grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
                   <div className="rounded-lg bg-white/10 backdrop-blur px-4 py-6 text-center hover:bg-white/20 transition">

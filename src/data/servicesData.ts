@@ -15,10 +15,10 @@ export const servicesData: ServiceType[] = [
   {
     id: "1",
     slug: "conversion-landingpages",
-    title: "Hochkonvertierende Landingpages",
+    title: "Conversion Landingpages",
     subtitle: "Landingpages",
     description:
-      "ROI-optimierte Seiten, die UX-Prinzipien mit klaren CTAs verbinden. Besucher zu qualifizierten Leads wandeln – datenbasiert und konversionsstark.",
+      "Hochkonvertierende Landingpages, die Besucher zu qualifizierten Leads konvertieren. Mit professionellem Web-Design, A/B-Testing und Conversion-Optimierung erzeugen wir messbar mehr Anfragen und Umsatz.",
     benefits: [
       "Optimiert für maximale Konversionsquoten (durchschnittlich +45% Anstieg)",
       "A/B-Testing und Heatmap-Analysen",
@@ -50,10 +50,10 @@ export const servicesData: ServiceType[] = [
   {
     id: "2",
     slug: "unternehmenswebseiten",
-    title: "Moderne Unternehmens-Webseiten",
+    title: "B2B Unternehmenswebseiten",
     subtitle: "Webseiten",
     description:
-      "Multipager-Websites, die Ihr Unternehmen widerspiegeln, Fachwissen präsentieren und eine nahtlose Benutzererfahrung bieten.",
+      "Professionelle Unternehmenswebseiten für B2B Dienstleister, Agenturen und Handwerk. Wir bauen SEO-optimierte Websites mit modernem Web-Design, die Ihre Expertise zeigen und organische Leads generieren.",
     benefits: [
       "Professionelle Darstellung Ihrer Marke",
       "SEO-optimierte Struktur für bessere Rankings",
@@ -84,10 +84,10 @@ export const servicesData: ServiceType[] = [
   {
     id: "3",
     slug: "shopify-online-shops",
-    title: "E-Commerce & Shopify Online-Shops",
+    title: "Shopify Online-Shop Entwicklung",
     subtitle: "E-Commerce",
     description:
-      "Leistungsstarke, verkaufspsychologisch optimierte Online-Shops. Durch Storytelling und Conversion-Strategien steigern wir Ihren organischen Umsatz nachhaltig.",
+      "Shopify Websites und Online-Shops mit professionellem E-Commerce Design, SEO-Optimierung und Conversion-Strategien. Wir maximieren Ihren Umsatz durch technische Optimierung, verkaufspsychologisches Design und organische Rankings.",
     benefits: [
       "Professionelle Shop-Funktion mit Payment-Gateway",
       "Skalierbar von 10 bis 10.000+ Produkte",
@@ -120,10 +120,10 @@ export const servicesData: ServiceType[] = [
   {
     id: "4",
     slug: "seo-rankings",
-    title: "Organische Top-Rankings (SEO)",
+    title: "SEO & lokale Suchmaschinenoptimierung",
     subtitle: "SEO",
     description:
-      "Identifizieren Sie Ihre Schwellen-Keywords und pushen Sie diese auf Seite 1 der Suchergebnisse. Maximale Sichtbarkeit ohne teure Werbeanzeigen.",
+      "Organische Top-Rankings auf Google durch professionelle SEO. Shopify-SEO, lokale Suchmaschinenoptimierung, technische SEO und strategische Content-Erstellung für nachhaltige Sichtbarkeit und Lead-Generierung.",
     benefits: [
       "Kostenlose organische Besucher langfristig",
       "Höheres Vertrauen durch Google-Ranking",
@@ -155,10 +155,10 @@ export const servicesData: ServiceType[] = [
   {
     id: "5",
     slug: "lokale-webshops",
-    title: "Lokale Webshops & Geo-Optimierung",
+    title: "Lokale Webseiten & Geo-Optimierung",
     subtitle: "Lokale E-Commerce",
     description:
-      "Lokale E-Commerce-Lösungen mit Geo-Targeting für maximale Reichweite in Ihrer Region. Integrierte Standortoptimierung für lokale Suchanfragen.",
+      "Lokale Webseiten mit Geo-Targeting und lokaler Suchmaschinenoptimierung. Wir bauen Online-Shops und Unternehmenswebseiten mit regionaler SEO, Google Maps Integration und Click-and-Collect für maximale lokale Sichtbarkeit.",
     benefits: [
       "Zielgerichtete Sichtbarkeit in Ihrer Region",
       "Lokale Kundenbasis schneller aufbauen",
@@ -189,10 +189,10 @@ export const servicesData: ServiceType[] = [
   {
     id: "6",
     slug: "saas-automatisierung",
-    title: "SaaS-Systeme & Automatisierung (AIO)",
+    title: "SaaS Lösungen & KI-Automatisierung",
     subtitle: "SaaS & Automation",
     description:
-      "Maßgeschneiderte Software-as-a-Service-Lösungen mit All-in-One-Automatisierung. Von Workflow-Optimierung bis KI-gestützter Prozessautomatisierung für 2026.",
+      "Maßgeschneiderte SaaS-Lösungen mit KI-gestützter Automatisierung. Wir entwickeln skalierbare Software-as-a-Service Systeme für Workflow-Optimierung, Booking-Verwaltung, Lead-Scoring und Business-Automation.",
     benefits: [
       "Automatisierung von manuellen Prozessen",
       "Zeitersparniss bis zu 80%",

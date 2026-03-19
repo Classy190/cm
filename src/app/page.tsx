@@ -15,9 +15,9 @@ import { getAllPosts } from "@/utils/markdown";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Classy Marketing - SaaS & Performance-Webseiten für mehr Aufträge",
-  description: "Wir konzipieren und entwickeln maßgeschneiderte SaaS-Lösungen, Landingpages und Online-Shops – spezialisiert auf Shopify, lokale OnPage-Systeme und KI-Automation. 100% fokussiert auf höhere Lead- und Umsatzraten.",
-  keywords: ["SaaS Development", "Landingpage", "Webseiten", "Shopify", "SEO", "Conversion Rate Optimization", "KI Automation"],
+  title: "Shopify Websites, lokale Webseiten & SaaS Lösungen | Classy Marketing",
+  description: "Shopify Websites, lokale Webseiten und SaaS Lösungen für mehr Aufträge & Umsatz. Spezialisiert auf E-Commerce Optimierung, SEO, Conversion-Optimierung und KI-Automation. Agenturen & Dienstleister – kostenloses Erstgespräch.",
+  keywords: ["Shopify Website", "Shopify SEO", "lokale Webseiten", "E-Commerce Webseite", "SaaS Lösung", "Landingpage erstellen", "Web Design Agentur", "Conversion Optimierung", "Online Shop Optimization"],
 };
 
 export default function Home() {
