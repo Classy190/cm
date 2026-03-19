@@ -18,7 +18,7 @@ async function checkAdminAuth() {
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const isAuthorized = await checkAdminAuth();
@@ -27,9 +27,10 @@ export async function PATCH(
     }
 
     const { isAdmin } = await request.json();
+    const { id } = await params;
 
     const updatedUser = await prisma.user.update({
-      where: { id: params.id },
+      where: { id },
       data: { isAdmin },
       select: { id: true, email: true, isAdmin: true }
     });
@@ -43,7 +44,7 @@ export async function PATCH(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const isAuthorized = await checkAdminAuth();
@@ -51,8 +52,9 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params;
     await prisma.user.delete({
-      where: { id: params.id }
+      where: { id }
     });
 
     return NextResponse.json({ success: true });
