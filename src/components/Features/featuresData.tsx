@@ -200,6 +200,39 @@ const featuresData: Feature[] = [
     btn: "Mehr erfahren",
     btnLink: "/services/ki-datenanalyse",
   },
+  {
+    id: 8,
+    icon: (
+      <svg
+        width="37"
+        height="37"
+        viewBox="0 0 37 37"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M32.26 4.5H4.74C3.7975 4.5 3 5.2975 3 6.34V30.66C3 31.7025 3.7975 32.5 4.74 32.5H32.26C33.2025 32.5 34 31.7025 34 30.66V6.34C34 5.2975 33.2025 4.5 32.26 4.5ZM31.85 29.41H5.15V8.59H31.85V29.41Z"
+          fill="white"
+        />
+        <path
+          d="M10.5 13.28H26.5V15.08H10.5V13.28Z"
+          fill="white"
+        />
+        <path
+          d="M10.5 19.22H26.5V21.02H10.5V19.22Z"
+          fill="white"
+        />
+        <path
+          d="M10.5 25.16H26.5V26.96H10.5V25.16Z"
+          fill="white"
+        />
+      </svg>
+    ),
+    title: "High-Performance Content & Copywriting",
+    paragraph: "Verkaufsstarke Texte, Blogbeiträge und Content-Marketing-Strategien. Jedes Wort gezielt für Engagement, Rankings und Conversions optimiert.",
+    btn: "Mehr erfahren",
+    btnLink: "/services/content-copywriting",
+  },
 ];
 
 export default featuresData;
