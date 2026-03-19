@@ -17,6 +17,7 @@ const Contact = () => {
       email: formData.get("email"),
       projectType: formData.get("projectType"),
       timeline: formData.get("timeline"),
+      investment: formData.get("investment"),
       message: formData.get("message"),
     };
 
@@ -157,6 +158,28 @@ const Contact = () => {
                       <option value="Sofort/Dringend">Sofort/Dringend</option>
                       <option value="In den nächsten 2-4 Wochen">In den nächsten 2-4 Wochen</option>
                       <option value="In 1-3 Monaten">In 1-3 Monaten</option>
+                      <option value="Noch nicht definiert">Noch nicht definiert</option>
+                    </select>
+                  </div>
+
+                  <div className="mb-[22px]">
+                    <label
+                      htmlFor="investment"
+                      className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                    >
+                      Investitionsrahmen*
+                    </label>
+                    <select
+                      id="investment"
+                      name="investment"
+                      required
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                    >
+                      <option value="">-- Bitte wählen --</option>
+                      <option value="Bis 5.000€">Bis 5.000€</option>
+                      <option value="5.000€ - 15.000€">5.000€ - 15.000€</option>
+                      <option value="15.000€ - 30.000€">15.000€ - 30.000€</option>
+                      <option value="Über 30.000€">Über 30.000€</option>
                       <option value="Noch nicht definiert">Noch nicht definiert</option>
                     </select>
                   </div>
