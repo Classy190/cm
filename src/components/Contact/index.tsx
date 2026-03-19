@@ -13,13 +13,28 @@ const Contact = () => {
 
     const formData = new FormData(e.currentTarget);
     const data = {
-      fullName: formData.get("fullName"),
-      email: formData.get("email"),
-      projectType: formData.get("projectType"),
-      timeline: formData.get("timeline"),
-      investment: formData.get("investment"),
-      message: formData.get("message"),
+      fullName: (formData.get("fullName") as string)?.trim() || "",
+      email: (formData.get("email") as string)?.trim() || "",
+      projectType: (formData.get("projectType") as string)?.trim() || "",
+      timeline: (formData.get("timeline") as string)?.trim() || "",
+      investment: (formData.get("investment") as string)?.trim() || "",
+      message: (formData.get("message") as string)?.trim() || "",
     };
+
+    // Client-side validation
+    const missingFields = [];
+    if (!data.fullName) missingFields.push("Name");
+    if (!data.email) missingFields.push("E-Mail");
+    if (!data.projectType) missingFields.push("Projekttyp");
+    if (!data.timeline) missingFields.push("Zeitrahmen");
+    if (!data.investment) missingFields.push("Budget");
+    if (!data.message) missingFields.push("Nachricht");
+
+    if (missingFields.length > 0) {
+      setSubmitMessage(`❌ Fehler: Bitte füllen Sie folgende Felder aus: ${missingFields.join(", ")}`);
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -39,6 +54,7 @@ const Contact = () => {
         setSubmitMessage(`❌ Fehler: ${result.error}`);
       }
     } catch (error) {
+      console.error("Form submit error:", error);
       setSubmitMessage("❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.");
     } finally {
       setIsSubmitting(false);

@@ -6,10 +6,35 @@ export async function POST(request: NextRequest) {
   try {
     const { fullName, email, projectType, timeline, investment, message } = await request.json();
 
-    // Validate required fields
-    if (!fullName || !email || !projectType || !timeline || !investment || !message) {
+    // Validate required fields with better error messages
+    const missingFields = [];
+    
+    if (!fullName || typeof fullName !== "string" || fullName.trim() === "") {
+      missingFields.push("fullName");
+    }
+    if (!email || typeof email !== "string" || email.trim() === "") {
+      missingFields.push("email");
+    }
+    if (!projectType || typeof projectType !== "string" || projectType.trim() === "") {
+      missingFields.push("projectType");
+    }
+    if (!timeline || typeof timeline !== "string" || timeline.trim() === "") {
+      missingFields.push("timeline");
+    }
+    if (!investment || typeof investment !== "string" || investment.trim() === "") {
+      missingFields.push("investment");
+    }
+    if (!message || typeof message !== "string" || message.trim() === "") {
+      missingFields.push("message");
+    }
+
+    if (missingFields.length > 0) {
+      console.warn("⚠️ Validierungsfehler - felgende Felder fehlen:", missingFields);
       return NextResponse.json(
-        { error: "Alle Pflichtfelder müssen ausgefüllt werden." },
+        { 
+          error: `Folgende Felder sind erforderlich: ${missingFields.join(", ")}`,
+          missingFields 
+        },
         { status: 400 }
       );
     }
