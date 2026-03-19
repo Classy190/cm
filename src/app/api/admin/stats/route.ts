@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/utils/prismaDB";
 import { cookies } from "next/headers";
+import { getAllPosts } from "@/utils/markdown";
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const cookieStore = await cookies();
     const sessionCookie = cookieStore.get("admin_session");
@@ -19,60 +19,22 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Get blog stats
-    const totalBlogs = await prisma.blog.count();
-    const publishedBlogs = await prisma.blog.count({ where: { published: true } });
-    const draftBlogs = totalBlogs - publishedBlogs;
+    // Read all MDX blog files using existing utility
+    const allPosts = getAllPosts(["title", "date", "slug", "coverImage"]);
 
-    // Get comment stats
-    const totalComments = await prisma.comment.count();
-    const approvedComments = await prisma.comment.count({ where: { approved: true } });
-
-    // Get contact stats
-    const totalContacts = await prisma.contactSubmission.count();
-    const unreadContacts = await prisma.contactSubmission.count({ where: { read: false } });
-    const archivedContacts = await prisma.contactSubmission.count({ where: { archived: true } });
-
-    // Get user stats
-    const totalUsers = await prisma.user.count();
-    const adminUsers = await prisma.user.count({ where: { isAdmin: true } });
-
-    // Recent activities
-    const recentBlogs = await prisma.blog.findMany({
-      take: 5,
-      orderBy: { updatedAt: "desc" },
-      select: { title: true, updatedAt: true, published: true }
-    });
-
-    const recentMessages = await prisma.contactSubmission.findMany({
-      take: 5,
-      orderBy: { createdAt: "desc" },
-      select: { fullName: true, email: true, createdAt: true }
-    });
+    const recentBlogs = allPosts.slice(0, 6).map((post: any) => ({
+      title: post.title || post.slug,
+      slug: post.slug,
+      date: post.date || null,
+      coverImage: post.coverImage || null,
+    }));
 
     return NextResponse.json({
       blogs: {
-        total: totalBlogs,
-        published: publishedBlogs,
-        drafts: draftBlogs
-      },
-      comments: {
-        total: totalComments,
-        approved: approvedComments,
-        pending: totalComments - approvedComments
-      },
-      contacts: {
-        total: totalContacts,
-        unread: unreadContacts,
-        archived: archivedContacts
-      },
-      users: {
-        total: totalUsers,
-        admins: adminUsers
+        total: allPosts.length,
       },
       recentBlogs,
-      recentMessages,
-      lastUpdated: new Date()
+      lastUpdated: new Date(),
     });
   } catch (error) {
     console.error("Stats error:", error);
