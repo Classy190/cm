@@ -149,7 +149,7 @@ export const servicesData: ServiceType[] = [
       "Langfristige Lead-Generierung",
     ],
     pricing:
-      "2.999€ – 7.400€/Monat je nach Umfang und Konkurrenz-Level.",
+      "3.999€ – 7.400€/Monat je nach Umfang und Konkurrenz-Level.",
     blogLink: "/blogs/seo-strategie-2026",
   },
   {

@@ -76,7 +76,7 @@ const Contact = () => {
 
                 <div className="mb-6 rounded-lg bg-green-50 p-4 dark:bg-green-500/10">
                   <p className="text-xs font-semibold text-green-600 dark:text-green-400">
-                    💚 Investition startet bei 2.999€ netto*
+                    💚 Investition startet bei 3.999€ netto*
                   </p>
                   <p className="mt-1 text-xs text-body-color dark:text-dark-6">
                     Einfache Webseiten und Landingpages starten in diesem Rahmen. Ihre genauen Kosten besprechen wir nach dem Erstgespräch.
@@ -97,7 +97,7 @@ const Contact = () => {
                       name="fullName"
                       placeholder="Max Mustermann"
                       required
-                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     />
                   </div>
 
@@ -114,7 +114,7 @@ const Contact = () => {
                       name="email"
                       placeholder="beispiel@example.de"
                       required
-                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     />
                   </div>
 
@@ -129,7 +129,7 @@ const Contact = () => {
                       id="projectType"
                       name="projectType"
                       required
-                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     >
                       <option value="">-- Bitte wählen --</option>
                       <option value="Landingpage">Landingpage</option>
@@ -151,7 +151,7 @@ const Contact = () => {
                       id="timeline"
                       name="timeline"
                       required
-                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                      className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     >
                       <option value="">-- Bitte wählen --</option>
                       <option value="Sofort/Dringend">Sofort/Dringend</option>
@@ -174,7 +174,7 @@ const Contact = () => {
                       rows={1}
                       placeholder="Beschreiben Sie Ihr Projekt"
                       required
-                      className="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
+                      className="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-black dark:placeholder:text-white focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                     ></textarea>
                   </div>
 
