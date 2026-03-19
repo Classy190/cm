@@ -63,6 +63,56 @@ const blogGraphics: Record<
     bgColor: "from-teal-500 to-teal-600",
     label: "Web Design",
   },
+  "google-search-console-gold": {
+    icon: "📈",
+    bgColor: "from-blue-600 to-blue-800",
+    label: "Google Search Console",
+  },
+  "semrush-seo-tool": {
+    icon: "🔍",
+    bgColor: "from-violet-600 to-violet-800",
+    label: "Semrush",
+  },
+  "ahrefs-backlinks-seo": {
+    icon: "🔗",
+    bgColor: "from-amber-600 to-amber-800",
+    label: "Ahrefs",
+  },
+  "position-1-keywords": {
+    icon: "🥇",
+    bgColor: "from-yellow-600 to-yellow-800",
+    label: "Position 1",
+  },
+  "chatgpt-perplexity-grok": {
+    icon: "💬",
+    bgColor: "from-green-600 to-green-800",
+    label: "KI Tools",
+  },
+  "ki-bots-chatbots": {
+    icon: "🤖",
+    bgColor: "from-purple-600 to-purple-800",
+    label: "Chatbots",
+  },
+  "saas-business-model": {
+    icon: "💼",
+    bgColor: "from-blue-700 to-blue-900",
+    label: "SaaS Business",
+  },
+  "seo-ai-geo-targeting": {
+    icon: "🗺️",
+    bgColor: "from-red-600 to-red-800",
+    label: "Geo-Targeting",
+  },
+  "shopify-dropshipping-2026": {
+    icon: "📦",
+    bgColor: "from-green-700 to-green-900",
+    label: "Dropshipping",
+  },
+  "private-label-business": {
+    icon: "🏷️",
+    bgColor: "from-pink-600 to-pink-800",
+    label: "Private Label",
+  },
 };
 
 const BlogGraphic: React.FC<BlogGraphicProps> = ({
