@@ -44,6 +44,38 @@ const Faq = () => {
             />
           </div>
         </div>
+
+        <div className="-mx-4 mt-12 flex flex-wrap lg:mt-16">
+          <div className="w-full px-4 lg:w-1/2">
+            <SingleFaq
+              question="Wie viel kostet eine Shopify Website erstellen lassen?"
+              answer="Eine professionelle Shopify Website kostet je nach Umfang zwischen 5.000€ und 30.000€. Einfache E-Commerce Shops mit 20-50 Produkten starten ab 12.000€. Der genaue Preis hängt ab von Anzahl der Produkte, Custom Design und Integrationen. Wir erstellen Ihnen ein transparentes Angebot nach dem Erstgespräch."
+            />
+            <SingleFaq
+              question="Ist lokale Suchmaschinenoptimierung wirklich relevant für mein Geschäft?"
+              answer="Ja! Falls Sie lokal tätig sind (Handwerker, Dienstleister, Restaurant, etc.), ist lokale SEO und Google My Business Optimierung essentiell. Mit lokaler Webseite-Optimierung und Geo-Targeting erreichen Sie gezielt Kunden in Ihrer Region – mit hoher Kaufintention und besseren Konversionsraten."
+            />
+            <SingleFaq
+              question="Können Sie eine SaaS Lösung für mein Business entwickeln?"
+              answer="Absolut! Wir entwickeln maßgeschneiderte SaaS-Lösungen für Booking-Systeme, Automation, HR, CRM und mehr. Eine SaaS-Lösung kostet je nach Komplexität 25.000€ – 100.000€+. Gerne starten wir mit einem kostenlosen Strategie-Gespräch, um Ihre Idee zu validieren."
+            />
+          </div>
+
+          <div className="w-full px-4 lg:w-1/2">
+            <SingleFaq
+              question="Warum sollte ich eine lokale Webseite mit Geo-Targeting erstellen?"
+              answer="Eine lokale Webseite mit Geo-Optimierung hilft Ihnen, in Google Maps und lokalen Suchergebnissen sichtbar zu werden. Beispiel: Statt 'Zahnarzt'-Rankings (sehr kompetitiv), ranken Sie für 'Zahnarzt Berlin-Mitte' (hochqualifiziert, lokale Kunden). Das generiert mehr lokale Anfragen und Kundenakquisition."
+            />
+            <SingleFaq
+              question="Was ist der ROI einer professionellen Webseite oder Landingpage?"
+              answer="Eine durchschnittliche Landingpage mit 2% Konversionsrate amortisiert sich in 3-6 Monaten. Bei 100 Besucher/Tag und durchschnittlich 5€ Umsatz pro Conversion = 10€/Tag Mehrwert. Eine Landingpage-Investition von 8.000€ ist in 800 Tagen (≈ 2,5 Jahre) refinanziert – weitere Jahre sind reiner Gewinn."
+            />
+            <SingleFaq
+              question="Unterstützen Sie auch Shopify SEO und E-Commerce Optimierung?"
+              answer="Ja! Shopify SEO ist unser Spezialgebiet. Wir optimieren Ihre Shopify Shop für Google Rankings, verbessern die Conversion-Rate durch UX-Design und A/B-Testing, und integrieren Zahlungen, Email-Marketing und Analytics. Das Ziel: Mehr organischer Traffic + mehr Verkäufe."
+            />
+          </div>
+        </div>
       </div>
 
       <div>
