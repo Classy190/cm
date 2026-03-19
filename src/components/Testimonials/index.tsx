@@ -5,28 +5,28 @@ import SingleTestimonial from "./SingleTestimonial";
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Sabo Masties",
-    designation: "Founder @ Rolex",
+    name: "Marcus Weber",
+    designation: "Geschäftsführer @ Weber-SHK",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Endlich eine Agentur, die sich wirklich Zeit für die Strategie nimmt. Unsere Anfragen über die Website haben sich innerhalb von 3 Monaten verdoppelt. Top Arbeit!",
     image: "/images/testimonials/author-01.png",
     star: 5,
   },
   {
     id: 2,
-    name: "Margin Gesmu",
-    designation: "Founder @ UI Hunter",
+    name: "Stefanie Klein",
+    designation: "Inhaberin @ Klein Elektro GmbH",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Die Jungs von Classy Marketing verstehen unser Geschäft. SEO-optimiert, klare Struktur, und unsere Conversion-Rate ist seitdem um 35% gestiegen. Wirklich empfehlenswert!",
     image: "/images/testimonials/author-02.png",
     star: 5,
   },
   {
     id: 3,
-    name: "William Smith",
-    designation: "Founder @ Trorex",
+    name: "Thomas Bauer",
+    designation: "Owner @ Bauer Sanitär & Installation",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Von der Beratung bis zur Umsetzung: professionell und zuverlässig. Wir arbeiten jetzt seit über einem Jahr zusammen. Unsere Online-Präsenz ist deutlich stärker geworden.",
     image: "/images/testimonials/author-03.png",
     star: 5,
   },
@@ -38,8 +38,8 @@ const Testimonials = () => {
       <div className="container px-4">
         <SectionTitle
           subtitle="Testimonials"
-          title="What our Client Say"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Vertrauen von über 20+ Kunden"
+          paragraph="Handwerksbetriebe, E-Commerce und Dienstleister nutzen Classy Marketing, um online präsent und profitabel zu werden. Lesen Sie, was unsere Kunden über die Zusammenarbeit sagen."
           width="640px"
           center
         />

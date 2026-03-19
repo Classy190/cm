@@ -74,6 +74,15 @@ const Contact = () => {
                   </p>
                 </div>
 
+                <div className="mb-6 rounded-lg bg-green-50 p-4 dark:bg-green-500/10">
+                  <p className="text-xs font-semibold text-green-600 dark:text-green-400">
+                    💚 Investition startet bei 2.999€ netto*
+                  </p>
+                  <p className="mt-1 text-xs text-body-color dark:text-dark-6">
+                    Einfache Webseiten und Landingpages starten in diesem Rahmen. Ihre genauen Kosten besprechen wir nach dem Erstgespräch.
+                  </p>
+                </div>
+
                 <form onSubmit={handleSubmit}>
                   <div className="mb-[22px]">
                     <label

@@ -7,6 +7,7 @@ import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import Onboarding from "@/components/Onboarding";
 import Process from "@/components/Process";
 import SaasExplained from "@/components/SaasExplained";
 import Tools from "@/components/Tools";
@@ -42,6 +43,9 @@ export default function Home() {
       
       {/* FAQ - Remove Objections */}
       <Faq />
+      
+      {/* Onboarding Requirements - Set Expectations */}
+      <Onboarding />
       
       {/* Final CTA - Convert */}
       <Contact />

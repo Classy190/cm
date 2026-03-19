@@ -36,7 +36,7 @@ const Faq = () => {
             />
             <SingleFaq
               question="Welche Kosten sind für ein Webprojekt zu erwarten?"
-              answer="Die Kosten sind abhängig von der Projektkomplexität (z.B. Onepager vs. Shopify-Shop). Unsere Projekte starten im Regelfall ab 2.500€ Netto an. Nach einem Erstgespräch erhalten Sie von uns ein transparentes, detailliertes Festpreisangebot."
+              answer="Die Kosten sind abhängig von der Projektkomplexität (z.B. Onepager vs. Shopify-Shop). Einfache Webseiten starten ab 2.999€ Netto*. Nach einem Erstgespräch erhalten Sie von uns ein transparentes, detailliertes Festpreisangebot."
             />
             <SingleFaq
               question="Warum benötigt Classy Marketing Zugriff auf meinen Onlineshop?"
