@@ -154,6 +154,24 @@ export default function AdminHome() {
                   </div>
                 </div>
               </Link>
+
+              <Link href="/admin/blog/dates">
+                <div className="rounded-xl border border-gray-200 dark:border-dark-3 bg-white dark:bg-dark-2 shadow hover:shadow-lg hover:border-orange-400 transition overflow-hidden">
+                  <div className="h-1.5 bg-gradient-to-r from-orange-400 to-orange-500"></div>
+                  <div className="p-6 flex gap-4 items-start">
+                    <div className="text-4xl shrink-0 leading-none">&#128197;</div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-dark dark:text-white mb-1">Datum bearbeiten</h3>
+                      <p className="text-sm text-body-color dark:text-dark-6 mb-3">
+                        Veroeffentlichungsdatum aller Artikel manuell anpassen
+                      </p>
+                      <span className="inline-block px-4 py-1.5 bg-orange-400 hover:bg-orange-500 text-white rounded-lg font-medium transition text-sm">
+                        Oeffnen &rarr;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </div>
 
             <div className="bg-white dark:bg-dark-2 rounded-xl border border-gray-200 dark:border-dark-3 overflow-hidden mb-10">
@@ -206,6 +224,12 @@ export default function AdminHome() {
                   className="flex items-center gap-2 px-4 py-3 bg-white dark:bg-dark-2 rounded-lg border border-blue-200 dark:border-blue-900 hover:border-primary transition text-sm font-medium text-dark dark:text-white"
                 >
                   Blog ansehen
+                </Link>
+                <Link
+                  href="/admin/blog/dates"
+                  className="flex items-center gap-2 px-4 py-3 bg-white dark:bg-dark-2 rounded-lg border border-blue-200 dark:border-blue-900 hover:border-primary transition text-sm font-medium text-dark dark:text-white"
+                >
+                  Datum bearbeiten
                 </Link>
                 <Link
                   href="/admin/settings"
