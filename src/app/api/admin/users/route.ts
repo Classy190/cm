@@ -1,11 +1,21 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/utils/prismaDB";
-import { auth } from "@/utils/adminAuth";
+import { cookies } from "next/headers";
 
 export async function GET(request: Request) {
   try {
-    const user = await auth(request);
-    if (!user || !user.isAdmin) {
+    const cookieStore = await cookies();
+    const sessionCookie = cookieStore.get("admin_session");
+
+    if (!sessionCookie?.value) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const decoded = JSON.parse(
+      Buffer.from(sessionCookie.value, "base64").toString()
+    );
+
+    if (decoded.loggedIn !== true) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

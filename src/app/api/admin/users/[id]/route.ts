@@ -1,14 +1,28 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/utils/prismaDB";
-import { auth } from "@/utils/adminAuth";
+import { cookies } from "next/headers";
+
+async function checkAdminAuth() {
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get("admin_session");
+  if (!sessionCookie?.value) return false;
+  try {
+    const decoded = JSON.parse(
+      Buffer.from(sessionCookie.value, "base64").toString()
+    );
+    return decoded.loggedIn === true;
+  } catch {
+    return false;
+  }
+}
 
 export async function PATCH(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   try {
-    const user = await auth(request);
-    if (!user || !user.isAdmin) {
+    const isAdmin = await checkAdminAuth();
+    if (!isAdmin) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -32,8 +46,8 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const user = await auth(request);
-    if (!user || !user.isAdmin) {
+    const isAdmin = await checkAdminAuth();
+    if (!isAdmin) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
