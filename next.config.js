@@ -12,7 +12,9 @@ const nextConfig = {
       {
         source: '/:path*',
         headers: [
-          // Security headers (no Cache-Control here — Next.js manages HTML page caching)
+          // Force browsers to always revalidate HTML pages (fixes stale immutable cache)
+          { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
+          // Security headers
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'X-XSS-Protection', value: '1; mode=block' },
