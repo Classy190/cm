@@ -30,7 +30,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid request" }, { status: 400 });
     }
 
-    const adminUser = await prisma.user.findFirst({ where: { isAdmin: true } });
+    const adminUser = await prisma.user.findFirst({
+      where: { isAdmin: true },
+      select: { id: true },
+    });
     if (!adminUser) {
       return NextResponse.json({ error: "No admin user found" }, { status: 500 });
     }
