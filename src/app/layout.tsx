@@ -2,9 +2,24 @@ import CookieBanner from "@/components/CookieBanner";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
+import { Metadata } from "next";
 import "../styles/index.css";
 import "../styles/prism-vsc-dark-plus.css";
 import Providers from "./providers";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Classy Marketing – Performance-Webseiten & SaaS",
+    template: "%s | Classy Marketing",
+  },
+  description: "Shopify Websites, lokale Webseiten und SaaS-Lösungen für mehr Aufträge & Umsatz. Kostenloses Erstgespräch.",
+  metadataBase: new URL("https://classymarketing.de"),
+  openGraph: {
+    siteName: "Classy Marketing",
+    locale: "de_DE",
+    type: "website",
+  },
+};
 
 export default function RootLayout({
   children,

@@ -22,7 +22,7 @@ User-agent: DotBot
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://cm-nu-puce.vercel.app/sitemap.xml
+Sitemap: https://classymarketing.de/sitemap.xml
 
 # Cache control
 Cache-control: max-age=86400
