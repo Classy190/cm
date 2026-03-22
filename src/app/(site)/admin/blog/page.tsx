@@ -6,11 +6,13 @@ import Link from "next/link";
 
 interface Blog {
   id: string;
+  slug: string;
   title: string;
   excerpt?: string;
+  date?: string;
   createdAt: string;
-  updatedAt: string;
   published: boolean;
+  position?: number;
 }
 
 interface EditForm {
@@ -63,15 +65,10 @@ export default function AdminDashboard() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch("/api/blog");
+      const res = await fetch("/api/admin/blog/list");
       if (res.ok) {
         const data = await res.json();
-        // Initialize positions based on current order if not set
-        const blogsWithPos = data.map((blog: any, idx: number) => ({
-          ...blog,
-          position: blog.position !== undefined && blog.position !== 0 ? blog.position : data.length - idx,
-        }));
-        setBlogs(blogsWithPos);
+        setBlogs(data);
       }
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
@@ -281,6 +278,8 @@ export default function AdminDashboard() {
                       >
                         <td className="px-4 py-4 text-sm text-body-color dark:text-dark-6">
                           <strong>{blog.title}</strong>
+                          <br />
+                          <span className="text-xs text-body-color/60 dark:text-dark-6/60">{(blog as any).slug || blog.id}</span>
                         </td>
                         <td className="px-4 py-4 text-sm">
                           <span
@@ -294,7 +293,9 @@ export default function AdminDashboard() {
                           </span>
                         </td>
                         <td className="px-4 py-4 text-sm text-body-color dark:text-dark-6">
-                          {new Date(blog.createdAt).toLocaleDateString("de-DE")}
+                          {(blog as any).date
+                            ? new Date((blog as any).date).toLocaleDateString("de-DE")
+                            : new Date(blog.createdAt).toLocaleDateString("de-DE")}
                         </td>
                         <td className="px-4 py-4 text-sm flex gap-2">
                           <button

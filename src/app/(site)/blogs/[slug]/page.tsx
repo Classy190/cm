@@ -1,6 +1,7 @@
 import PopularArticle from "@/components/Blog/PopularArticle";
 import SingleBlog from "@/components/Blog/SingleBlog";
 import BlogComments from "@/components/Blog/BlogComments";
+import BlogGraphic from "@/components/Blog/BlogGraphic";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { getAllPosts, getPostBySlug } from "@/utils/markdown";
 import markdownToHtml from "@/utils/markdownToHtml";
@@ -94,13 +95,17 @@ export default async function Post({ params }: Props) {
                 className="wow fadeInUp relative z-20 mb-[60px] h-[300px] overflow-hidden rounded md:h-[400px] lg:h-[500px]"
                 data-wow-delay=".1s"
               >
-                <Image
-                  src={post.coverImage}
-                  alt="image"
-                  width={1288}
-                  height={500}
-                  className="h-full w-full object-cover object-center"
-                />
+                {post.coverImage ? (
+                  <Image
+                    src={post.coverImage}
+                    alt={post.title || "Blog cover"}
+                    width={1288}
+                    height={500}
+                    className="h-full w-full object-cover object-center"
+                  />
+                ) : (
+                  <BlogGraphic slug={slug} size="large" className="h-full rounded" />
+                )}
               </div>
               <div className="-mx-4 flex flex-wrap">
                 <div className="w-full px-4 lg:w-8/12">
