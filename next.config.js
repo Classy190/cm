@@ -12,9 +12,7 @@ const nextConfig = {
       {
         source: '/:path*',
         headers: [
-          // Performance
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-          // Security
+          // Security headers (no Cache-Control here — Next.js manages HTML page caching)
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'X-XSS-Protection', value: '1; mode=block' },
