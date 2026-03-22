@@ -40,18 +40,20 @@ const CookieBanner = () => {
       <div className="fixed left-1/2 top-1/2 z-[1000] w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 transform rounded-2xl bg-white p-6 shadow-2xl dark:bg-dark">
         <div>
           <h3 className="mb-4 text-xl font-bold text-dark dark:text-white">
-            🍪 Cookie-Einstellungen
+            🍪 Cookie-Hinweis
           </h3>
           <p className="mb-6 text-base text-body-color dark:text-dark-6">
-            Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und unsere Website zu optimieren. Mit Ihrer Zustimmung helfen Sie uns, die Website besser zu machen.
+            Diese Website verwendet ausschließlich technisch notwendige Cookies und lokale Speicherung, die für den Betrieb der Website erforderlich sind. Es werden <strong>keine Analyse- oder Tracking-Cookies</strong> eingesetzt.
           </p>
           <p className="mb-6 text-sm text-body-color dark:text-dark-6">
-            <a 
-              href="/datenschutz" 
+            Weitere Informationen finden Sie in unserer{" "}
+            <a
+              href="/datenschutz"
               className="text-primary hover:underline"
             >
-              Mehr über unsere Cookie-Richtlinie erfahren
+              Datenschutzerklärung
             </a>
+            .
           </p>
           
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-end sm:gap-4">
