@@ -155,8 +155,12 @@ export default function AdminDashboard() {
     if (direction === "up" && index === 0) return;
     if (direction === "down" && index === blogs.length - 1) return;
 
-    const blog = blogs[index];
-    console.log(`Moving blog "${blog.title}" ${direction}...`);
+    const swapIdx = direction === "up" ? index - 1 : index + 1;
+
+    // Optimistic update — swap immediately in UI
+    const newBlogs = [...blogs];
+    [newBlogs[index], newBlogs[swapIdx]] = [newBlogs[swapIdx], newBlogs[index]];
+    setBlogs(newBlogs);
 
     try {
       const res = await fetch("/api/admin/blog/reorder", {
@@ -164,33 +168,20 @@ export default function AdminDashboard() {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          blogId: blog.id,
-          direction,
+          orderedSlugs: newBlogs.map((b) => b.slug),
         }),
       });
 
-      const data = await res.json();
-      console.log("Reorder response:", res.status, data);
-
-      if (res.ok) {
-        setMessage({ ok: true, text: "Position gespeichert, lädt neu..." });
-        // Wait a moment then refresh
-        setTimeout(() => {
-          fetchBlogs();
-          setMessage({ ok: false, text: "" });
-        }, 800);
-      } else {
-        setMessage({ 
-          ok: false, 
-          text: `Fehler: ${data.error || "Konnte nicht verschieben"}` 
-        });
+      if (!res.ok) {
+        const data = await res.json();
+        // Revert on failure
+        setBlogs(blogs);
+        setMessage({ ok: false, text: `Fehler: ${data.error || "Konnte nicht verschieben"}` });
       }
     } catch (error: any) {
-      console.error("Reorder error:", error);
-      setMessage({ 
-        ok: false, 
-        text: `Fehler: ${error?.message || "Netzwerkfehler"}` 
-      });
+      // Revert on network error
+      setBlogs(blogs);
+      setMessage({ ok: false, text: `Fehler: ${error?.message || "Netzwerkfehler"}` });
     }
   };
 

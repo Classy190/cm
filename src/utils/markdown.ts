@@ -54,8 +54,12 @@ export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    .sort((post1, post2) => {
+      // Normalize to ISO string regardless of whether gray-matter returns Date or string
+      const d1 = post1.date ? new Date(post1.date).toISOString() : "";
+      const d2 = post2.date ? new Date(post2.date).toISOString() : "";
+      return d1 > d2 ? -1 : 1;
+    });
 
   return posts;
 }
