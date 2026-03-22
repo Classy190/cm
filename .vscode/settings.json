@@ -1,4 +1,7 @@
 {
   "css.validate": false,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "chat.tools.terminal.autoApprove": {
+    "git push": true
+  }
 }

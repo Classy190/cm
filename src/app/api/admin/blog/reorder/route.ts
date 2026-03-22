@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { prisma } from "@/utils/prismaDB";
 
@@ -17,7 +17,7 @@ async function checkAdminAuth() {
 }
 
 // POST /api/admin/blog/reorder
-// Body: { orderedSlugs: string[] }  — full list in desired order (index 0 = top)
+// Body: { orderedSlugs: string[] } — full list in desired order (index 0 = top)
 export async function POST(request: Request) {
   try {
     if (!(await checkAdminAuth())) {
@@ -35,22 +35,25 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "No admin user found" }, { status: 500 });
     }
 
-    // Save all positions: index 0 = highest position value (shows at top)
     const total = orderedSlugs.length;
-    await Promise.all(
-      orderedSlugs.map((slug: string, index: number) =>
-        prisma.blog.upsert({
-          where: { slug },
-          update: { position: (total - index) * 10 },
-          create: {
-            title: slug,
-            slug,
-            content: "",
-            position: (total - index) * 10,
-            authorId: adminUser.id,
-          },
-        })
-      )
+
+    // Use transaction for atomicity; run sequentially to avoid pool exhaustion
+    await prisma.$transaction(
+      orderedSlugs
+        .filter((slug: string) => typeof slug === "string" && slug.length > 0)
+        .map((slug: string, index: number) =>
+          prisma.blog.upsert({
+            where: { slug },
+            update: { position: (total - index) * 10 },
+            create: {
+              title: slug,
+              slug,
+              content: "",
+              position: (total - index) * 10,
+              authorId: adminUser.id,
+            },
+          })
+        )
     );
 
     return NextResponse.json({ success: true });

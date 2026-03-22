@@ -226,6 +226,16 @@ export default function AdminDashboard() {
               </Link>
             </div>
 
+            {message.text && !editModal.open && (
+              <div
+                className={`mb-4 p-3 rounded-lg text-sm font-medium ${
+                  message.ok ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                }`}
+              >
+                {message.text}
+              </div>
+            )}
+
             {loading ? (
               <div className="text-center py-10">
                 <p className="text-body-color dark:text-dark-6">Laedt Blogbeitraege...</p>
