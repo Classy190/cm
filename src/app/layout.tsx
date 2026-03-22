@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning className="!scroll-smooth" lang="de">
       <head>
+        <meta charSet="utf-8" />
         <script dangerouslySetInnerHTML={{ __html: `
 /*
  * ██████╗██╗      █████╗ ███████╗███████╗██╗   ██╗
@@ -46,7 +47,7 @@ export default function RootLayout({
  *  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝
  *
  *  classymarketing.de
- *  made with ♥ by Özgür Atik — 2026
+ *  made with <3 by Ozgur Atik - 2026
  */
 ` }} />
       </head>
