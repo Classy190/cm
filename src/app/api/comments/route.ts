@@ -39,21 +39,36 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { content, authorName, authorEmail, blogSlug } = body;
 
-    // Validation
-    if (!content || !authorName || !authorEmail || !blogSlug) {
+    // Validation – email is optional
+    if (!content || !authorName || !blogSlug) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    // Find blog by slug
-    const blog = await prisma.blog.findUnique({
+    // Find or auto-create blog record (MDX file-based blogs don't have DB entries)
+    let blog = await prisma.blog.findUnique({
       where: { slug: blogSlug },
     });
 
     if (!blog) {
-      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+      const adminUser = await prisma.user.findFirst({
+        where: { isAdmin: true },
+      });
+      if (!adminUser) {
+        return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+      }
+      blog = await prisma.blog.upsert({
+        where: { slug: blogSlug },
+        update: {},
+        create: {
+          title: blogSlug,
+          slug: blogSlug,
+          content: "",
+          authorId: adminUser.id,
+        },
+      });
     }
 
     // Create comment (not approved by default)
@@ -61,7 +76,7 @@ export async function POST(request: NextRequest) {
       data: {
         content,
         authorName,
-        authorEmail,
+        authorEmail: authorEmail || "",
         blogId: blog.id,
         approved: false,
       },

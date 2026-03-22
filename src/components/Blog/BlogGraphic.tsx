@@ -113,6 +113,41 @@ const blogGraphics: Record<
     bgColor: "from-pink-600 to-pink-800",
     label: "Private Label",
   },
+  "lokale-webseiten-handwerker": {
+    icon: "🔧",
+    bgColor: "from-orange-600 to-orange-800",
+    label: "Lokale Webseiten",
+  },
+  "saas-losung-entwickeln": {
+    icon: "🚀",
+    bgColor: "from-sky-600 to-sky-800",
+    label: "SaaS Entwicklung",
+  },
+  "shopify-website-erstellen": {
+    icon: "🛍️",
+    bgColor: "from-lime-600 to-lime-800",
+    label: "Shopify Website",
+  },
+  "shopify-agb-richtlinien": {
+    icon: "⚖️",
+    bgColor: "from-slate-600 to-slate-800",
+    label: "Shopify AGB",
+  },
+  "rechtliche-fallstricke-dialogmarketing": {
+    icon: "📬",
+    bgColor: "from-rose-600 to-rose-800",
+    label: "Dialogmarketing Recht",
+  },
+  "dsgvo-onlineshop": {
+    icon: "🔒",
+    bgColor: "from-indigo-600 to-indigo-800",
+    label: "DSGVO",
+  },
+  "onlineshop-gesetzliche-vorschriften": {
+    icon: "📋",
+    bgColor: "from-teal-600 to-teal-800",
+    label: "Gesetzliche Vorschriften",
+  },
 };
 
 const BlogGraphic: React.FC<BlogGraphicProps> = ({

@@ -6,7 +6,6 @@ interface Comment {
   id: string;
   content: string;
   authorName: string;
-  authorEmail: string;
   createdAt: string;
   approved: boolean;
 }
@@ -18,7 +17,6 @@ export default function BlogComments({ slug }: { slug: string }) {
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     authorName: "",
-    authorEmail: "",
     content: "",
   });
 
@@ -57,7 +55,7 @@ export default function BlogComments({ slug }: { slug: string }) {
       });
 
       if (response.ok) {
-        setFormData({ authorName: "", authorEmail: "", content: "" });
+        setFormData({ authorName: "", content: "" });
         setMessage("✅ Kommentar eingereicht! Er wird nach Freischaltung angezeigt.");
         // Refresh comments
         setTimeout(async () => {
@@ -129,21 +127,12 @@ export default function BlogComments({ slug }: { slug: string }) {
           </h4>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-4">
               <input
                 type="text"
                 name="authorName"
                 placeholder="Dein Name"
                 value={formData.authorName}
-                onChange={handleChange}
-                required
-                className="rounded border border-stroke bg-transparent px-4 py-2.5 text-dark outline-none focus:border-primary dark:border-dark-3 dark:text-white"
-              />
-              <input
-                type="email"
-                name="authorEmail"
-                placeholder="Deine E-Mail"
-                value={formData.authorEmail}
                 onChange={handleChange}
                 required
                 className="rounded border border-stroke bg-transparent px-4 py-2.5 text-dark outline-none focus:border-primary dark:border-dark-3 dark:text-white"
