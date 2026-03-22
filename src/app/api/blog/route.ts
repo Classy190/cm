@@ -6,51 +6,7 @@ import { getAllPosts } from "@/utils/markdown";
 
 export async function GET() {
   try {
-    // First, try to get all blogs from database
-    const dbBlogs = await prisma.blog.findMany({
-      select: {
-        id: true,
-        title: true,
-        excerpt: true,
-        slug: true,
-        coverImage: true,
-        position: true,
-        createdAt: true,
-        updatedAt: true,
-        published: true,
-        author: {
-          select: {
-            name: true,
-            image: true,
-          },
-        },
-      },
-      orderBy: [
-        { position: "desc" },
-        { createdAt: "desc" },
-      ],
-    });
-
-    // If we have blogs in database, return them
-    if (dbBlogs && dbBlogs.length > 0) {
-      const blogs = dbBlogs.map((blog: any) => ({
-        id: blog.slug,
-        title: blog.title,
-        excerpt: blog.excerpt || "",
-        slug: blog.slug,
-        coverImage: blog.coverImage || null,
-        createdAt: blog.createdAt.toISOString(),
-        updatedAt: blog.updatedAt.toISOString(),
-        published: blog.published,
-        author: {
-          name: blog.author?.name || "Admin",
-          image: blog.author?.image || null,
-        },
-      }));
-      return NextResponse.json(blogs);
-    }
-
-    // Fallback: Get blogs from MDX files
+    // Always use MDX files as the primary source of truth
     const posts = getAllPosts([
       "slug",
       "title",
@@ -58,24 +14,32 @@ export async function GET() {
       "date",
       "author",
       "coverImage",
-      "content",
     ]);
 
-    // Format posts to match expected structure
-    const blogs = posts.map((post: any) => ({
-      id: post.slug,
-      title: post.title || "Untitled",
-      excerpt: post.excerpt || "",
-      slug: post.slug,
-      coverImage: post.coverImage || null,
-      createdAt: post.date || new Date().toISOString(),
-      updatedAt: post.date || new Date().toISOString(),
-      published: true,
-      author: {
-        name: post.author || "Admin",
-        image: null,
-      },
-    }));
+    // Fetch DB records only for position overrides
+    const dbBlogs = await prisma.blog.findMany({
+      select: { slug: true, position: true },
+    });
+    const dbPositionMap = new Map(dbBlogs.map((b) => [b.slug, b.position]));
+
+    // Merge MDX data with DB positions, sorted by position desc then date desc
+    const blogs = posts
+      .map((post: any, index: number) => {
+        const dbPos = dbPositionMap.get(post.slug);
+        return {
+          id: post.slug,
+          title: post.title || "Untitled",
+          excerpt: post.excerpt || "",
+          slug: post.slug,
+          coverImage: post.coverImage || null,
+          date: post.date || "",
+          position: dbPos && dbPos !== 0 ? dbPos : (posts.length - index) * 10,
+          createdAt: post.date || new Date().toISOString(),
+          published: true,
+          author: { name: post.author || "Admin", image: null },
+        };
+      })
+      .sort((a: any, b: any) => b.position - a.position);
 
     return NextResponse.json(blogs);
   } catch (error) {
