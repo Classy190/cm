@@ -16,11 +16,16 @@ export async function GET() {
       "coverImage",
     ]);
 
-    // Fetch DB records only for position overrides
-    const dbBlogs = await prisma.blog.findMany({
-      select: { slug: true, position: true },
-    });
-    const dbPositionMap = new Map(dbBlogs.map((b) => [b.slug, b.position]));
+    // Fetch DB records only for position overrides (fail silently)
+    let dbPositionMap = new Map<string, number>();
+    try {
+      const dbBlogs = await prisma.blog.findMany({
+        select: { slug: true, position: true },
+      });
+      dbPositionMap = new Map(dbBlogs.map((b) => [b.slug, b.position]));
+    } catch {
+      // DB unavailable – continue with date-based ordering
+    }
 
     // Merge MDX data with DB positions, sorted by position desc then date desc
     const blogs = posts

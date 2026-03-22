@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { getAllPosts } from "@/utils/markdown";
-import { prisma } from "@/utils/prismaDB";
 
 export async function GET() {
   try {
@@ -20,35 +19,8 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Try to get from database first
-    let allPosts: any[] = [];
-    try {
-      const dbBlogs = await prisma.blog.findMany({
-        select: {
-          title: true,
-          createdAt: true,
-          slug: true,
-          coverImage: true,
-        },
-        orderBy: { position: "desc" },
-      });
-      if (dbBlogs && dbBlogs.length > 0) {
-        allPosts = dbBlogs.map((blog) => ({
-          title: blog.title,
-          date: blog.createdAt,
-          slug: blog.slug,
-          coverImage: blog.coverImage,
-        }));
-      }
-    } catch (error) {
-      // If DB query fails, fall back to MDX
-      console.log("DB query failed, using MDX fallback");
-    }
-
-    // Fallback to MDX files if database is empty
-    if (allPosts.length === 0) {
-      allPosts = getAllPosts(["title", "date", "slug", "coverImage"]);
-    }
+    // Always use MDX files as primary source of truth
+    const allPosts = getAllPosts(["title", "date", "slug", "coverImage"]);
 
     const recentBlogs = allPosts.slice(0, 6).map((post: any) => ({
       title: post.title || post.slug,
