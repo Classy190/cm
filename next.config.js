@@ -59,6 +59,11 @@ const nextConfig = {
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
+
+  // ✅ Turbopack root (prevents workspace root mis-detection)
+  turbopack: {
+    root: __dirname,
+  },
 };
 
 module.exports = nextConfig;
