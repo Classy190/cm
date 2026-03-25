@@ -143,6 +143,14 @@ const Footer = () => {
                   Support
                 </a>
               </li>
+              <li>
+                <Link
+                  href="/widerruf"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 px-3 py-1.5 text-sm font-medium text-primary transition hover:bg-primary hover:text-white"
+                >
+                  Vertrag widerrufen
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -165,6 +173,12 @@ const Footer = () => {
             <a href="mailto:info@classymarketing.de" className="text-sm text-gray-400 hover:text-primary transition">
               Kontakt
             </a>
+            <Link
+              href="/widerruf"
+              className="rounded border border-primary/50 px-2 py-0.5 text-sm font-medium text-primary transition hover:bg-primary hover:text-white"
+            >
+              Vertrag widerrufen
+            </Link>
           </div>
         </div>
       </div>
