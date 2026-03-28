@@ -35,7 +35,7 @@ export async function GET() {
 
     // Fetch all DB records (for position data)
     const dbBlogs = await prisma.blog.findMany({
-      select: { id: true, slug: true, position: true },
+      select: { id: true, slug: true, position: true, coverImage: true },
     });
     const dbMap = new Map(dbBlogs.map((b) => [b.slug, b]));
 
