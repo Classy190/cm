@@ -293,14 +293,49 @@ export default function Datenschutz() {
                   12. Datensicherheit
                 </h2>
                 <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten vor unbefugtem Zugriff zu schützen:
+                  Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten vor unbefugtem Zugriff, Verlust, Manipulation und unberechtigter Weitergabe zu schützen.
                 </p>
                 <ul className="space-y-2 text-base text-body-color dark:text-dark-6 list-disc pl-6">
                   <li>SSL/TLS-Verschlüsselung der gesamten Datenübertragung (HTTPS)</li>
-                  <li>Zugriffsbeschränkung auf personenbezogene Daten</li>
-                  <li>Regelmäßige Sicherheitsupdates der eingesetzten Software</li>
-                  <li>Hosting auf sicheren, zertifizierten Infrastrukturen (Vercel)</li>
+                  <li>Firewall- und Netzwerkschutz bei Hosting-Partnern</li>
+                  <li>Ergänzende Schutzmechanismen für APIs und Backend-Zugriffe</li>
+                  <li>Zugriffsbeschränkung auf personenbezogene Daten mit Rollen und Berechtigungskonzept</li>
+                  <li>Regelmäßige Sicherheitsupdates und aktuelle Systemkonfigurationen</li>
+                  <li>Minimierung gespeicherter Daten auf das für den Zweck Notwendige (Datensparsamkeit)</li>
+                  <li>Verschlüsselung von Datenbankinhalten bei Kritik über Provider-Funktionen</li>
+                  <li>Monitoring und Protokollierung von sicherheitsrelevanten Ereignissen</li>
+                  <li>Regelmäßige Sicherheitsaudits und Penetrationstests (sofern durchgeführt)</li>
+                  <li>Datensicherung (Backup) und Wiederherstellungsprozesse</li>
                 </ul>
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Wir prüfen und aktualisieren unsere technischen- und organisatorischen Maßnahmen regelmäßig anhand der aktuellen Rechts- und Risiko-Lage. Im Fall von Datenschutzvorfällen besteht ein dokumentiertes Incident-Response-Verfahren.
+                </p>
+              </div>
+
+              {/* 12a. Drittlandtransfer & internationale Verarbeitung */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  12a. Drittlandtransfer & internationale Verarbeitung
+                </h2>
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Bei der Nutzung bestimmter Dienste (z.B. Vercel, Neon, Resend) kann es vorkommen, dass personenbezogene Daten in Länder außerhalb der EU/des EWR übermittelt werden.
+                </p>
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  In diesen Fällen stellen wir sicher, dass die Datenübermittlung auf rechtlich zulässiger Grundlage erfolgt (Standardvertragsklauseln, Angemessenheitsbeschluss oder explizite Einwilligung), und dass das Datenschutzniveau angemessen ist.
+                </p>
+              </div>
+
+              {/* 12b. Datenschutzorganisation & Ansprechpartner */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  12b. Datenschutzorganisation & Ansprechpartner
+                </h2>
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Für Datenschutzfragen wenden Sie sich bitte an unsere E-Mail-Adresse: <a href="mailto:info@classymarketing.de" className="text-primary hover:text-primary/80">info@classymarketing.de</a>.
+                </p>
+                <p className="text-base text-body-color dark:text-dark-6">
+                  Wir dokumentieren Verarbeitungsvorgänge, führen Datenschutz-Folgeabschätzungen durch, und schulen Mitarbeiter zur datenschutzkonformen Verarbeitung.
+                </p>
               </div>
 
               {/* 13. Aktualität */}
