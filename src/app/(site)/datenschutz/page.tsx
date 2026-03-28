@@ -53,6 +53,31 @@ export default function Datenschutz() {
                 <p className="mb-4 text-base text-body-color dark:text-dark-6">
                   Wir nehmen den Schutz Ihrer personenbezogenen Daten sehr ernst und behandeln Ihre Daten vertraulich entsprechend der gesetzlichen Datenschutzvorschriften (DSGVO, BDSG) sowie dieser Datenschutzerklärung. Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich.
                 </p>
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Diese Datenschutzerklärung informiert Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten. Sie enthält Hinweise zu Ihren Rechten und zur Kontaktaufnahme sowie zu Maßnahmen der Datensicherheit.
+                </p>
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen. Dazu gehören z.B. Name, E-Mail-Adresse, IP-Adresse, Kommunikationsdaten oder Standortdaten.
+                </p>
+              </div>
+
+              {/* 2a. Verarbeitete Datenkategorien */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  2a. Verarbeitete Datenkategorien
+                </h2>
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Wir verarbeiten im Rahmen unseres Online-Angebots insbesondere folgende Kategorien von Daten:
+                </p>
+                <ul className="mb-4 space-y-2 text-base text-body-color dark:text-dark-6 list-disc pl-6">
+                  <li>Kontakt- und Identifikationsdaten (z.B. Name, E-Mail-Adresse, Nachrichtentext)</li>
+                  <li>Nutzungsdaten (z.B. besuchte Seiten, Verweildauer, Klickverhalten, Referrer, Browser- und Gerätedaten)</li>
+                  <li>Vertragsdaten (z.B. angefragte Leistungen, Kommunikation zum Projekt)</li>
+                  <li>Verfahrensdaten (z.B. IP-Adresse, Datum/Uhrzeit des Zugriffes, Standortdaten bei optionaler Freigabe)</li>
+                </ul>
+                <p className="text-sm text-body-color dark:text-dark-6">
+                  Soweit Sie uns besondere Kategorien personenbezogener Daten (sensible Daten) bereitstellen, geschieht dies nur, sofern dies gesetzlich zulässig ist und Sie damit ausdrücklich einverstanden sind.
+                </p>
               </div>
 
               {/* 3. Hosting */}
@@ -106,6 +131,24 @@ export default function Datenschutz() {
                   Wenn Sie uns eine Anfrage über das Formular senden, wird Ihre E-Mail-Adresse und Ihr Name zur Zustellung einer Bestätigungsmail an Resend übermittelt.<br />
                   <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO.<br />
                   <strong>Drittlandtransfer:</strong> Resend ist ein US-Unternehmen. Datenübermittlung auf Basis von Standardvertragsklauseln. Weitere Informationen: <a href="https://resend.com/legal/privacy-policy" className="text-primary hover:text-primary/80" target="_blank" rel="noopener noreferrer">Resend Datenschutzrichtlinie</a>.
+                </p>
+              </div>
+
+              {/* 5a. Auftragsverarbeitung */}
+              <div>
+                <h2 className="mb-6 text-2xl font-bold text-dark dark:text-white">
+                  5a. Auftragsverarbeitung
+                </h2>
+                <p className="mb-4 text-base text-body-color dark:text-dark-6">
+                  Wir nutzen Auftragsverarbeiter, die personenbezogene Daten ausschließlich nach unseren dokumentierten Weisungen verarbeiten. Es bestehen Verträge zur Auftragsverarbeitung (Art. 28 DSGVO) mit folgenden Partnern:
+                </p>
+                <ul className="mb-4 space-y-2 text-base text-body-color dark:text-dark-6 list-disc pl-6">
+                  <li>Vercel Inc. (Hosting, Protokollierung)</li>
+                  <li>Neon, Inc. (Datenbank)</li>
+                  <li>Resend, Inc. (E-Mail-Versand)</li>
+                </ul>
+                <p className="text-base text-body-color dark:text-dark-6">
+                  Alle Dienstleister wurden sorgfältig ausgewählt und auf Einhaltung des Datenschutzes geprüft. Mit ihnen bestehen geeignete technische und organisatorische Maßnahmen.
                 </p>
               </div>
 
