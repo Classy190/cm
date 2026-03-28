@@ -1,8 +1,8 @@
 ﻿import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DatenschutzerklÃ¤rung - Classy Marketing",
-  description: "DatenschutzerklÃ¤rung gemÃ¤ÃŸ DSGVO â€“ Classy Marketing, Ã–zgÃ¼r Atik, Walldorf",
+  title: "Datenschutzerklärung - Classy Marketing",
+  description: "Datenschutzerklärung gemäß DSGVO – Classy Marketing, Özgür Atik, Walldorf",
 };
 
 export default function Datenschutz() {
@@ -12,10 +12,10 @@ export default function Datenschutz() {
         <div className="container">
           <div className="mx-auto max-w-[680px]">
             <h1 className="mb-6 text-3xl font-bold text-white sm:text-4xl">
-              DatenschutzerklÃ¤rung
+              Datenschutzerklärung
             </h1>
             <p className="text-white/80">
-              Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemÃ¤ÃŸ Art. 13 DSGVO
+              Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß Art. 13 DSGVO
             </p>
           </div>
         </div>
@@ -215,6 +215,11 @@ export default function Datenschutz() {
                 <div className="mt-6 rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
                   <p className="text-sm text-blue-800 dark:text-blue-400">
                     Zur Geltendmachung Ihrer Rechte wenden Sie sich an: <a href="mailto:info@classymarketing.de" className="font-semibold hover:underline">info@classymarketing.de</a>
+                  </p>
+                </div>
+                <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4 dark:border-dark-3 dark:bg-dark-3">
+                  <p className="text-sm text-body-color dark:text-dark-6">
+                    Hinweis: Eine Widerrufsregelung ist rechtlich vorgeschrieben und wird in unserem <a href="/widerruf" className="text-primary hover:text-primary/80 underline">Widerruf-Dokument</a> ausführlich erläutert.
                   </p>
                 </div>
               </div>
