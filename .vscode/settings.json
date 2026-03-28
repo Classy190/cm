@@ -2,6 +2,14 @@
   "css.validate": false,
   "editor.tabSize": 2,
   "chat.tools.terminal.autoApprove": {
-    "git push": true
+    "git push": true,
+    "/^node -e \"try\\{require\\('gray-matter'\\);console\\.log\\('gray-matter present'\\);\\}catch\\(e\\)\\{console\\.log\\('gray-matter missing'\\);\\}\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^cmd /c \"node tmp_check_mdx\\.js\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
   }
 }

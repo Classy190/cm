@@ -121,6 +121,11 @@ const Footer = () => {
                   SEO & CRO
                 </Link>
               </li>
+              <li>
+                <Link href="/project-for-sale" className="text-sm text-gray-400 hover:text-primary transition">
+                  Project for Sale
+                </Link>
+              </li>
             </ul>
           </div>
 

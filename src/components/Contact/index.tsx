@@ -29,7 +29,7 @@ const Contact = () => {
                   
                   <a
                     href="mailto:info@classymarketing.de"
-                    className="inline-flex items-center justify-center rounded-md bg-primary px-12 py-4 text-lg font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90"
+                    className="mx-auto block w-fit items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90 whitespace-nowrap text-center"
                   >
                     📧 info@classymarketing.de
                   </a>

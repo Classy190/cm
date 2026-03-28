@@ -50,7 +50,7 @@ export async function GET() {
         title: post.title || post.slug,
         excerpt: post.excerpt || "",
         date: post.date || "",
-        coverImage: post.coverImage || null,
+        coverImage: db?.coverImage || post.coverImage || null,
         position: db?.position && db.position !== 0 ? db.position : defaultPos,
         published: true,
         createdAt: post.date || new Date().toISOString(),

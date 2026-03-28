@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -13,6 +13,7 @@ interface Blog {
   createdAt: string;
   published: boolean;
   position?: number;
+  coverImage?: string | null;
 }
 
 interface EditForm {
@@ -22,6 +23,7 @@ interface EditForm {
   date: string;
   description: string;
   keywords: string;
+  coverImage: string;
 }
 
 export default function AdminDashboard() {
@@ -40,8 +42,10 @@ export default function AdminDashboard() {
     date: "",
     description: "",
     keywords: "",
+    coverImage: "",
   });
   const [saving, setSaving] = useState(false);
+  const [imageUploading, setImageUploading] = useState(false);
   const [message, setMessage] = useState<{ ok: boolean; text: string }>({ ok: false, text: "" });
 
   useEffect(() => {
@@ -85,6 +89,7 @@ export default function AdminDashboard() {
       date: "",
       description: "",
       keywords: "",
+      coverImage: blog.coverImage || "",
     });
     setEditModal({ open: true, blog });
     setMessage({ ok: false, text: "" });
@@ -110,6 +115,7 @@ export default function AdminDashboard() {
           excerpt: editForm.excerpt,
           description: editForm.description || undefined,
           keywords: editForm.keywords || undefined,
+          coverImage: editForm.coverImage || undefined,
         }),
       });
 
@@ -157,7 +163,7 @@ export default function AdminDashboard() {
 
     const swapIdx = direction === "up" ? index - 1 : index + 1;
 
-    // Optimistic update — swap immediately in UI
+    // existing move logic...
     const newBlogs = [...blogs];
     [newBlogs[index], newBlogs[swapIdx]] = [newBlogs[swapIdx], newBlogs[index]];
     setBlogs(newBlogs);
@@ -174,17 +180,45 @@ export default function AdminDashboard() {
 
       if (!res.ok) {
         const data = await res.json();
-        // Revert on failure
         setBlogs(blogs);
         setMessage({ ok: false, text: `Fehler: ${data.error || "Konnte nicht verschieben"}` });
       }
     } catch (error: any) {
-      // Revert on network error
       setBlogs(blogs);
       setMessage({ ok: false, text: `Fehler: ${error?.message || "Netzwerkfehler"}` });
     }
   };
 
+  const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setImageUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        setMessage({ ok: false, text: error.error || "Upload fehlgeschlagen" });
+        return;
+      }
+
+      const data = await res.json();
+      setEditForm((prev) => ({ ...prev, coverImage: data.url }));
+      setMessage({ ok: true, text: "Bild erfolgreich hochgeladen" });
+    } catch (error: any) {
+      console.error("Upload Feher:", error);
+      setMessage({ ok: false, text: "Upload fehlgeschlagen" });
+    } finally {
+      setImageUploading(false);
+    }
+  };
   if (isChecking) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -401,6 +435,49 @@ export default function AdminDashboard() {
                   className="w-full rounded-lg border border-gray-300 dark:border-dark-3 bg-white dark:bg-dark-3 px-3 py-2 text-sm text-dark dark:text-white focus:outline-none focus:border-primary"
                 />
               </div>
+
+              <div>
+                <label className="block text-sm font-medium text-dark dark:text-white mb-2">
+                  Cover Image URL
+                </label>
+                <input
+                  type="text"
+                  value={editForm.coverImage}
+                  onChange={(e) =>
+                    setEditForm((prev) => ({ ...prev, coverImage: e.target.value }))
+                  }
+                  placeholder="/uploads/blogs/example.jpg"
+                  className="w-full rounded-lg border border-gray-300 dark:border-dark-3 bg-white dark:bg-dark-3 px-3 py-2 text-sm text-dark dark:text-white focus:outline-none focus:border-primary"
+                />
+                <p className="mt-1 text-xs text-body-color dark:text-dark-6">
+                  (oder Bild hochladen und automatisch URL einfügen)
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-dark dark:text-white mb-2">
+                  Screenshot / Cover hochladen
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  disabled={imageUploading}
+                  className="w-full text-sm text-body-color dark:text-dark-6"
+                />
+                {imageUploading && <p className="mt-1 text-xs text-body-color dark:text-dark-6">Upload läuft...</p>}
+              </div>
+
+              {editForm.coverImage && (
+                <div className="rounded-lg border border-gray-300 dark:border-dark-3 bg-gray-50 dark:bg-dark-3 p-3">
+                  <p className="text-sm font-medium text-dark dark:text-white mb-2">Vorschau</p>
+                  <img
+                    src={editForm.coverImage}
+                    alt="Cover Vorschau"
+                    className="h-32 w-full object-cover rounded"
+                  />
+                </div>
+              )}
             </div>
 
             {message.text && (

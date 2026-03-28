@@ -15,10 +15,10 @@ const About = () => {
                   Über Classy Marketing
                 </span>
                 <h2 className="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2]">
-                  15 Jahre Erfahrung in Performance, Coding & UI/UX.
+                  15 Jahre Expertise – aber wichtig ist, was heute zählt.
                 </h2>
                 <p className="mb-8 text-base leading-relaxed text-body-color dark:text-dark-6">
-                  Wir sind keine klassische Agentur. Classy Marketing steht für technisches Handwerk, messbare Resultate und echte Partnerschaften – mit 15 Jahren Erfahrung in digitalen Projekten von A bis Z.
+                  Classy Marketing vereint jahrzehntelange Erfahrung mit einem modernen Lernansatz: Wir beobachten heute, lernen morgen und liefern übermorgen Lösungen, die direkt funktionieren. Ob früher oder jetzt – entscheidend ist, dass wir immer die aktuellsten Plattformen, Tools und echte Marktergebnisse nutzen.
                 </p>
 
                 {/* Expertise Cards */}

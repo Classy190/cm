@@ -28,7 +28,7 @@ export async function PATCH(
     }
 
     const { slug } = await params;
-    const { date, title, excerpt, description, keywords } = await request.json();
+    const { date, title, excerpt, description, keywords, coverImage } = await request.json();
 
     // Validate date format: YYYY-MM-DD if provided
     if (date && !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
@@ -62,6 +62,7 @@ export async function PATCH(
         ...(excerpt !== undefined && { excerpt }),
         ...(description !== undefined && { description }),
         ...(keywords !== undefined && { keywords }),
+        ...(coverImage !== undefined && { coverImage }),
       },
     });
 
