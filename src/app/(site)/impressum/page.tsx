@@ -58,22 +58,10 @@ export default function Impressum() {
 
                 <div className="space-y-4">
                   <p className="text-base text-body-color dark:text-dark-6">
-                    <strong>E-Mail:</strong>{" "}
-                    <a
-                      href="mailto:info@classymarketing.de"
-                      className="text-primary hover:text-primary/80"
-                    >
-                      info@classymarketing.de
-                    </a>
+                    <strong>E-Mail:</strong> info@classymarketing.de
                   </p>
                   <p className="text-base text-body-color dark:text-dark-6">
-                    <strong>Website:</strong>{" "}
-                    <a
-                      href="https://classymarketing.de"
-                      className="text-primary hover:text-primary/80"
-                    >
-                      www.classymarketing.de
-                    </a>
+                    <strong>Website:</strong> https://classymarketing.de
                   </p>
                 </div>
               </div>
@@ -137,14 +125,7 @@ export default function Impressum() {
                 </h2>
 
                 <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Informationen zur Verarbeitung Ihrer personenbezogenen Daten finden Sie in unserer{" "}
-                  <a
-                    href="/datenschutz"
-                    className="text-primary hover:text-primary/80 underline"
-                  >
-                    Datenschutzerklärung
-                  </a>
-                  .
+                  Informationen zur Verarbeitung Ihrer personenbezogenen Daten finden Sie in unserer Datenschutzerklärung unter /datenschutz.
                 </p>
               </div>
 
@@ -154,15 +135,7 @@ export default function Impressum() {
                   6. Streitbeilegung
                 </h2>
                 <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-                  <a
-                    href="https://ec.europa.eu/consumers/odr/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 underline"
-                  >
-                    https://ec.europa.eu/consumers/odr/
-                  </a>
+                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/
                 </p>
                 <p className="text-base text-body-color dark:text-dark-6">
                   Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
