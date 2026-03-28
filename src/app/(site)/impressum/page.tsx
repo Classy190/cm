@@ -135,7 +135,10 @@ export default function Impressum() {
                   6. Streitbeilegung
                 </h2>
                 <p className="mb-4 text-base text-body-color dark:text-dark-6">
-                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/
+                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+                  <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline">
+                    https://ec.europa.eu/consumers/odr/
+                  </a>
                 </p>
                 <p className="text-base text-body-color dark:text-dark-6">
                   Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
