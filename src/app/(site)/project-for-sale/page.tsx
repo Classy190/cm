@@ -43,6 +43,17 @@ const ProjectForSalePage = () => {
       contactLabel: "Interesse? Angebot anfordern",
     },
     {
+      title: "SaaS Launchpaket (fertig + individuell)",
+      subtitle: "Einstiegsfähige SaaS-Lösung mit skalierbaren Modulen, ab Jahrespaket 3.999€",
+      price: "ab 3.999€ jährlich (nach Anforderung)",
+      features: [
+        "Multi-Tenant-Grundgerüst und Mandantenverwaltung",
+        "Nutzer-Auth, Abrechnung, Rollenmanagement, API-Endpunkte",
+        "Updates, Dokumentation und 1st-Level-Support inklusive",
+      ],
+      contactLabel: "Interesse? Angebot anfordern",
+    },
+    {
       title: "KI Outreach Shopify App",
       subtitle: "Live Tracking + KI/ Mensch archivierte Signale zur Produktindexierung",
       price: "60.000€ netto",
